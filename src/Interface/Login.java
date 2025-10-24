@@ -111,6 +111,7 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setText("¿Aún no tienes cuenta?");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 510, 200, 20));
 
+        jLabel4.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 12)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Rectágulo_gris.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 578, 372));
 
