@@ -125,13 +125,13 @@ public class tecno_resources extends javax.swing.JFrame {
         getContentPane().add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 400, -1, -1));
 
         jLabel37.setText("Disponible");
-        getContentPane().add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, -1, -1));
+        getContentPane().add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, -1, -1));
 
         jLabel35.setText("Disponible");
-        getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, -1, -1));
+        getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, -1, -1));
 
         jLabel34.setText("Disponible");
-        getContentPane().add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 235, -1, -1));
+        getContentPane().add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, -1, -1));
 
         jButton12.setText("Reservar");
         jButton12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -333,7 +333,7 @@ public class tecno_resources extends javax.swing.JFrame {
         getContentPane().add(unispace_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
         white_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/white_background.png"))); // NOI18N
-        getContentPane().add(white_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 69, 1023, 640));
+        getContentPane().add(white_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 69, 1010, 640));
 
         background_gradient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/start_background.png"))); // NOI18N
         getContentPane().add(background_gradient, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 710));

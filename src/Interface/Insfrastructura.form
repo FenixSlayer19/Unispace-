@@ -97,6 +97,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel36">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Disponible"/>
       </Properties>
       <Constraints>
@@ -107,11 +108,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel35">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Disponible"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="340" y="235" width="-1" height="-1"/>
+          <AbsoluteConstraints x="330" y="240" width="70" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

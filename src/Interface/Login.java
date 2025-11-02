@@ -65,7 +65,7 @@ public class Login extends javax.swing.JFrame {
         login_button.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(login_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 500, 130, 40));
 
-        password_bar.setBackground(new java.awt.Color(222, 222, 222));
+        password_bar.setBackground(new java.awt.Color(179, 179, 179));
         password_bar.setFont(new java.awt.Font("League Spartan ExtraBold", 3, 16)); // NOI18N
         password_bar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         password_bar.setBorder(null);
@@ -76,7 +76,8 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(password_bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 398, 400, 30));
 
-        user_textBar.setBackground(new java.awt.Color(222, 222, 222));
+        user_textBar.setEditable(false);
+        user_textBar.setBackground(new java.awt.Color(179, 179, 179));
         user_textBar.setFont(new java.awt.Font("League Spartan ExtraBold", 3, 16)); // NOI18N
         user_textBar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         user_textBar.setBorder(null);
@@ -121,7 +122,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(noAccount_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 510, 200, 20));
 
         gray_background.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 12)); // NOI18N
-        gray_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/grayRectangle.png"))); // NOI18N
+        gray_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gray_backgroundLogin.png"))); // NOI18N
         getContentPane().add(gray_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 578, 372));
 
         white_logo_lbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/white_logo.png"))); // NOI18N

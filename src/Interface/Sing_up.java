@@ -207,7 +207,7 @@ public class Sing_up extends javax.swing.JFrame {
         blue_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/blue_logo127x125.png"))); // NOI18N
         getContentPane().add(blue_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 127, 125));
 
-        gray_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/sign_up_rectangle.png"))); // NOI18N
+        gray_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gray_backgroundSingUp_1.png"))); // NOI18N
         getContentPane().add(gray_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 711, 518));
 
         white_logo_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/white_logo.png"))); // NOI18N

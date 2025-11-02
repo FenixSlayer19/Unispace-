@@ -99,11 +99,13 @@ public class Insfrastructura extends javax.swing.JFrame {
         jLabel37.setText("Disponible");
         getContentPane().add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, -1, -1));
 
+        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel36.setText("Disponible");
         getContentPane().add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, -1, -1));
 
+        jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel35.setText("Disponible");
-        getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 235, -1, -1));
+        getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 70, -1));
 
         jLabel20.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
         jLabel20.setText("Salón 7- 403");
