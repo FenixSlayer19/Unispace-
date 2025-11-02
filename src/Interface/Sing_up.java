@@ -4,12 +4,14 @@
  */
 package Interface;
 
+import java.awt.Color;
+
 /**
  *
  * @author PC{
  */
 public class Sing_up extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Sing_up.class.getName());
 
     /**
@@ -17,7 +19,7 @@ public class Sing_up extends javax.swing.JFrame {
      */
     public Sing_up() {
         initComponents();
-        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1,"src/Images/Fondo.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(background_space, "src/images/space_background.png");
     }
 
     /**
@@ -29,159 +31,348 @@ public class Sing_up extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel19 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        confirmPassword_bar = new javax.swing.JPasswordField();
+        password_bar = new javax.swing.JPasswordField();
+        text_barPhoneNum = new javax.swing.JTextField();
+        text_barName = new javax.swing.JTextField();
+        text_barId = new javax.swing.JTextField();
+        text_barEmail = new javax.swing.JTextField();
+        employed_button = new javax.swing.JButton();
+        student_button = new javax.swing.JButton();
+        loginButton = new javax.swing.JButton();
+        textBar_account = new javax.swing.JLabel();
+        confirmPass_img = new javax.swing.JLabel();
+        password_img = new javax.swing.JLabel();
+        phoneNum_img = new javax.swing.JLabel();
+        email_img = new javax.swing.JLabel();
+        id_img = new javax.swing.JLabel();
+        user_img = new javax.swing.JLabel();
+        confirmPass_box = new javax.swing.JLabel();
+        password_box = new javax.swing.JLabel();
+        phoneNum_box = new javax.swing.JLabel();
+        email_box = new javax.swing.JLabel();
+        id_box = new javax.swing.JLabel();
+        name_box = new javax.swing.JLabel();
+        employedText_Del = new javax.swing.JLabel();
+        student_textDel = new javax.swing.JLabel();
+        who_are_youText = new javax.swing.JLabel();
+        sing_upText = new javax.swing.JLabel();
+        blue_logo = new javax.swing.JLabel();
+        gray_background = new javax.swing.JLabel();
+        white_logo_img = new javax.swing.JLabel();
+        text_Unispace = new javax.swing.JLabel();
+        background_space = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1290, 710));
-        setPreferredSize(new java.awt.Dimension(1290, 710));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/employed_icon.png"))); // NOI18N
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 230, 74, 74));
+        confirmPassword_bar.setBackground(new java.awt.Color(78, 72, 72));
+        confirmPassword_bar.setForeground(new java.awt.Color(255, 255, 255));
+        confirmPassword_bar.setBorder(null);
+        confirmPassword_bar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmPassword_barActionPerformed(evt);
+            }
+        });
+        getContentPane().add(confirmPassword_bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(742, 508, 250, 30));
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/student_icon.png"))); // NOI18N
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 74, 74));
+        password_bar.setBackground(new java.awt.Color(78, 72, 72));
+        password_bar.setForeground(new java.awt.Color(255, 255, 255));
+        password_bar.setBorder(null);
+        password_bar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                password_barActionPerformed(evt);
+            }
+        });
+        getContentPane().add(password_bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(742, 438, 250, 30));
 
-        jLabel17.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("Iniciar sesión");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 610, -1, -1));
+        text_barPhoneNum.setBackground(new java.awt.Color(78, 72, 72));
+        text_barPhoneNum.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
+        text_barPhoneNum.setForeground(new java.awt.Color(255, 255, 255));
+        text_barPhoneNum.setBorder(null);
+        text_barPhoneNum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_barPhoneNumActionPerformed(evt);
+            }
+        });
+        getContentPane().add(text_barPhoneNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(742, 368, 250, 30));
 
-        jLabel16.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
-        jLabel16.setText("ya tienes una cuenta.");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 610, -1, -1));
+        text_barName.setBackground(new java.awt.Color(78, 72, 72));
+        text_barName.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
+        text_barName.setForeground(new java.awt.Color(255, 255, 255));
+        text_barName.setBorder(null);
+        text_barName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_barNameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(text_barName, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 368, 250, 30));
 
-        jLabel15.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Confirmar contraseña");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 510, 180, -1));
+        text_barId.setBackground(new java.awt.Color(78, 72, 72));
+        text_barId.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
+        text_barId.setForeground(new java.awt.Color(255, 255, 255));
+        text_barId.setBorder(null);
+        text_barId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_barIdActionPerformed(evt);
+            }
+        });
+        getContentPane().add(text_barId, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 438, 250, 30));
 
-        jLabel14.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Contraseña");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 440, -1, -1));
+        text_barEmail.setBackground(new java.awt.Color(78, 72, 72));
+        text_barEmail.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
+        text_barEmail.setForeground(new java.awt.Color(255, 255, 255));
+        text_barEmail.setBorder(null);
+        text_barEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_barEmailActionPerformed(evt);
+            }
+        });
+        getContentPane().add(text_barEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 508, 250, 30));
 
-        jLabel13.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Número");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 370, -1, -1));
+        employed_button.setBackground(new java.awt.Color(179, 179, 179));
+        employed_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/employed_icon.png"))); // NOI18N
+        getContentPane().add(employed_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(815, 240, 60, 60));
 
-        jLabel12.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("E-mail");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 510, -1, -1));
+        student_button.setBackground(new java.awt.Color(179, 179, 179));
+        student_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/student_icon.png"))); // NOI18N
+        student_button.setBorder(null);
+        getContentPane().add(student_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 240, 60, 60));
 
-        jLabel11.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("ID");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, -1, -1));
+        loginButton.setBackground(new java.awt.Color(125, 125, 125));
+        loginButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
+        loginButton.setForeground(new java.awt.Color(255, 255, 255));
+        loginButton.setText("Iniciar sesión");
+        loginButton.setBorder(null);
+        getContentPane().add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(705, 597, 120, 40));
 
-        jLabel10.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Nombre");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, -1, -1));
+        textBar_account.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        textBar_account.setText("ya tienes una cuenta.");
+        getContentPane().add(textBar_account, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 610, -1, -1));
 
-        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cambiar_contra.png"))); // NOI18N
-        getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 503, -1, -1));
+        confirmPass_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/changePassword_icon.png"))); // NOI18N
+        getContentPane().add(confirmPass_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 503, -1, -1));
 
-        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Contraseña.png"))); // NOI18N
-        getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 433, -1, -1));
+        password_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/passwordSignUp_icon.png"))); // NOI18N
+        getContentPane().add(password_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 433, -1, -1));
 
-        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Celular.png"))); // NOI18N
-        getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 363, -1, -1));
+        phoneNum_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/phone_icon.png"))); // NOI18N
+        getContentPane().add(phoneNum_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 363, -1, -1));
 
-        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Email.png"))); // NOI18N
-        getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 503, -1, -1));
+        email_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/email_icon.png"))); // NOI18N
+        getContentPane().add(email_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 503, -1, -1));
 
-        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ID.png"))); // NOI18N
-        getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 433, -1, -1));
+        id_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ID_icon.png"))); // NOI18N
+        getContentPane().add(id_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 433, -1, -1));
 
-        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/User.png"))); // NOI18N
-        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 363, -1, -1));
+        user_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user_sign_up.png"))); // NOI18N
+        getContentPane().add(user_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 363, -1, -1));
 
-        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Botones_signup.png"))); // NOI18N
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 500, -1, -1));
+        confirmPass_box.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/singUpButton_background.png"))); // NOI18N
+        getContentPane().add(confirmPass_box, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 500, -1, -1));
 
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Botones_signup.png"))); // NOI18N
-        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 430, -1, -1));
+        password_box.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/singUpButton_background.png"))); // NOI18N
+        getContentPane().add(password_box, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 430, -1, -1));
 
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Botones_signup.png"))); // NOI18N
-        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 360, -1, -1));
+        phoneNum_box.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/singUpButton_background.png"))); // NOI18N
+        getContentPane().add(phoneNum_box, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 360, -1, -1));
 
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Botones_signup.png"))); // NOI18N
-        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 500, -1, -1));
+        email_box.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/singUpButton_background.png"))); // NOI18N
+        getContentPane().add(email_box, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 500, -1, -1));
 
-        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Botones_signup.png"))); // NOI18N
-        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, 313, 46));
+        id_box.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/singUpButton_background.png"))); // NOI18N
+        getContentPane().add(id_box, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, 313, 46));
 
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Botones_signup.png"))); // NOI18N
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 313, 46));
+        name_box.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/singUpButton_background.png"))); // NOI18N
+        name_box.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(name_box, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 313, 46));
 
-        jLabel9.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
-        jLabel9.setText("Empleado");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, -1, -1));
+        employedText_Del.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        employedText_Del.setText("Empleado");
+        getContentPane().add(employedText_Del, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
-        jLabel8.setText("Estudiante");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, -1, -1));
+        student_textDel.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        student_textDel.setText("Estudiante");
+        getContentPane().add(student_textDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 28)); // NOI18N
-        jLabel7.setText("Who are you?");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, -1, -1));
+        who_are_youText.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 28)); // NOI18N
+        who_are_youText.setText("Who are you?");
+        getContentPane().add(who_are_youText, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 40)); // NOI18N
-        jLabel6.setText("Sign up!");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 140, 160, 50));
+        sing_upText.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 40)); // NOI18N
+        sing_upText.setText("Sign up!");
+        getContentPane().add(sing_upText, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 140, 160, 50));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo azulito.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 127, 125));
+        blue_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/blue_logo127x125.png"))); // NOI18N
+        getContentPane().add(blue_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 127, 125));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Rectangulo sign_up.png"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 711, 518));
+        gray_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/sign_up_rectangle.png"))); // NOI18N
+        getContentPane().add(gray_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 711, 518));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LogoBlanco.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 0, 165, 182));
+        white_logo_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/white_logo.png"))); // NOI18N
+        getContentPane().add(white_logo_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 0, 165, 182));
 
-        jLabel2.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 95)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(179, 179, 179));
-        jLabel2.setText("UniSpace");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 430, 90));
+        text_Unispace.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 95)); // NOI18N
+        text_Unispace.setForeground(new java.awt.Color(179, 179, 179));
+        text_Unispace.setText("UniSpace");
+        getContentPane().add(text_Unispace, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 430, 90));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fondo.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 710));
+        background_space.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/space_background.png"))); // NOI18N
+        getContentPane().add(background_space, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void text_barIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_barIdActionPerformed
+        // Texto guía
+        text_barId.setText("Escribe tu ID aquí...");
+        text_barId.setForeground(Color.GRAY);
+
+        // Cuando el usuario hace clic o escribe
+        text_barId.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (text_barId.getText().equals("Escribe tu ID aquí...")) {
+                    text_barId.setText("");
+                    text_barId.setForeground(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (text_barId.getText().isEmpty()) {
+                    text_barId.setText("Escribe tu ID aquí...");
+                    text_barId.setForeground(Color.GRAY);
+                }
+            }
+        });
+    }//GEN-LAST:event_text_barIdActionPerformed
+
+    private void text_barNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_barNameActionPerformed
+        // Texto guía
+        text_barName.setText("Escribe tu nombre aquí...");
+        text_barName.setForeground(Color.GRAY);
+
+        // Cuando el usuario hace clic o escribe
+        text_barName.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (text_barName.getText().equals("Escribe tu nombre aquí...")) {
+                    text_barName.setText("");
+                    text_barName.setForeground(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (text_barName.getText().isEmpty()) {
+                    text_barName.setText("Escribe tu nombre aquí...");
+                    text_barName.setForeground(Color.GRAY);
+                }
+            }
+        });
+    }//GEN-LAST:event_text_barNameActionPerformed
+
+    private void text_barEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_barEmailActionPerformed
+        // Texto guía
+        text_barEmail.setText("Escribe tu Email aquí...");
+        text_barEmail.setForeground(Color.GRAY);
+
+        // Cuando el usuario hace clic o escribe
+        text_barEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (text_barEmail.getText().equals("Escribe tu Email aquí...")) {
+                    text_barEmail.setText("");
+                    text_barEmail.setForeground(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (text_barEmail.getText().isEmpty()) {
+                    text_barEmail.setText("Escribe tu Email aquí...");
+                    text_barEmail.setForeground(Color.GRAY);
+                }
+            }
+        });
+
+    }//GEN-LAST:event_text_barEmailActionPerformed
+
+    private void text_barPhoneNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_barPhoneNumActionPerformed
+        // Texto guía
+        text_barPhoneNum.setText("Escribe tu telefono aquí...");
+        text_barPhoneNum.setForeground(Color.GRAY);
+
+        // Cuando el usuario hace clic o escribe
+        text_barPhoneNum.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (text_barPhoneNum.getText().equals("Escribe tu telefono aquí...")) {
+                    text_barPhoneNum.setText("");
+                    text_barPhoneNum.setForeground(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (text_barPhoneNum.getText().isEmpty()) {
+                    text_barPhoneNum.setText("Escribe tu nombre aquí...");
+                    text_barPhoneNum.setForeground(Color.GRAY);
+                }
+            }
+        });
+    }//GEN-LAST:event_text_barPhoneNumActionPerformed
+
+    private void password_barActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_barActionPerformed
+        // Texto guía
+        password_bar.setText("Escribe tu password aquí...");
+        password_bar.setForeground(Color.GRAY);
+
+        // Cuando el usuario hace clic o escribe
+        password_bar.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (password_bar.getText().equals("Escribe tu password aquí...")) {
+                    password_bar.setText("");
+                    password_bar.setForeground(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (password_bar.getText().isEmpty()) {
+                    password_bar.setText("Escribe tu password aquí...");
+                    password_bar.setForeground(Color.GRAY);
+                }
+            }
+        });
+    }//GEN-LAST:event_password_barActionPerformed
+
+    private void confirmPassword_barActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPassword_barActionPerformed
+        // Texto guía
+        confirmPassword_bar.setText("Escribe tu password aquí...");
+        confirmPassword_bar.setForeground(Color.GRAY);
+
+        // Cuando el usuario hace clic o escribe
+        confirmPassword_bar.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (confirmPassword_bar.getText().equals("Escribe tu password aquí...")) {
+                    confirmPassword_bar.setText("");
+                    confirmPassword_bar.setForeground(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (confirmPassword_bar.getText().isEmpty()) {
+                    confirmPassword_bar.setText("Escribe tu password aquí...");
+                    confirmPassword_bar.setForeground(Color.GRAY);
+                }
+            }
+        });    }//GEN-LAST:event_confirmPassword_barActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,36 +400,36 @@ public class Sing_up extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel background_space;
+    private javax.swing.JLabel blue_logo;
+    private javax.swing.JLabel confirmPass_box;
+    private javax.swing.JLabel confirmPass_img;
+    private javax.swing.JPasswordField confirmPassword_bar;
+    private javax.swing.JLabel email_box;
+    private javax.swing.JLabel email_img;
+    private javax.swing.JLabel employedText_Del;
+    private javax.swing.JButton employed_button;
+    private javax.swing.JLabel gray_background;
+    private javax.swing.JLabel id_box;
+    private javax.swing.JLabel id_img;
+    private javax.swing.JButton loginButton;
+    private javax.swing.JLabel name_box;
+    private javax.swing.JPasswordField password_bar;
+    private javax.swing.JLabel password_box;
+    private javax.swing.JLabel password_img;
+    private javax.swing.JLabel phoneNum_box;
+    private javax.swing.JLabel phoneNum_img;
+    private javax.swing.JLabel sing_upText;
+    private javax.swing.JButton student_button;
+    private javax.swing.JLabel student_textDel;
+    private javax.swing.JLabel textBar_account;
+    private javax.swing.JLabel text_Unispace;
+    private javax.swing.JTextField text_barEmail;
+    private javax.swing.JTextField text_barId;
+    private javax.swing.JTextField text_barName;
+    private javax.swing.JTextField text_barPhoneNum;
+    private javax.swing.JLabel user_img;
+    private javax.swing.JLabel white_logo_img;
+    private javax.swing.JLabel who_are_youText;
     // End of variables declaration//GEN-END:variables
 }

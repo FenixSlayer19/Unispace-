@@ -15,7 +15,7 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
-        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1,"src/Images/fondo_inicio.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(background_Space,"src/images/start_background.png");
     }
 
     /**
@@ -28,34 +28,34 @@ public class Inicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
+        logOut_icon = new javax.swing.JLabel();
+        infrastructure_icon = new javax.swing.JLabel();
+        tecResources_icon = new javax.swing.JLabel();
+        start_icon = new javax.swing.JLabel();
+        logOut_buttonDel = new javax.swing.JLabel();
+        infrastructure_buttonDel = new javax.swing.JLabel();
+        tecResourses2_buttonDel = new javax.swing.JLabel();
+        tecResourses_buttonDel = new javax.swing.JLabel();
+        start_buttonDel = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        service_text = new javax.swing.JLabel();
+        welcome4_text = new javax.swing.JLabel();
+        welcome3_text = new javax.swing.JLabel();
+        welcome2_text = new javax.swing.JLabel();
+        welcomeText = new javax.swing.JLabel();
+        unispace_Text = new javax.swing.JLabel();
+        whiteLogo = new javax.swing.JLabel();
+        historial_buttonDel = new javax.swing.JLabel();
+        report_buttonDel = new javax.swing.JLabel();
+        myReserve_buttonDel = new javax.swing.JLabel();
+        background_gradient = new javax.swing.JLabel();
+        white_background = new javax.swing.JLabel();
+        background_Space = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -68,55 +68,55 @@ public class Inicio extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 2, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 283, 780, 2));
 
-        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icono_cerrar.png"))); // NOI18N
-        getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 635, 40, 30));
+        logOut_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut_icon.png"))); // NOI18N
+        getContentPane().add(logOut_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 635, 40, 30));
 
-        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icono_infraestructura.png"))); // NOI18N
-        getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 40, 40));
+        infrastructure_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/infrastructure_icon.png"))); // NOI18N
+        getContentPane().add(infrastructure_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 40, 40));
 
-        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icono_recursos.png"))); // NOI18N
-        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 40, 40));
+        tecResources_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/resources_icon.png"))); // NOI18N
+        getContentPane().add(tecResources_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 40, 40));
 
-        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icono_inicio.png"))); // NOI18N
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 40, 40));
+        start_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/start_icon.png"))); // NOI18N
+        getContentPane().add(start_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 40, 40));
 
-        jLabel24.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 24)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setText("Cerrar sesión");
-        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, -1, -1));
+        logOut_buttonDel.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 24)); // NOI18N
+        logOut_buttonDel.setForeground(new java.awt.Color(255, 255, 255));
+        logOut_buttonDel.setText("Cerrar sesión");
+        getContentPane().add(logOut_buttonDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, -1, -1));
 
-        jLabel23.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 24)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel23.setText("Infraestructura");
-        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, -1, -1));
+        infrastructure_buttonDel.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 24)); // NOI18N
+        infrastructure_buttonDel.setForeground(new java.awt.Color(255, 255, 255));
+        infrastructure_buttonDel.setText("Infraestructura");
+        getContentPane().add(infrastructure_buttonDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, -1, -1));
 
-        jLabel22.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 24)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("Tecnológicos");
-        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, -1, -1));
+        tecResourses2_buttonDel.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 24)); // NOI18N
+        tecResourses2_buttonDel.setForeground(new java.awt.Color(255, 255, 255));
+        tecResourses2_buttonDel.setText("Tecnológicos");
+        getContentPane().add(tecResourses2_buttonDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, -1, -1));
 
-        jLabel21.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 24)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setText("Recursos");
-        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
+        tecResourses_buttonDel.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 24)); // NOI18N
+        tecResourses_buttonDel.setForeground(new java.awt.Color(255, 255, 255));
+        tecResourses_buttonDel.setText("Recursos");
+        getContentPane().add(tecResourses_buttonDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
-        jLabel20.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 24)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setText("Inicio");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
+        start_buttonDel.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 24)); // NOI18N
+        start_buttonDel.setForeground(new java.awt.Color(255, 255, 255));
+        start_buttonDel.setText("Inicio");
+        getContentPane().add(start_buttonDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
 
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo_historial.png"))); // NOI18N
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/historial_icon.png"))); // NOI18N
         getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 590, -1, -1));
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo_error.png"))); // NOI18N
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/error_icon.png"))); // NOI18N
         getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 590, -1, -1));
 
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo_reservas.png"))); // NOI18N
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/booking_logo.png"))); // NOI18N
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 590, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 28)); // NOI18N
@@ -134,56 +134,56 @@ public class Inicio extends javax.swing.JFrame {
         jLabel14.setText("Mis reservas");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 640, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 56)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Servicios");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 255, -1, -1));
+        service_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 56)); // NOI18N
+        service_text.setForeground(new java.awt.Color(255, 255, 255));
+        service_text.setText("Servicios");
+        getContentPane().add(service_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, 60));
 
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 27)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("recursos de la universidad");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, -1, 30));
+        welcome4_text.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 25)); // NOI18N
+        welcome4_text.setForeground(new java.awt.Color(255, 255, 255));
+        welcome4_text.setText("recursos de la universidad");
+        getContentPane().add(welcome4_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, -1, 30));
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 27)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Un espacio para reservar y gestionar");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, -1, -1));
+        welcome3_text.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 25)); // NOI18N
+        welcome3_text.setForeground(new java.awt.Color(255, 255, 255));
+        welcome3_text.setText("Un espacio para reservar y gestionar");
+        getContentPane().add(welcome3_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 54)); // NOI18N
-        jLabel6.setText("a UniSpace");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, -1, -1));
+        welcome2_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 54)); // NOI18N
+        welcome2_text.setText("a UniSpace");
+        getContentPane().add(welcome2_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 54)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Bienvenido");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, -1, -1));
+        welcomeText.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 54)); // NOI18N
+        welcomeText.setForeground(new java.awt.Color(255, 255, 255));
+        welcomeText.setText("Bienvenido");
+        getContentPane().add(welcomeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 50)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("UniSpace");
-        jLabel4.setToolTipText("");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
+        unispace_Text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 50)); // NOI18N
+        unispace_Text.setForeground(new java.awt.Color(255, 255, 255));
+        unispace_Text.setText("UniSpace");
+        unispace_Text.setToolTipText("");
+        getContentPane().add(unispace_Text, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo_inicio.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 107, 118));
+        whiteLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/start_logo.png"))); // NOI18N
+        getContentPane().add(whiteLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 107, 118));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fondo_historial.png"))); // NOI18N
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 285, -1, -1));
+        historial_buttonDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/historial_background.png"))); // NOI18N
+        getContentPane().add(historial_buttonDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 285, -1, 420));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fondo_error.png"))); // NOI18N
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 285, -1, -1));
+        report_buttonDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/error_background.png"))); // NOI18N
+        getContentPane().add(report_buttonDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 285, -1, 420));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fondo_reservas.png"))); // NOI18N
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 285, -1, -1));
+        myReserve_buttonDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/booking_background.png"))); // NOI18N
+        getContentPane().add(myReserve_buttonDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 285, -1, 420));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cuadrado_degrade.png"))); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 1023, 663));
+        background_gradient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background_gradient.png"))); // NOI18N
+        getContentPane().add(background_gradient, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 1023, 640));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cuadrado_blanco.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 1023, 663));
+        white_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/whiteBackground_Gradient.png"))); // NOI18N
+        getContentPane().add(white_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 1023, 640));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo_inicio.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 710));
+        background_Space.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/start_background.png"))); // NOI18N
+        getContentPane().add(background_Space, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -224,34 +224,34 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel background_Space;
+    private javax.swing.JLabel background_gradient;
+    private javax.swing.JLabel historial_buttonDel;
+    private javax.swing.JLabel infrastructure_buttonDel;
+    private javax.swing.JLabel infrastructure_icon;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel logOut_buttonDel;
+    private javax.swing.JLabel logOut_icon;
+    private javax.swing.JLabel myReserve_buttonDel;
+    private javax.swing.JLabel report_buttonDel;
+    private javax.swing.JLabel service_text;
+    private javax.swing.JLabel start_buttonDel;
+    private javax.swing.JLabel start_icon;
+    private javax.swing.JLabel tecResources_icon;
+    private javax.swing.JLabel tecResourses2_buttonDel;
+    private javax.swing.JLabel tecResourses_buttonDel;
+    private javax.swing.JLabel unispace_Text;
+    private javax.swing.JLabel welcome2_text;
+    private javax.swing.JLabel welcome3_text;
+    private javax.swing.JLabel welcome4_text;
+    private javax.swing.JLabel welcomeText;
+    private javax.swing.JLabel whiteLogo;
+    private javax.swing.JLabel white_background;
     // End of variables declaration//GEN-END:variables
 }
