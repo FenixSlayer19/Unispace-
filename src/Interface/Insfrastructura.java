@@ -15,6 +15,19 @@ public class Insfrastructura extends javax.swing.JFrame {
      */
     public Insfrastructura() {
         initComponents();
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel9,"src/images/skyBlue_square.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel10,"src/images/skyBlue_square.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel11,"src/images/skyBlue_square.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel12,"src/images/skyBlue_square.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel13,"src/images/skyBlue_square.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel14,"src/images/skyBlue_square.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel15,"src/images/skyBlue_square.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel16,"src/images/skyBlue_square.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel17,"src/images/skyBlue_square.png");
+        
+        
+        //Apartado para el JcomboBox new.
+        
     }
 
     /**
@@ -26,178 +39,416 @@ public class Insfrastructura extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel43 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jLabel15 = new javax.swing.JLabel();
-        tecResourses_text = new javax.swing.JLabel();
-        whiteLogo = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
-        jLabel26 = new javax.swing.JLabel();
-        unispace_text = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        jButton10 = new javax.swing.JButton();
-        jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        jButton11 = new javax.swing.JButton();
-        jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        jButton12 = new javax.swing.JButton();
-        jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jButton13 = new javax.swing.JButton();
-        jLabel34 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jButton23 = new javax.swing.JButton();
+        jButton24 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
         jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jButton13 = new javax.swing.JButton();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jButton18 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jButton19 = new javax.swing.JButton();
+        jButton20 = new javax.swing.JButton();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jButton21 = new javax.swing.JButton();
+        jLabel40 = new javax.swing.JLabel();
+        jButton22 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        tecResources_iconButton = new javax.swing.JLabel();
+        logOut_icon1 = new javax.swing.JLabel();
+        infrastructure_iconButton = new javax.swing.JLabel();
+        start_iconButton = new javax.swing.JLabel();
+        start_toggleButton = new javax.swing.JToggleButton();
+        tecResources_toggleButton = new javax.swing.JToggleButton();
+        logOut_toggleButton = new javax.swing.JToggleButton();
+        infrastructure_toggleButton = new javax.swing.JToggleButton();
+        tecResourses_text = new javax.swing.JLabel();
+        unispace_text = new javax.swing.JLabel();
         white_background = new javax.swing.JLabel();
-        infraestructura_fondo = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        whiteLogo = new javax.swing.JLabel();
+        infraestructura_fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel43.setText("Disponible");
-        getContentPane().add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 560, -1, -1));
-
-        jLabel42.setText("Disponible");
-        getContentPane().add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 560, -1, -1));
-
-        jLabel41.setText("Disponible");
-        getContentPane().add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 560, -1, -1));
-
-        jLabel40.setText("Disponible");
-        getContentPane().add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, -1, -1));
-
-        jLabel39.setText("Disponible");
-        getContentPane().add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, -1, -1));
-
-        jLabel38.setText("Disponible");
-        getContentPane().add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, -1, -1));
-
-        jLabel37.setText("Disponible");
-        getContentPane().add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, -1, -1));
-
-        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel36.setText("Disponible");
-        getContentPane().add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, -1, -1));
-
-        jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel35.setText("Disponible");
-        getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 70, -1));
 
         jLabel20.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
         jLabel20.setText("Salón 7- 403");
         getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, -1, -1));
 
-        jButton4.setText("Reservar");
-        jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 260, 100, -1));
+        jLabel27.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
+        jLabel27.setText("Salón 7- 403");
+        getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 360, -1, -1));
 
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, -1, 150));
+        jLabel29.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
+        jLabel29.setText("Salón 7- 405");
+        getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 520, -1, -1));
 
-        tecResourses_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 38)); // NOI18N
-        tecResourses_text.setText("Recursos de Infraestructura");
-        getContentPane().add(tecResourses_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
+        jLabel31.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
+        jLabel31.setText("Auditorio 7-506");
+        getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 520, -1, -1));
 
-        whiteLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/start_logo.png"))); // NOI18N
-        getContentPane().add(whiteLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 107, 118));
+        jLabel33.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
+        jLabel33.setText("Salón 7- 301");
+        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 520, -1, -1));
 
         jLabel22.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
         jLabel22.setText("Salón 7- 303");
         getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, -1, -1));
 
-        jButton6.setText("Reservar");
-        jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 100, -1));
-
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, -1, 150));
-
         jLabel23.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
         jLabel23.setText("Salón 7- 402");
         getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 200, -1, -1));
-
-        jButton7.setText("Reservar");
-        jButton7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, 100, -1));
-
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 140, -1, 150));
 
         jLabel24.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
         jLabel24.setText("Salón 7- 503");
         getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, -1, -1));
 
-        jButton8.setText("Reservar");
-        jButton8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 420, 100, -1));
-
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, -1, 150));
-
         jLabel25.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
         jLabel25.setText("Salón 7- 404");
         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, -1, -1));
 
-        jButton9.setText("Reservar");
-        jButton9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        jButton23.setBackground(new java.awt.Color(0, 0, 0));
+        jButton23.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton23.setForeground(new java.awt.Color(255, 255, 255));
+        jButton23.setText("Reservar");
+        jButton23.setBorder(null);
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                jButton23ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 420, 100, -1));
+        getContentPane().add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 610, 100, 22));
 
-        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
-        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, -1, 150));
+        jButton24.setBackground(new java.awt.Color(0, 0, 0));
+        jButton24.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton24.setForeground(new java.awt.Color(255, 255, 255));
+        jButton24.setText("Reservar");
+        jButton24.setBorder(null);
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton24ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 610, 100, 22));
+
+        jButton4.setBackground(new java.awt.Color(0, 0, 0));
+        jButton4.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setText("Reservar");
+        jButton4.setBorder(null);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 260, 100, 22));
+
+        jLabel44.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel44.setText("Disponible");
+        getContentPane().add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 242, -1, -1));
+
+        jLabel45.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel45.setText("Disponible");
+        getContentPane().add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 412, -1, -1));
+
+        jLabel46.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel46.setText("Disponible");
+        getContentPane().add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 410, -1, -1));
+
+        jLabel47.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel47.setText("Disponible");
+        getContentPane().add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 592, -1, -1));
+
+        jButton14.setBackground(new java.awt.Color(0, 0, 0));
+        jButton14.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton14.setForeground(new java.awt.Color(255, 255, 255));
+        jButton14.setText("Reservar");
+        jButton14.setBorder(null);
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, 100, 22));
+
+        jButton15.setBackground(new java.awt.Color(0, 0, 0));
+        jButton15.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton15.setForeground(new java.awt.Color(255, 255, 255));
+        jButton15.setText("Reservar");
+        jButton15.setBorder(null);
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 100, 22));
+
+        jButton16.setBackground(new java.awt.Color(0, 0, 0));
+        jButton16.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton16.setForeground(new java.awt.Color(255, 255, 255));
+        jButton16.setText("Reservar");
+        jButton16.setBorder(null);
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 100, 22));
+
+        jButton17.setBackground(new java.awt.Color(0, 0, 0));
+        jButton17.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton17.setForeground(new java.awt.Color(255, 255, 255));
+        jButton17.setText("Reservar");
+        jButton17.setBorder(null);
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, 100, 22));
+
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, -1, 150));
+
+        jLabel34.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel34.setText("Disponible");
+        getContentPane().add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 242, -1, -1));
+
+        jButton13.setBackground(new java.awt.Color(0, 0, 0));
+        jButton13.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton13.setForeground(new java.awt.Color(255, 255, 255));
+        jButton13.setText("Reservar");
+        jButton13.setBorder(null);
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 100, 22));
+
+        jLabel35.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel35.setText("Disponible");
+        getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 242, -1, -1));
+
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 160, 150));
+
+        jLabel36.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel36.setText("Disponible");
+        getContentPane().add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 240, -1, -1));
+
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 140, -1, 150));
+
+        jButton18.setBackground(new java.awt.Color(0, 0, 0));
+        jButton18.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton18.setForeground(new java.awt.Color(255, 255, 255));
+        jButton18.setText("Reservar");
+        jButton18.setBorder(null);
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, 100, 22));
+
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 160, 150));
+
+        jLabel38.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel38.setText("Disponible");
+        getContentPane().add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 412, -1, -1));
+
+        jButton19.setBackground(new java.awt.Color(0, 0, 0));
+        jButton19.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton19.setForeground(new java.awt.Color(255, 255, 255));
+        jButton19.setText("Reservar");
+        jButton19.setBorder(null);
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 100, 22));
+
+        jButton20.setBackground(new java.awt.Color(0, 0, 0));
+        jButton20.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton20.setForeground(new java.awt.Color(255, 255, 255));
+        jButton20.setText("Reservar");
+        jButton20.setBorder(null);
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 100, 22));
+
+        jLabel37.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel37.setText("Disponible");
+        getContentPane().add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 412, -1, -1));
+
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, -1, 150));
+
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, 160, 150));
+
+        jLabel39.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel39.setText("Disponible");
+        getContentPane().add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 410, -1, -1));
+
+        jButton21.setBackground(new java.awt.Color(0, 0, 0));
+        jButton21.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton21.setForeground(new java.awt.Color(255, 255, 255));
+        jButton21.setText("Reservar");
+        jButton21.setBorder(null);
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton21ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, 100, 22));
+
+        jLabel40.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel40.setText("Disponible");
+        getContentPane().add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 592, -1, -1));
+
+        jButton22.setBackground(new java.awt.Color(0, 0, 0));
+        jButton22.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton22.setForeground(new java.awt.Color(255, 255, 255));
+        jButton22.setText("Reservar");
+        jButton22.setBorder(null);
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 610, 100, 22));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 490, 160, 150));
+
+        jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
+        getContentPane().add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, 160, 150));
+
+        jLabel42.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel42.setText("Disponible");
+        getContentPane().add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 592, -1, -1));
+
+        jLabel43.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel43.setText("Disponible");
+        getContentPane().add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 590, -1, -1));
+
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 490, 160, 150));
+
+        tecResources_iconButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/resources_icon.png"))); // NOI18N
+        getContentPane().add(tecResources_iconButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 340, 40, 30));
+
+        logOut_icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut_icon.png"))); // NOI18N
+        getContentPane().add(logOut_icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 640, 40, 30));
+
+        infrastructure_iconButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        infrastructure_iconButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/infrastructure_icon.png"))); // NOI18N
+        getContentPane().add(infrastructure_iconButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 439, 40, 30));
+
+        start_iconButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/start_icon.png"))); // NOI18N
+        getContentPane().add(start_iconButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 240, 40, 30));
+
+        start_toggleButton.setBackground(new java.awt.Color(44, 44, 44));
+        start_toggleButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        start_toggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        start_toggleButton.setText("Inicio");
+        start_toggleButton.setBorderPainted(false);
+        start_toggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        start_toggleButton.setIconTextGap(0);
+        getContentPane().add(start_toggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 250, 70));
+
+        tecResources_toggleButton.setBackground(new java.awt.Color(44, 44, 44));
+        tecResources_toggleButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        tecResources_toggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        tecResources_toggleButton.setText("Tecnologicos");
+        tecResources_toggleButton.setBorder(null);
+        tecResources_toggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        tecResources_toggleButton.setIconTextGap(0);
+        tecResources_toggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tecResources_toggleButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tecResources_toggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 250, 70));
+
+        logOut_toggleButton.setBackground(new java.awt.Color(44, 44, 44));
+        logOut_toggleButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        logOut_toggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        logOut_toggleButton.setText("Cerrar sesión");
+        logOut_toggleButton.setBorder(null);
+        logOut_toggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        logOut_toggleButton.setIconTextGap(0);
+        getContentPane().add(logOut_toggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 250, 70));
+
+        infrastructure_toggleButton.setBackground(new java.awt.Color(44, 44, 44));
+        infrastructure_toggleButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        infrastructure_toggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        infrastructure_toggleButton.setText("Infraestructura");
+        infrastructure_toggleButton.setBorder(null);
+        infrastructure_toggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        infrastructure_toggleButton.setIconTextGap(0);
+        getContentPane().add(infrastructure_toggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 250, 70));
+
+        tecResourses_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 38)); // NOI18N
+        tecResourses_text.setText("Recursos de Infraestructura");
+        getContentPane().add(tecResourses_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
 
         unispace_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 50)); // NOI18N
         unispace_text.setForeground(new java.awt.Color(255, 255, 255));
@@ -205,89 +456,8 @@ public class Insfrastructura extends javax.swing.JFrame {
         unispace_text.setToolTipText("");
         getContentPane().add(unispace_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
-        jLabel27.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
-        jLabel27.setText("Salón 7- 403");
-        getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 360, -1, -1));
-
-        jButton10.setText("Reservar");
-        jButton10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 420, 100, -1));
-
-        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
-        getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 300, -1, 150));
-
-        jLabel29.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
-        jLabel29.setText("Salón 7- 405");
-        getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 520, -1, -1));
-
-        jButton11.setText("Reservar");
-        jButton11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 580, 100, -1));
-
-        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
-        getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, -1, 150));
-
-        jLabel31.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
-        jLabel31.setText("Auditorio 7-506");
-        getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 520, -1, -1));
-
-        jButton12.setText("Reservar");
-        jButton12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 580, 100, -1));
-
-        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
-        getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 460, -1, 150));
-
-        jLabel33.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
-        jLabel33.setText("Salón 7- 301");
-        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 520, -1, -1));
-
-        jButton13.setText("Reservar");
-        jButton13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 580, 100, -1));
-
-        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
-        getContentPane().add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, -1, 150));
-
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 250, 40));
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 250, 50));
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 435, 250, 30));
-        getContentPane().add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 260, 50));
-
         white_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/white_background.png"))); // NOI18N
         getContentPane().add(white_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 1010, 640));
-
-        infraestructura_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/black_background.png"))); // NOI18N
-        getContentPane().add(infraestructura_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 710));
 
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
@@ -297,61 +467,70 @@ public class Insfrastructura extends javax.swing.JFrame {
         jLabel21.setText("Salón 7- 403");
         getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, -1, -1));
 
-        jButton5.setText("Reservar");
-        jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 260, 100, -1));
+        whiteLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/start_logo.png"))); // NOI18N
+        getContentPane().add(whiteLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 107, 118));
+
+        infraestructura_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/black_background.png"))); // NOI18N
+        getContentPane().add(infraestructura_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tecResources_toggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tecResources_toggleButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tecResources_toggleButtonActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
-
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
-
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton13ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton22ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton24ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -390,38 +569,38 @@ public class Insfrastructura extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel infraestructura_fondo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
+    private javax.swing.JLabel infrastructure_iconButton;
+    private javax.swing.JToggleButton infrastructure_toggleButton;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
@@ -433,6 +612,17 @@ public class Insfrastructura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel logOut_icon1;
+    private javax.swing.JToggleButton logOut_toggleButton;
+    private javax.swing.JLabel start_iconButton;
+    private javax.swing.JToggleButton start_toggleButton;
+    private javax.swing.JLabel tecResources_iconButton;
+    private javax.swing.JToggleButton tecResources_toggleButton;
     private javax.swing.JLabel tecResourses_text;
     private javax.swing.JLabel unispace_text;
     private javax.swing.JLabel whiteLogo;

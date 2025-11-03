@@ -38,6 +38,14 @@ public class tecno_resources extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tecResources_iconButton = new javax.swing.JLabel();
+        infrastructure_iconButton = new javax.swing.JLabel();
+        start_iconButton = new javax.swing.JLabel();
+        logOut_icon1 = new javax.swing.JLabel();
+        infrastructure_toggleButton = new javax.swing.JToggleButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        tecResources_toggleButton = new javax.swing.JToggleButton();
+        start_toggleButton = new javax.swing.JToggleButton();
         jLabel42 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
@@ -47,14 +55,14 @@ public class tecno_resources extends javax.swing.JFrame {
         jLabel37 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
-        jButton12 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jButton20 = new javax.swing.JButton();
+        jButton19 = new javax.swing.JButton();
+        jButton18 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
@@ -84,14 +92,10 @@ public class tecno_resources extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         tecResourses_text = new javax.swing.JLabel();
-        jButton13 = new javax.swing.JButton();
         logOut_icon = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         infrastructure_icon = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         tecResourses_icon = new javax.swing.JLabel();
@@ -106,73 +110,211 @@ public class tecno_resources extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tecResources_iconButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/resources_icon.png"))); // NOI18N
+        getContentPane().add(tecResources_iconButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 340, 40, 30));
+
+        infrastructure_iconButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        infrastructure_iconButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/infrastructure_icon.png"))); // NOI18N
+        getContentPane().add(infrastructure_iconButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 439, 40, 30));
+
+        start_iconButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/start_icon.png"))); // NOI18N
+        getContentPane().add(start_iconButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 240, 40, 30));
+
+        logOut_icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut_icon.png"))); // NOI18N
+        getContentPane().add(logOut_icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 640, 40, 30));
+
+        infrastructure_toggleButton.setBackground(new java.awt.Color(44, 44, 44));
+        infrastructure_toggleButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        infrastructure_toggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        infrastructure_toggleButton.setText("Infraestructura");
+        infrastructure_toggleButton.setBorder(null);
+        infrastructure_toggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        infrastructure_toggleButton.setIconTextGap(0);
+        getContentPane().add(infrastructure_toggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 250, 70));
+
+        jToggleButton1.setBackground(new java.awt.Color(44, 44, 44));
+        jToggleButton1.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jToggleButton1.setText("Cerrar sesión");
+        jToggleButton1.setBorder(null);
+        jToggleButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jToggleButton1.setIconTextGap(0);
+        getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 250, 70));
+
+        tecResources_toggleButton.setBackground(new java.awt.Color(44, 44, 44));
+        tecResources_toggleButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        tecResources_toggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        tecResources_toggleButton.setText("Tecnologicos");
+        tecResources_toggleButton.setBorder(null);
+        tecResources_toggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        tecResources_toggleButton.setIconTextGap(0);
+        tecResources_toggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tecResources_toggleButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tecResources_toggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 250, 70));
+
+        start_toggleButton.setBackground(new java.awt.Color(44, 44, 44));
+        start_toggleButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        start_toggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        start_toggleButton.setText("Inicio");
+        start_toggleButton.setBorderPainted(false);
+        start_toggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        start_toggleButton.setIconTextGap(0);
+        getContentPane().add(start_toggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 250, 70));
+
+        jLabel42.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel42.setText("Disponible");
-        getContentPane().add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 580, -1, -1));
+        getContentPane().add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 590, -1, -1));
 
+        jLabel41.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel41.setText("Disponible");
-        getContentPane().add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 580, -1, -1));
+        getContentPane().add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 592, -1, -1));
 
+        jLabel39.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel39.setText("Disponible");
-        getContentPane().add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 400, -1, -1));
+        getContentPane().add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 410, -1, -1));
 
+        jLabel40.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel40.setText("Disponible");
-        getContentPane().add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 580, -1, -1));
+        getContentPane().add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 592, -1, -1));
 
+        jLabel36.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel36.setText("Disponible");
-        getContentPane().add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 240, -1, -1));
+        getContentPane().add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 240, -1, -1));
 
+        jLabel38.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel38.setText("Disponible");
-        getContentPane().add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 400, -1, -1));
+        getContentPane().add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 412, -1, -1));
 
+        jLabel37.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel37.setText("Disponible");
-        getContentPane().add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, -1, -1));
+        getContentPane().add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 412, -1, -1));
 
+        jLabel35.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel35.setText("Disponible");
-        getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, -1, -1));
+        getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 242, -1, -1));
 
+        jLabel34.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
         jLabel34.setText("Disponible");
-        getContentPane().add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, -1, -1));
+        getContentPane().add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 242, -1, -1));
 
-        jButton12.setText("Reservar");
-        jButton12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 610, 100, -1));
+        jButton20.setBackground(new java.awt.Color(0, 0, 0));
+        jButton20.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton20.setForeground(new java.awt.Color(255, 255, 255));
+        jButton20.setText("Reservar");
+        jButton20.setBorder(null);
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 610, 100, 22));
 
-        jButton11.setText("Reservar");
-        jButton11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 610, 100, -1));
+        jButton19.setBackground(new java.awt.Color(0, 0, 0));
+        jButton19.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton19.setForeground(new java.awt.Color(255, 255, 255));
+        jButton19.setText("Reservar");
+        jButton19.setBorder(null);
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 610, 100, 22));
 
-        jButton10.setText("Reservar");
-        jButton10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 610, 100, -1));
+        jButton18.setBackground(new java.awt.Color(0, 0, 0));
+        jButton18.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton18.setForeground(new java.awt.Color(255, 255, 255));
+        jButton18.setText("Reservar");
+        jButton18.setBorder(null);
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 610, 100, 22));
 
-        jButton9.setText("Reservar");
-        jButton9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, 100, -1));
+        jButton17.setBackground(new java.awt.Color(0, 0, 0));
+        jButton17.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton17.setForeground(new java.awt.Color(255, 255, 255));
+        jButton17.setText("Reservar");
+        jButton17.setBorder(null);
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, 100, 22));
 
-        jButton8.setText("Reservar");
-        jButton8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 100, -1));
+        jButton16.setBackground(new java.awt.Color(0, 0, 0));
+        jButton16.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton16.setForeground(new java.awt.Color(255, 255, 255));
+        jButton16.setText("Reservar");
+        jButton16.setBorder(null);
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 100, 22));
 
-        jButton7.setText("Reservar");
-        jButton7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 430, 100, -1));
+        jButton15.setBackground(new java.awt.Color(0, 0, 0));
+        jButton15.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton15.setForeground(new java.awt.Color(255, 255, 255));
+        jButton15.setText("Reservar");
+        jButton15.setBorder(null);
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 100, 22));
 
-        jButton6.setText("Reservar");
-        jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(665, 260, 100, -1));
+        jButton14.setBackground(new java.awt.Color(0, 0, 0));
+        jButton14.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton14.setForeground(new java.awt.Color(255, 255, 255));
+        jButton14.setText("Reservar");
+        jButton14.setBorder(null);
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, 100, 22));
 
-        jButton5.setText("Reservar");
-        jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 100, -1));
+        jButton13.setBackground(new java.awt.Color(0, 0, 0));
+        jButton13.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton13.setForeground(new java.awt.Color(255, 255, 255));
+        jButton13.setText("Reservar");
+        jButton13.setBorder(null);
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 100, 22));
 
+        jButton4.setBackground(new java.awt.Color(0, 0, 0));
+        jButton4.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Reservar");
-        jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton4.setBorder(null);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 260, 100, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 260, 100, 22));
 
         jLabel32.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
         jLabel32.setText("Tablet-02545SXZ");
@@ -203,10 +345,12 @@ public class tecno_resources extends javax.swing.JFrame {
         getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(645, 210, -1, -1));
 
         jLabel25.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setText("Laptop-12345SCZ");
         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText("Laptop-12345SCZ");
         getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 210, -1, -1));
 
@@ -275,7 +419,6 @@ public class tecno_resources extends javax.swing.JFrame {
         tecResourses_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 38)); // NOI18N
         tecResourses_text.setText("Recursos Tecnologicos");
         getContentPane().add(tecResourses_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
-        getContentPane().add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 250, 50));
 
         logOut_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut_icon.png"))); // NOI18N
         getContentPane().add(logOut_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 635, 40, 30));
@@ -284,7 +427,6 @@ public class tecno_resources extends javax.swing.JFrame {
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Cerrar sesión");
         getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, -1, -1));
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 435, 250, 30));
 
         jLabel23.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 24)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
@@ -293,14 +435,6 @@ public class tecno_resources extends javax.swing.JFrame {
 
         infrastructure_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/infrastructure_icon.png"))); // NOI18N
         getContentPane().add(infrastructure_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 40, 40));
-
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 250, 40));
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 250, 50));
 
         jLabel22.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 24)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(179, 179, 179));
@@ -344,13 +478,45 @@ public class tecno_resources extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void tecResources_toggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tecResources_toggleButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tecResources_toggleButtonActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton20ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -380,19 +546,17 @@ public class tecno_resources extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background_gradient;
     private javax.swing.JLabel infrastructure_icon;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
+    private javax.swing.JLabel infrastructure_iconButton;
+    private javax.swing.JToggleButton infrastructure_toggleButton;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
+    private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -435,8 +599,14 @@ public class tecno_resources extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel logOut_icon;
+    private javax.swing.JLabel logOut_icon1;
     private javax.swing.JLabel start_icon;
+    private javax.swing.JLabel start_iconButton;
+    private javax.swing.JToggleButton start_toggleButton;
+    private javax.swing.JLabel tecResources_iconButton;
+    private javax.swing.JToggleButton tecResources_toggleButton;
     private javax.swing.JLabel tecResourses_icon;
     private javax.swing.JLabel tecResourses_text;
     private javax.swing.JLabel unispace_text;

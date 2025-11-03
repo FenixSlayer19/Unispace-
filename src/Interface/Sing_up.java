@@ -144,6 +144,11 @@ public class Sing_up extends javax.swing.JFrame {
         loginButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
         loginButton.setText("Iniciar sesión");
         loginButton.setBorder(null);
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(705, 597, 120, 40));
 
         textBar_account.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
@@ -372,6 +377,11 @@ public class Sing_up extends javax.swing.JFrame {
                 }
             }
         });    }//GEN-LAST:event_confirmPassword_barActionPerformed
+
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+    this.dispose();
+
+    }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
      * @param args the command line arguments
