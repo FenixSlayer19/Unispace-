@@ -8,12 +8,12 @@ package Interface;
  *
  * @author jjov1
  */
-public class Insfrastructura extends javax.swing.JFrame {
+public class Insfractuture_resources extends javax.swing.JFrame {
 
     /**
      * Creates new form Insfrastructura
      */
-    public Insfrastructura() {
+    public Insfractuture_resources() {
         initComponents();
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel9,"src/images/skyBlue_square.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel10,"src/images/skyBlue_square.png");
@@ -87,10 +87,10 @@ public class Insfrastructura extends javax.swing.JFrame {
         logOut_icon1 = new javax.swing.JLabel();
         infrastructure_iconButton = new javax.swing.JLabel();
         start_iconButton = new javax.swing.JLabel();
-        start_toggleButton = new javax.swing.JToggleButton();
-        tecResources_toggleButton = new javax.swing.JToggleButton();
-        logOut_toggleButton = new javax.swing.JToggleButton();
-        infrastructure_toggleButton = new javax.swing.JToggleButton();
+        logOut_Button = new javax.swing.JButton();
+        infrastructure_Button = new javax.swing.JButton();
+        tec_resourcesButton = new javax.swing.JButton();
+        start_Button = new javax.swing.JButton();
         tecResourses_text = new javax.swing.JLabel();
         unispace_text = new javax.swing.JLabel();
         white_background = new javax.swing.JLabel();
@@ -405,46 +405,53 @@ public class Insfrastructura extends javax.swing.JFrame {
         start_iconButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/start_icon.png"))); // NOI18N
         getContentPane().add(start_iconButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 240, 40, 30));
 
-        start_toggleButton.setBackground(new java.awt.Color(44, 44, 44));
-        start_toggleButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
-        start_toggleButton.setForeground(new java.awt.Color(255, 255, 255));
-        start_toggleButton.setText("Inicio");
-        start_toggleButton.setBorderPainted(false);
-        start_toggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        start_toggleButton.setIconTextGap(0);
-        getContentPane().add(start_toggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 250, 70));
-
-        tecResources_toggleButton.setBackground(new java.awt.Color(44, 44, 44));
-        tecResources_toggleButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
-        tecResources_toggleButton.setForeground(new java.awt.Color(255, 255, 255));
-        tecResources_toggleButton.setText("Tecnologicos");
-        tecResources_toggleButton.setBorder(null);
-        tecResources_toggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        tecResources_toggleButton.setIconTextGap(0);
-        tecResources_toggleButton.addActionListener(new java.awt.event.ActionListener() {
+        logOut_Button.setBackground(new java.awt.Color(44, 44, 44));
+        logOut_Button.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        logOut_Button.setForeground(new java.awt.Color(255, 255, 255));
+        logOut_Button.setText("Cerrar Sesion ");
+        logOut_Button.setBorder(null);
+        logOut_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tecResources_toggleButtonActionPerformed(evt);
+                logOut_ButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(tecResources_toggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 250, 70));
+        getContentPane().add(logOut_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 250, 70));
 
-        logOut_toggleButton.setBackground(new java.awt.Color(44, 44, 44));
-        logOut_toggleButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
-        logOut_toggleButton.setForeground(new java.awt.Color(255, 255, 255));
-        logOut_toggleButton.setText("Cerrar sesión");
-        logOut_toggleButton.setBorder(null);
-        logOut_toggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        logOut_toggleButton.setIconTextGap(0);
-        getContentPane().add(logOut_toggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 250, 70));
+        infrastructure_Button.setBackground(new java.awt.Color(44, 44, 44));
+        infrastructure_Button.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        infrastructure_Button.setForeground(new java.awt.Color(255, 255, 255));
+        infrastructure_Button.setText("Infraestructura");
+        infrastructure_Button.setBorder(null);
+        infrastructure_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                infrastructure_ButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(infrastructure_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 250, 70));
 
-        infrastructure_toggleButton.setBackground(new java.awt.Color(44, 44, 44));
-        infrastructure_toggleButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
-        infrastructure_toggleButton.setForeground(new java.awt.Color(255, 255, 255));
-        infrastructure_toggleButton.setText("Infraestructura");
-        infrastructure_toggleButton.setBorder(null);
-        infrastructure_toggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        infrastructure_toggleButton.setIconTextGap(0);
-        getContentPane().add(infrastructure_toggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 250, 70));
+        tec_resourcesButton.setBackground(new java.awt.Color(44, 44, 44));
+        tec_resourcesButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        tec_resourcesButton.setForeground(new java.awt.Color(255, 255, 255));
+        tec_resourcesButton.setText("Tecnologicos ");
+        tec_resourcesButton.setBorder(null);
+        tec_resourcesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tec_resourcesButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tec_resourcesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 250, 70));
+
+        start_Button.setBackground(new java.awt.Color(44, 44, 44));
+        start_Button.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        start_Button.setForeground(new java.awt.Color(255, 255, 255));
+        start_Button.setText("Inicio");
+        start_Button.setBorder(null);
+        start_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                start_ButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(start_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 250, 70));
 
         tecResourses_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 38)); // NOI18N
         tecResourses_text.setText("Recursos de Infraestructura");
@@ -475,10 +482,6 @@ public class Insfrastructura extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tecResources_toggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tecResources_toggleButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tecResources_toggleButtonActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
@@ -532,6 +535,26 @@ public class Insfrastructura extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton24ActionPerformed
 
+    private void start_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start_ButtonActionPerformed
+        this.dispose();                     // Cierra la ventana actual (Inicio)
+        Inicio start_page = new Inicio(); // Crea la nueva ventana(Infraestructura)
+        start_page.setVisible(true);
+    }//GEN-LAST:event_start_ButtonActionPerformed
+
+    private void tec_resourcesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tec_resourcesButtonActionPerformed
+        this.dispose();                     // Cierra la ventana actual (Infrastructura)
+        tecno_resources tecResourses = new tecno_resources(); // Crea la nueva ventana (tecno_resources)
+        tecResourses.setVisible(true);        // La muestra
+    }//GEN-LAST:event_tec_resourcesButtonActionPerformed
+
+    private void infrastructure_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infrastructure_ButtonActionPerformed
+        //Nada por ahora.
+    }//GEN-LAST:event_infrastructure_ButtonActionPerformed
+
+    private void logOut_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOut_ButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_logOut_ButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -549,28 +572,29 @@ public class Insfrastructura extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Insfrastructura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Insfractuture_resources.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Insfrastructura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Insfractuture_resources.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Insfrastructura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Insfractuture_resources.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Insfrastructura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Insfractuture_resources.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Insfrastructura().setVisible(true);
+                new Insfractuture_resources().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel infraestructura_fondo;
+    private javax.swing.JButton infrastructure_Button;
     private javax.swing.JLabel infrastructure_iconButton;
-    private javax.swing.JToggleButton infrastructure_toggleButton;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
@@ -617,13 +641,13 @@ public class Insfrastructura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton logOut_Button;
     private javax.swing.JLabel logOut_icon1;
-    private javax.swing.JToggleButton logOut_toggleButton;
+    private javax.swing.JButton start_Button;
     private javax.swing.JLabel start_iconButton;
-    private javax.swing.JToggleButton start_toggleButton;
     private javax.swing.JLabel tecResources_iconButton;
-    private javax.swing.JToggleButton tecResources_toggleButton;
     private javax.swing.JLabel tecResourses_text;
+    private javax.swing.JButton tec_resourcesButton;
     private javax.swing.JLabel unispace_text;
     private javax.swing.JLabel whiteLogo;
     private javax.swing.JLabel white_background;

@@ -15,8 +15,8 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
-        rsscalelabel.RSScaleLabel.setScaleLabel(background_Space,"src/images/start_background.png");
-        
+        rsscalelabel.RSScaleLabel.setScaleLabel(background_Space, "src/images/start_background.png");
+
     }
 
     /**
@@ -33,30 +33,29 @@ public class Inicio extends javax.swing.JFrame {
         start_iconButton = new javax.swing.JLabel();
         tecResources_iconButton = new javax.swing.JLabel();
         logOut_icon = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        start_toggleButton = new javax.swing.JToggleButton();
-        infrastructure_toggleButton = new javax.swing.JToggleButton();
-        tecResources_toggleButton = new javax.swing.JToggleButton();
-        historial_iconDel = new javax.swing.JLabel();
-        error_iconDel = new javax.swing.JLabel();
-        reservation_iconDel = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         service_text = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        historial_iconDel = new javax.swing.JLabel();
+        reservation_iconDel = new javax.swing.JLabel();
+        error_iconDel = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        logOutButton = new javax.swing.JButton();
+        infrastructureButton = new javax.swing.JButton();
+        tec_resourcesButton = new javax.swing.JButton();
+        start_button = new javax.swing.JButton();
         welcome4_text = new javax.swing.JLabel();
         welcome3_text = new javax.swing.JLabel();
         welcome2_text = new javax.swing.JLabel();
         welcomeText = new javax.swing.JLabel();
         unispace_Text = new javax.swing.JLabel();
         whiteLogo = new javax.swing.JLabel();
-        historial_buttonDel = new javax.swing.JLabel();
-        report_buttonDel = new javax.swing.JLabel();
-        myReserve_buttonDel = new javax.swing.JLabel();
         background_gradient = new javax.swing.JLabel();
         white_background = new javax.swing.JLabel();
         background_Space = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -74,75 +73,109 @@ public class Inicio extends javax.swing.JFrame {
         logOut_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut_icon.png"))); // NOI18N
         getContentPane().add(logOut_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 640, 40, 30));
 
-        jToggleButton1.setBackground(new java.awt.Color(44, 44, 44));
-        jToggleButton1.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setText("Cerrar sesión");
-        jToggleButton1.setBorder(null);
-        jToggleButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jToggleButton1.setIconTextGap(0);
-        getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 250, 70));
-
-        start_toggleButton.setBackground(new java.awt.Color(44, 44, 44));
-        start_toggleButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
-        start_toggleButton.setForeground(new java.awt.Color(255, 255, 255));
-        start_toggleButton.setText("Inicio");
-        start_toggleButton.setBorderPainted(false);
-        start_toggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        start_toggleButton.setIconTextGap(0);
-        getContentPane().add(start_toggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 250, 70));
-
-        infrastructure_toggleButton.setBackground(new java.awt.Color(44, 44, 44));
-        infrastructure_toggleButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
-        infrastructure_toggleButton.setForeground(new java.awt.Color(255, 255, 255));
-        infrastructure_toggleButton.setText("Infraestructura");
-        infrastructure_toggleButton.setBorder(null);
-        infrastructure_toggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        infrastructure_toggleButton.setIconTextGap(0);
-        getContentPane().add(infrastructure_toggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 250, 70));
-
-        tecResources_toggleButton.setBackground(new java.awt.Color(44, 44, 44));
-        tecResources_toggleButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
-        tecResources_toggleButton.setForeground(new java.awt.Color(255, 255, 255));
-        tecResources_toggleButton.setText("Tecnologicos");
-        tecResources_toggleButton.setBorder(null);
-        tecResources_toggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        tecResources_toggleButton.setIconTextGap(0);
-        tecResources_toggleButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tecResources_toggleButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(tecResources_toggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 250, 70));
-
-        historial_iconDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/historial_icon.png"))); // NOI18N
-        getContentPane().add(historial_iconDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 590, -1, -1));
-
-        error_iconDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/error_icon.png"))); // NOI18N
-        getContentPane().add(error_iconDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 590, -1, -1));
-
-        reservation_iconDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/booking_logo.png"))); // NOI18N
-        getContentPane().add(reservation_iconDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 590, -1, -1));
-
-        jLabel16.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 28)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Historial");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 640, -1, -1));
-
-        jLabel15.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 28)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Reportar error");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 640, -1, -1));
+        service_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 56)); // NOI18N
+        service_text.setForeground(new java.awt.Color(255, 255, 255));
+        service_text.setText("Servicios");
+        getContentPane().add(service_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, 60));
 
         jLabel14.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 28)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Mis reservas");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 640, -1, -1));
 
-        service_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 56)); // NOI18N
-        service_text.setForeground(new java.awt.Color(255, 255, 255));
-        service_text.setText("Servicios");
-        getContentPane().add(service_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, 60));
+        jLabel15.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 28)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Reportar error");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 640, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 28)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Historial");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 640, -1, -1));
+
+        historial_iconDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/historial_icon.png"))); // NOI18N
+        getContentPane().add(historial_iconDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 590, -1, -1));
+
+        reservation_iconDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/booking_logo.png"))); // NOI18N
+        getContentPane().add(reservation_iconDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 590, -1, -1));
+
+        error_iconDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/error_icon.png"))); // NOI18N
+        getContentPane().add(error_iconDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 590, -1, -1));
+
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/historial_background.png"))); // NOI18N
+        jButton7.setBorder(null);
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 290, 330, 410));
+
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/error_background.png"))); // NOI18N
+        jButton6.setBorder(null);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, 336, 410));
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/booking_background.png"))); // NOI18N
+        jButton4.setBorder(null);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 336, 410));
+
+        logOutButton.setBackground(new java.awt.Color(44, 44, 44));
+        logOutButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        logOutButton.setForeground(new java.awt.Color(255, 255, 255));
+        logOutButton.setText("Cerrar Sesion ");
+        logOutButton.setBorder(null);
+        logOutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logOutButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(logOutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 250, 70));
+
+        infrastructureButton.setBackground(new java.awt.Color(44, 44, 44));
+        infrastructureButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        infrastructureButton.setForeground(new java.awt.Color(255, 255, 255));
+        infrastructureButton.setText("Infraestructura");
+        infrastructureButton.setBorder(null);
+        infrastructureButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                infrastructureButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(infrastructureButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 250, 70));
+
+        tec_resourcesButton.setBackground(new java.awt.Color(44, 44, 44));
+        tec_resourcesButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        tec_resourcesButton.setForeground(new java.awt.Color(255, 255, 255));
+        tec_resourcesButton.setText("Tecnologicos ");
+        tec_resourcesButton.setBorder(null);
+        tec_resourcesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tec_resourcesButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tec_resourcesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 250, 70));
+
+        start_button.setBackground(new java.awt.Color(44, 44, 44));
+        start_button.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        start_button.setForeground(new java.awt.Color(255, 255, 255));
+        start_button.setText("Inicio");
+        start_button.setBorder(null);
+        start_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                start_buttonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(start_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 250, 70));
 
         welcome4_text.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 25)); // NOI18N
         welcome4_text.setForeground(new java.awt.Color(255, 255, 255));
@@ -172,15 +205,6 @@ public class Inicio extends javax.swing.JFrame {
         whiteLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/start_logo.png"))); // NOI18N
         getContentPane().add(whiteLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 107, 118));
 
-        historial_buttonDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/historial_background.png"))); // NOI18N
-        getContentPane().add(historial_buttonDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(925, 290, 334, 416));
-
-        report_buttonDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/error_background.png"))); // NOI18N
-        getContentPane().add(report_buttonDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(589, 290, 336, 416));
-
-        myReserve_buttonDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/booking_background.png"))); // NOI18N
-        getContentPane().add(myReserve_buttonDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 290, 336, 416));
-
         background_gradient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background_gradient.png"))); // NOI18N
         getContentPane().add(background_gradient, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 1010, 640));
 
@@ -188,17 +212,42 @@ public class Inicio extends javax.swing.JFrame {
         getContentPane().add(white_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 1010, 640));
 
         background_Space.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/black_background.png"))); // NOI18N
-        getContentPane().add(background_Space, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1290, 710));
-
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(597, 286, 340, 420));
+        getContentPane().add(background_Space, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tecResources_toggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tecResources_toggleButtonActionPerformed
+    private void start_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start_buttonActionPerformed
+        // Nada por el momento
+    }//GEN-LAST:event_start_buttonActionPerformed
+
+    private void tec_resourcesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tec_resourcesButtonActionPerformed
+        this.dispose();                     // Cierra la ventana actual (Inicio)
+        tecno_resources tecResourses = new tecno_resources(); // Crea la nueva ventana (tecno_resources)
+        tecResourses.setVisible(true);        // La muestra
+    }//GEN-LAST:event_tec_resourcesButtonActionPerformed
+
+    private void infrastructureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infrastructureButtonActionPerformed
+        this.dispose();                     // Cierra la ventana actual (Inicio)
+        Insfractuture_resources infraResourses = new Insfractuture_resources(); // Crea la nueva ventana(Infraestructura)
+        infraResourses.setVisible(true);
+    }//GEN-LAST:event_infrastructureButtonActionPerformed
+
+    private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
+        this.dispose(); //Cierra sesión
+    }//GEN-LAST:event_logOutButtonActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tecResources_toggleButtonActionPerformed
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,25 +288,24 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel background_Space;
     private javax.swing.JLabel background_gradient;
     private javax.swing.JLabel error_iconDel;
-    private javax.swing.JLabel historial_buttonDel;
     private javax.swing.JLabel historial_iconDel;
+    private javax.swing.JButton infrastructureButton;
     private javax.swing.JLabel infrastructure_iconButton;
-    private javax.swing.JToggleButton infrastructure_toggleButton;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JPopupMenu jPopupMenu1;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JButton logOutButton;
     private javax.swing.JLabel logOut_icon;
-    private javax.swing.JLabel myReserve_buttonDel;
-    private javax.swing.JLabel report_buttonDel;
     private javax.swing.JLabel reservation_iconDel;
     private javax.swing.JLabel service_text;
+    private javax.swing.JButton start_button;
     private javax.swing.JLabel start_iconButton;
-    private javax.swing.JToggleButton start_toggleButton;
     private javax.swing.JLabel tecResources_iconButton;
-    private javax.swing.JToggleButton tecResources_toggleButton;
+    private javax.swing.JButton tec_resourcesButton;
     private javax.swing.JLabel unispace_Text;
     private javax.swing.JLabel welcome2_text;
     private javax.swing.JLabel welcome3_text;
