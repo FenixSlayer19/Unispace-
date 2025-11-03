@@ -140,9 +140,8 @@ public class Sing_up extends javax.swing.JFrame {
         student_button.setBorder(null);
         getContentPane().add(student_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 240, 60, 60));
 
-        loginButton.setBackground(new java.awt.Color(125, 125, 125));
+        loginButton.setBackground(new java.awt.Color(215, 215, 215));
         loginButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
-        loginButton.setForeground(new java.awt.Color(255, 255, 255));
         loginButton.setText("Iniciar sesión");
         loginButton.setBorder(null);
         getContentPane().add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(705, 597, 120, 40));
@@ -207,7 +206,7 @@ public class Sing_up extends javax.swing.JFrame {
         blue_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/blue_logo127x125.png"))); // NOI18N
         getContentPane().add(blue_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 127, 125));
 
-        gray_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gray_backgroundSingUp_1.png"))); // NOI18N
+        gray_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gray_backgroundSingUp.png"))); // NOI18N
         getContentPane().add(gray_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 711, 518));
 
         white_logo_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/white_logo.png"))); // NOI18N

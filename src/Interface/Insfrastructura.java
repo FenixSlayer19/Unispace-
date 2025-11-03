@@ -278,15 +278,15 @@ public class Insfrastructura extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 260, 40));
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 260, 50));
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 435, 260, 30));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 250, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 250, 50));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 435, 250, 30));
         getContentPane().add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 260, 50));
 
         white_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/white_background.png"))); // NOI18N
-        getContentPane().add(white_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 1018, 640));
+        getContentPane().add(white_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 1010, 640));
 
-        infraestructura_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/start_background.png"))); // NOI18N
+        infraestructura_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/black_background.png"))); // NOI18N
         getContentPane().add(infraestructura_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 710));
 
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

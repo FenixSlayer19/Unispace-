@@ -335,7 +335,7 @@ public class tecno_resources extends javax.swing.JFrame {
         white_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/white_background.png"))); // NOI18N
         getContentPane().add(white_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 69, 1010, 640));
 
-        background_gradient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/start_background.png"))); // NOI18N
+        background_gradient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/black_background.png"))); // NOI18N
         getContentPane().add(background_gradient, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 710));
 
         jLabel43.setText("jLabel43");
