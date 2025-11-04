@@ -455,7 +455,7 @@ public class Insfractuture_resources extends javax.swing.JFrame {
 
         tecResourses_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 38)); // NOI18N
         tecResourses_text.setText("Recursos de Infraestructura");
-        getContentPane().add(tecResourses_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
+        getContentPane().add(tecResourses_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
 
         unispace_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 50)); // NOI18N
         unispace_text.setForeground(new java.awt.Color(255, 255, 255));
