@@ -94,7 +94,7 @@ public class tecno_resources extends javax.swing.JFrame {
         whiteLogo = new javax.swing.JLabel();
         unispace_text = new javax.swing.JLabel();
         white_background = new javax.swing.JLabel();
-        background_gradient = new javax.swing.JLabel();
+        tecno_background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -465,8 +465,8 @@ public class tecno_resources extends javax.swing.JFrame {
         white_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/white_background.png"))); // NOI18N
         getContentPane().add(white_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 69, 1010, 640));
 
-        background_gradient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/black_background.png"))); // NOI18N
-        getContentPane().add(background_gradient, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 710));
+        tecno_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/black_background.png"))); // NOI18N
+        getContentPane().add(tecno_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -553,7 +553,6 @@ public class tecno_resources extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel background_gradient;
     private javax.swing.JButton infrastructure_Button;
     private javax.swing.JLabel infrastructure_icon;
     private javax.swing.JLabel infrastructure_iconButton;
@@ -617,6 +616,7 @@ public class tecno_resources extends javax.swing.JFrame {
     private javax.swing.JLabel tecResourses_icon;
     private javax.swing.JLabel tecResourses_text;
     private javax.swing.JButton tec_resourcesButton;
+    private javax.swing.JLabel tecno_background;
     private javax.swing.JLabel unispace_text;
     private javax.swing.JLabel whiteLogo;
     private javax.swing.JLabel white_background;

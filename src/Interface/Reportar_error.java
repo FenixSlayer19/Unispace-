@@ -28,6 +28,7 @@ public class Reportar_error extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
         start_iconButton = new javax.swing.JLabel();
         start_Button1 = new javax.swing.JButton();
         tecResources_iconButton = new javax.swing.JLabel();
@@ -42,8 +43,8 @@ public class Reportar_error extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
-        gray_background = new javax.swing.JLabel();
         tecResourses_text = new javax.swing.JLabel();
+        gray_background = new javax.swing.JLabel();
         whiteLogo = new javax.swing.JLabel();
         unispace_text = new javax.swing.JLabel();
         white_background = new javax.swing.JLabel();
@@ -52,6 +53,9 @@ public class Reportar_error extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/error_icon_1.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 75, -1, -1));
 
         start_iconButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/start_icon.png"))); // NOI18N
         getContentPane().add(start_iconButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 240, 40, 30));
@@ -135,12 +139,12 @@ public class Reportar_error extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 690, 60));
 
-        gray_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/sign_up_rectangle.png"))); // NOI18N
-        getContentPane().add(gray_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 711, 518));
-
         tecResourses_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 38)); // NOI18N
         tecResourses_text.setText("Reportar Error");
-        getContentPane().add(tecResourses_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, -1, -1));
+        getContentPane().add(tecResourses_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
+
+        gray_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gray_backgroundSingUp.png"))); // NOI18N
+        getContentPane().add(gray_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 711, 518));
 
         whiteLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/start_logo.png"))); // NOI18N
         getContentPane().add(whiteLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 107, 118));
@@ -189,7 +193,9 @@ public class Reportar_error extends javax.swing.JFrame {
     }//GEN-LAST:event_start_Button1ActionPerformed
 
     private void tec_resourcesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tec_resourcesButtonActionPerformed
-        //Nada por ahora.
+                this.dispose();                     // Cierra la ventana actual (Inicio)
+        tecno_resources tecResourses = new tecno_resources(); // Crea la nueva ventana (tecno_resources)
+        tecResourses.setVisible(true);        // La muestra
     }//GEN-LAST:event_tec_resourcesButtonActionPerformed
 
     private void infrastructure_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infrastructure_ButtonActionPerformed
@@ -246,6 +252,7 @@ public class Reportar_error extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JButton logOut_Button1;

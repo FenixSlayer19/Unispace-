@@ -15,7 +15,7 @@ public class Historial extends javax.swing.JFrame {
      */
     public Historial() {
         initComponents();
-        
+
     }
 
     /**
@@ -27,8 +27,11 @@ public class Historial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         tecResourses_text = new javax.swing.JLabel();
@@ -51,23 +54,32 @@ public class Historial extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/xdxd.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 40, 40));
+
         jTextField1.setText("Buscar");
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(923, 135, 240, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/deleted_icon.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 134, 30, 30));
 
         jButton3.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 14)); // NOI18N
         jButton3.setText("Eliminar");
         jButton3.setBorder(null);
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(693, 140, 110, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(693, 134, 110, 30));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reload_icon.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 133, 30, 30));
 
         jButton2.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 14)); // NOI18N
         jButton2.setText("Actualizar");
         jButton2.setBorder(null);
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 120, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 134, 120, 30));
 
         jButton1.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 14)); // NOI18N
         jButton1.setText("Seleccionar todo");
         jButton1.setBorder(null);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 160, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 134, 160, 30));
 
         tecResourses_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 38)); // NOI18N
         tecResourses_text.setText("Historial");
@@ -189,7 +201,9 @@ public class Historial extends javax.swing.JFrame {
     }//GEN-LAST:event_infrastructure_ButtonActionPerformed
 
     private void tec_resourcesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tec_resourcesButtonActionPerformed
-        //Nada por ahora.
+        this.dispose();                     // Cierra la ventana actual (Inicio)
+        tecno_resources tecResourses = new tecno_resources(); // Crea la nueva ventana (tecno_resources)
+        tecResourses.setVisible(true);        // La muestra
     }//GEN-LAST:event_tec_resourcesButtonActionPerformed
 
     private void logOut_Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOut_Button1ActionPerformed
@@ -239,7 +253,10 @@ public class Historial extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton logOut_Button;
     private javax.swing.JButton logOut_Button1;

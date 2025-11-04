@@ -40,9 +40,9 @@ public class Inicio extends javax.swing.JFrame {
         historial_iconDel = new javax.swing.JLabel();
         reservation_iconDel = new javax.swing.JLabel();
         error_iconDel = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        historial_button = new javax.swing.JButton();
+        error_button = new javax.swing.JButton();
+        booking_button = new javax.swing.JButton();
         logOutButton = new javax.swing.JButton();
         infrastructureButton = new javax.swing.JButton();
         tec_resourcesButton = new javax.swing.JButton();
@@ -102,32 +102,32 @@ public class Inicio extends javax.swing.JFrame {
         error_iconDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/error_icon.png"))); // NOI18N
         getContentPane().add(error_iconDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 590, -1, -1));
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/historial_background.png"))); // NOI18N
-        jButton7.setBorder(null);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        historial_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/historial_background.png"))); // NOI18N
+        historial_button.setBorder(null);
+        historial_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                historial_buttonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 290, 330, 410));
+        getContentPane().add(historial_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 290, 330, 410));
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/error_background.png"))); // NOI18N
-        jButton6.setBorder(null);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        error_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/error_background.png"))); // NOI18N
+        error_button.setBorder(null);
+        error_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                error_buttonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, 336, 410));
+        getContentPane().add(error_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, 336, 410));
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/booking_background.png"))); // NOI18N
-        jButton4.setBorder(null);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        booking_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/booking_background.png"))); // NOI18N
+        booking_button.setBorder(null);
+        booking_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                booking_buttonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 336, 410));
+        getContentPane().add(booking_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 336, 410));
 
         logOutButton.setBackground(new java.awt.Color(44, 44, 44));
         logOutButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
@@ -237,17 +237,23 @@ public class Inicio extends javax.swing.JFrame {
         this.dispose(); //Cierra sesión
     }//GEN-LAST:event_logOutButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void booking_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_booking_buttonActionPerformed
+       this.dispose();                     // Cierra la ventana actual (Login)
+        booking_page booking = new booking_page(); // Crea la nueva ventana
+        booking.setVisible(true);        // La muestra
+    }//GEN-LAST:event_booking_buttonActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void error_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_error_buttonActionPerformed
+         this.dispose();                     // Cierra la ventana actual (Inicio)
+        Reportar_error error_page= new Reportar_error(); // Crea la nueva ventana(Infraestructura)
+        error_page.setVisible(true);
+    }//GEN-LAST:event_error_buttonActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    private void historial_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historial_buttonActionPerformed
+         this.dispose();                     // Cierra la ventana actual (Inicio)
+        Historial histo= new Historial(); // Crea la nueva ventana(Infraestructura)
+        histo.setVisible(true);
+    }//GEN-LAST:event_historial_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -287,13 +293,13 @@ public class Inicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background_Space;
     private javax.swing.JLabel background_gradient;
+    private javax.swing.JButton booking_button;
+    private javax.swing.JButton error_button;
     private javax.swing.JLabel error_iconDel;
+    private javax.swing.JButton historial_button;
     private javax.swing.JLabel historial_iconDel;
     private javax.swing.JButton infrastructureButton;
     private javax.swing.JLabel infrastructure_iconButton;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
