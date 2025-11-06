@@ -66,6 +66,11 @@ public class booking_page extends javax.swing.JFrame {
         start_button.setForeground(new java.awt.Color(255, 255, 255));
         start_button.setText("Inicio");
         start_button.setBorder(null);
+        start_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                start_buttonMouseClicked(evt);
+            }
+        });
         start_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 start_buttonActionPerformed(evt);
@@ -78,6 +83,11 @@ public class booking_page extends javax.swing.JFrame {
         tec_resourcesButton.setForeground(new java.awt.Color(255, 255, 255));
         tec_resourcesButton.setText("Tecnologicos ");
         tec_resourcesButton.setBorder(null);
+        tec_resourcesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tec_resourcesButtonMouseClicked(evt);
+            }
+        });
         tec_resourcesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tec_resourcesButtonActionPerformed(evt);
@@ -90,6 +100,11 @@ public class booking_page extends javax.swing.JFrame {
         infrastructureButton.setForeground(new java.awt.Color(255, 255, 255));
         infrastructureButton.setText("Infraestructura");
         infrastructureButton.setBorder(null);
+        infrastructureButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                infrastructureButtonMouseClicked(evt);
+            }
+        });
         infrastructureButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 infrastructureButtonActionPerformed(evt);
@@ -102,6 +117,11 @@ public class booking_page extends javax.swing.JFrame {
         logOutButton.setForeground(new java.awt.Color(255, 255, 255));
         logOutButton.setText("Cerrar Sesion ");
         logOutButton.setBorder(null);
+        logOutButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logOutButtonMouseClicked(evt);
+            }
+        });
         logOutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logOutButtonActionPerformed(evt);
@@ -142,25 +162,19 @@ public class booking_page extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void start_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start_buttonActionPerformed
-        this.dispose();                     // Cierra la ventana actual (Inicio)
-        Inicio start_page = new Inicio(); // Crea la nueva ventana(Infraestructura)
-        start_page.setVisible(true);
+        
     }//GEN-LAST:event_start_buttonActionPerformed
 
     private void tec_resourcesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tec_resourcesButtonActionPerformed
-        this.dispose();                     // Cierra la ventana actual (Inicio)
-        tecno_resources tecResourses = new tecno_resources(); // Crea la nueva ventana (tecno_resources)
-        tecResourses.setVisible(true);        // La muestra
+        
     }//GEN-LAST:event_tec_resourcesButtonActionPerformed
 
     private void infrastructureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infrastructureButtonActionPerformed
-        this.dispose();                     // Cierra la ventana actual (Inicio)
-        Insfractuture_resources infraResourses = new Insfractuture_resources(); // Crea la nueva ventana(Infraestructura)
-        infraResourses.setVisible(true);
+        
     }//GEN-LAST:event_infrastructureButtonActionPerformed
 
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
-        this.dispose(); //Cierra sesión
+        
     }//GEN-LAST:event_logOutButtonActionPerformed
 
     private void booking_panelInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_booking_panelInputMethodTextChanged
@@ -174,6 +188,30 @@ public class booking_page extends javax.swing.JFrame {
     private void booking_panelPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_booking_panelPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_booking_panelPropertyChange
+
+    private void start_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_start_buttonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Reservas)
+        Inicio start_page = new Inicio(); // Crea la nueva ventana(Inicio)
+        start_page.setVisible(true);
+    }//GEN-LAST:event_start_buttonMouseClicked
+
+    private void tec_resourcesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tec_resourcesButtonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Inicio)
+        tecno_resources tecResourses = new tecno_resources(); // Crea la nueva ventana (tecno_resources)
+        tecResourses.setVisible(true);        // La muestra:
+    }//GEN-LAST:event_tec_resourcesButtonMouseClicked
+
+    private void infrastructureButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infrastructureButtonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Inicio)
+        Insfractuture_resources infraResourses = new Insfractuture_resources(); // Crea la nueva ventana(Infraestructura)
+        infraResourses.setVisible(true);
+    }//GEN-LAST:event_infrastructureButtonMouseClicked
+
+    private void logOutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutButtonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Reservas)
+        Login login = new Login(); // Crea la nueva ventana(Login)
+        login.setVisible(true);        // La muestra
+    }//GEN-LAST:event_logOutButtonMouseClicked
 
     /**
      * @param args the command line arguments

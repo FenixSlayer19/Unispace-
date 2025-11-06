@@ -38,8 +38,6 @@ public class Reportar_error extends javax.swing.JFrame {
         logOut_icon1 = new javax.swing.JLabel();
         logOut_Button1 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jButton5 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
@@ -65,6 +63,11 @@ public class Reportar_error extends javax.swing.JFrame {
         start_Button1.setForeground(new java.awt.Color(255, 255, 255));
         start_Button1.setText("Inicio");
         start_Button1.setBorder(null);
+        start_Button1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                start_Button1MouseClicked(evt);
+            }
+        });
         start_Button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 start_Button1ActionPerformed(evt);
@@ -80,6 +83,11 @@ public class Reportar_error extends javax.swing.JFrame {
         tec_resourcesButton.setForeground(new java.awt.Color(255, 255, 255));
         tec_resourcesButton.setText("Tecnologicos ");
         tec_resourcesButton.setBorder(null);
+        tec_resourcesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tec_resourcesButtonMouseClicked(evt);
+            }
+        });
         tec_resourcesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tec_resourcesButtonActionPerformed(evt);
@@ -96,6 +104,11 @@ public class Reportar_error extends javax.swing.JFrame {
         infrastructure_Button.setForeground(new java.awt.Color(255, 255, 255));
         infrastructure_Button.setText("Infraestructura");
         infrastructure_Button.setBorder(null);
+        infrastructure_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                infrastructure_ButtonMouseClicked(evt);
+            }
+        });
         infrastructure_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 infrastructure_ButtonActionPerformed(evt);
@@ -118,16 +131,12 @@ public class Reportar_error extends javax.swing.JFrame {
         });
         getContentPane().add(logOut_Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 250, 70));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 560, -1, -1));
+        jComboBox1.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fotos ", "Documentos", " " }));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 570, 110, 40));
 
-        jButton5.setText("jButton5");
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1075, 560, 30, 40));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/CLIP.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 560, -1, -1));
-
-        jButton4.setText("enviar");
+        jButton4.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
+        jButton4.setText("Enviar");
         jButton4.setToolTipText("");
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 560, 110, 40));
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, 690, 310));
@@ -181,32 +190,44 @@ public class Reportar_error extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void start_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start_ButtonActionPerformed
-        this.dispose();                     // Cierra la ventana actual (Inicio)
-        Inicio start_page = new Inicio(); // Crea la nueva ventana(Infraestructura)
-        start_page.setVisible(true);
+       
     }//GEN-LAST:event_start_ButtonActionPerformed
 
     private void start_Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start_Button1ActionPerformed
-        this.dispose();                     // Cierra la ventana actual (Inicio)
-        Inicio start_page = new Inicio(); // Crea la nueva ventana(Infraestructura)
-        start_page.setVisible(true);
+       
     }//GEN-LAST:event_start_Button1ActionPerformed
 
     private void tec_resourcesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tec_resourcesButtonActionPerformed
-                this.dispose();                     // Cierra la ventana actual (Inicio)
-        tecno_resources tecResourses = new tecno_resources(); // Crea la nueva ventana (tecno_resources)
-        tecResourses.setVisible(true);        // La muestra
+        
     }//GEN-LAST:event_tec_resourcesButtonActionPerformed
 
     private void infrastructure_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infrastructure_ButtonActionPerformed
-        this.dispose();                     // Cierra la ventana actual (tecno_resources)
-        Insfractuture_resources infraResourses = new Insfractuture_resources(); // Crea la nueva ventana(Infraestructura)
-        infraResourses.setVisible(true);
+        
     }//GEN-LAST:event_infrastructure_ButtonActionPerformed
 
     private void logOut_Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOut_Button1ActionPerformed
-        this.dispose();
+        this.dispose();                     // Cierra la ventana actual (Infraestructura)
+        Login close_Seccion = new Login(); // Crea la nueva ventana(Login)
+        close_Seccion.setVisible(true);
     }//GEN-LAST:event_logOut_Button1ActionPerformed
+
+    private void start_Button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_start_Button1MouseClicked
+        this.dispose();                     // Cierra la ventana actual (Inicio)
+        Inicio start_page = new Inicio(); // Crea la nueva ventana(Infraestructura)
+        start_page.setVisible(true);
+    }//GEN-LAST:event_start_Button1MouseClicked
+
+    private void tec_resourcesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tec_resourcesButtonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Reportar error)
+        tecno_resources tecResourses = new tecno_resources(); // Crea la nueva ventana (tecno_resources)
+        tecResourses.setVisible(true);        // La muestra
+    }//GEN-LAST:event_tec_resourcesButtonMouseClicked
+
+    private void infrastructure_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infrastructure_ButtonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Reportar error )
+        Insfractuture_resources infraResourses = new Insfractuture_resources(); // Crea la nueva ventana(Infraestructura)
+        infraResourses.setVisible(true);
+    }//GEN-LAST:event_infrastructure_ButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -249,9 +270,7 @@ public class Reportar_error extends javax.swing.JFrame {
     private javax.swing.JButton infrastructure_Button;
     private javax.swing.JLabel infrastructure_iconButton;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

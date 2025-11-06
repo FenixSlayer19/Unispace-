@@ -130,6 +130,11 @@ public class Sing_up extends javax.swing.JFrame {
         loginButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
         loginButton.setText("Iniciar sesión");
         loginButton.setBorder(null);
+        loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginButtonMouseClicked(evt);
+            }
+        });
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginButtonActionPerformed(evt);
@@ -365,11 +370,15 @@ public class Sing_up extends javax.swing.JFrame {
         });    }//GEN-LAST:event_confirmPassword_barActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        this.dispose();                     // Cierra la ventana actual (Login)
-        Login login = new Login(); // Crea la nueva ventana
-        login.setVisible(true);        // La muestra
+        
 
     }//GEN-LAST:event_loginButtonActionPerformed
+
+    private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Sign_up)
+        Login login = new Login(); // Crea la nueva ventana(Login)
+        login.setVisible(true);        // La muestra
+    }//GEN-LAST:event_loginButtonMouseClicked
 
     /**
      * @param args the command line arguments

@@ -96,6 +96,11 @@ public class Historial extends javax.swing.JFrame {
         logOut_Button1.setForeground(new java.awt.Color(255, 255, 255));
         logOut_Button1.setText("Cerrar Sesion ");
         logOut_Button1.setBorder(null);
+        logOut_Button1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logOut_Button1MouseClicked(evt);
+            }
+        });
         logOut_Button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logOut_Button1ActionPerformed(evt);
@@ -111,6 +116,11 @@ public class Historial extends javax.swing.JFrame {
         tec_resourcesButton.setForeground(new java.awt.Color(255, 255, 255));
         tec_resourcesButton.setText("Tecnologicos ");
         tec_resourcesButton.setBorder(null);
+        tec_resourcesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tec_resourcesButtonMouseClicked(evt);
+            }
+        });
         tec_resourcesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tec_resourcesButtonActionPerformed(evt);
@@ -127,6 +137,11 @@ public class Historial extends javax.swing.JFrame {
         infrastructure_Button.setForeground(new java.awt.Color(255, 255, 255));
         infrastructure_Button.setText("Infraestructura");
         infrastructure_Button.setBorder(null);
+        infrastructure_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                infrastructure_ButtonMouseClicked(evt);
+            }
+        });
         infrastructure_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 infrastructure_ButtonActionPerformed(evt);
@@ -142,6 +157,11 @@ public class Historial extends javax.swing.JFrame {
         start_Button.setForeground(new java.awt.Color(255, 255, 255));
         start_Button.setText("Inicio");
         start_Button.setBorder(null);
+        start_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                start_ButtonMouseClicked(evt);
+            }
+        });
         start_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 start_ButtonActionPerformed(evt);
@@ -185,30 +205,48 @@ public class Historial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void start_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start_ButtonActionPerformed
-        this.dispose();                     // Cierra la ventana actual (Inicio)
-        Inicio start_page = new Inicio(); // Crea la nueva ventana(Infraestructura)
-        start_page.setVisible(true);
+        
     }//GEN-LAST:event_start_ButtonActionPerformed
 
     private void logOut_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOut_ButtonActionPerformed
-        this.dispose();
+        
     }//GEN-LAST:event_logOut_ButtonActionPerformed
 
     private void infrastructure_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infrastructure_ButtonActionPerformed
-        this.dispose();                     // Cierra la ventana actual (tecno_resources)
-        Insfractuture_resources infraResourses = new Insfractuture_resources(); // Crea la nueva ventana(Infraestructura)
-        infraResourses.setVisible(true);
+        
     }//GEN-LAST:event_infrastructure_ButtonActionPerformed
 
     private void tec_resourcesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tec_resourcesButtonActionPerformed
-        this.dispose();                     // Cierra la ventana actual (Inicio)
-        tecno_resources tecResourses = new tecno_resources(); // Crea la nueva ventana (tecno_resources)
-        tecResourses.setVisible(true);        // La muestra
+        
     }//GEN-LAST:event_tec_resourcesButtonActionPerformed
 
     private void logOut_Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOut_Button1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_logOut_Button1ActionPerformed
+
+    private void start_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_start_ButtonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Inicio)
+        Inicio start_page = new Inicio(); // Crea la nueva ventana(Infraestructura)
+        start_page.setVisible(true);
+    }//GEN-LAST:event_start_ButtonMouseClicked
+
+    private void tec_resourcesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tec_resourcesButtonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Historial)
+        tecno_resources tecResourses = new tecno_resources(); // Crea la nueva ventana (tecno_resources)
+        tecResourses.setVisible(true);        // La muestra
+    }//GEN-LAST:event_tec_resourcesButtonMouseClicked
+
+    private void infrastructure_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infrastructure_ButtonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Historial)
+        Insfractuture_resources infraResourses = new Insfractuture_resources(); // Crea la nueva ventana(Infraestructura)
+        infraResourses.setVisible(true);
+    }//GEN-LAST:event_infrastructure_ButtonMouseClicked
+
+    private void logOut_Button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOut_Button1MouseClicked
+        this.dispose();                     // Cierra la ventana actual (Historial)
+        Login close_Seccion = new Login(); // Crea la nueva ventana(Login)
+        close_Seccion.setVisible(true);
+    }//GEN-LAST:event_logOut_Button1MouseClicked
 
     /**
      * @param args the command line arguments

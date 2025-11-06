@@ -18,7 +18,7 @@ public class Login extends javax.swing.JFrame {
         create_account = new javax.swing.JButton();
         login_button = new javax.swing.JButton();
         password_bar = new javax.swing.JPasswordField();
-        user_textBar = new javax.swing.JTextField();
+        user_textBarName = new javax.swing.JTextField();
         user_img = new javax.swing.JLabel();
         password_img = new javax.swing.JLabel();
         black_bar = new javax.swing.JLabel();
@@ -40,6 +40,11 @@ public class Login extends javax.swing.JFrame {
         create_account.setForeground(new java.awt.Color(255, 255, 255));
         create_account.setText("Crear cuenta");
         create_account.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        create_account.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                create_accountMouseClicked(evt);
+            }
+        });
         create_account.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 create_accountActionPerformed(evt);
@@ -52,12 +57,22 @@ public class Login extends javax.swing.JFrame {
         login_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         login_button.setBorderPainted(false);
         login_button.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        login_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                login_buttonMouseClicked(evt);
+            }
+        });
         getContentPane().add(login_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 500, 130, 40));
 
         password_bar.setBackground(new java.awt.Color(179, 179, 179));
         password_bar.setFont(new java.awt.Font("League Spartan ExtraBold", 3, 16)); // NOI18N
         password_bar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         password_bar.setBorder(null);
+        password_bar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                password_barMouseMoved(evt);
+            }
+        });
         password_bar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 password_barActionPerformed(evt);
@@ -65,17 +80,25 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(password_bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 398, 400, 30));
 
-        user_textBar.setEditable(false);
-        user_textBar.setBackground(new java.awt.Color(179, 179, 179));
-        user_textBar.setFont(new java.awt.Font("League Spartan ExtraBold", 3, 16)); // NOI18N
-        user_textBar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        user_textBar.setBorder(null);
-        user_textBar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                user_textBarActionPerformed(evt);
+        user_textBarName.setBackground(new java.awt.Color(179, 179, 179));
+        user_textBarName.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
+        user_textBarName.setBorder(null);
+        user_textBarName.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                user_textBarNameMouseMoved(evt);
             }
         });
-        getContentPane().add(user_textBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 318, 400, 30));
+        user_textBarName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                user_textBarNameMouseClicked(evt);
+            }
+        });
+        user_textBarName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                user_textBarNameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(user_textBarName, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 318, 400, 30));
 
         user_img.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         user_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user_icon.png"))); // NOI18N
@@ -129,40 +152,69 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void user_textBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_textBarActionPerformed
+    private void password_barActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_barActionPerformed
+        
+    }//GEN-LAST:event_password_barActionPerformed
+
+    private void create_accountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_accountActionPerformed
+        
+
+    }//GEN-LAST:event_create_accountActionPerformed
+
+    private void create_accountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_create_accountMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Login)
+        Sing_up registro = new Sing_up(); // Crea la nueva ventana (Resgistro)
+        registro.setVisible(true);        // La muestra
+    }//GEN-LAST:event_create_accountMouseClicked
+
+    private void login_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_buttonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Logim)
+        Inicio start_page = new Inicio(); // Crea la nueva ventana(Inicio)
+        start_page.setVisible(true);
+    }//GEN-LAST:event_login_buttonMouseClicked
+
+    private void user_textBarNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_textBarNameMouseClicked
+        
+    }//GEN-LAST:event_user_textBarNameMouseClicked
+
+    private void user_textBarNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_textBarNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_user_textBarNameActionPerformed
+
+    private void user_textBarNameMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_textBarNameMouseMoved
         // Texto guía
-        user_textBar.setText("Escribe tu nombre aquí...");
-        user_textBar.setForeground(Color.GRAY);
+        user_textBarName.setText("Escribe tu nombre aquí...");
+        user_textBarName.setForeground(Color.GRAY);
 
         // Cuando el usuario hace clic o escribe
-        user_textBar.addFocusListener(new java.awt.event.FocusAdapter() {
+        user_textBarName.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent e) {
-                if (user_textBar.getText().equals("Escribe tu nombre aquí...")) {
-                    user_textBar.setText("");
-                    user_textBar.setForeground(Color.BLACK);
+                if (user_textBarName.getText().equals("Escribe tu nombre aquí...")) {
+                    user_textBarName.setText("");
+                    user_textBarName.setForeground(Color.BLACK);
                 }
             }
 
             @Override
             public void focusLost(java.awt.event.FocusEvent e) {
-                if (user_textBar.getText().isEmpty()) {
-                    user_textBar.setText("Escribe tu nombre aquí...");
-                    user_textBar.setForeground(Color.GRAY);
+                if (user_textBarName.getText().isEmpty()) {
+                    user_textBarName.setText("Escribe tu nombre aquí...");
+                    user_textBarName.setForeground(Color.GRAY);
                 }
             }
         });
-    }//GEN-LAST:event_user_textBarActionPerformed
+    }//GEN-LAST:event_user_textBarNameMouseMoved
 
-    private void password_barActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_barActionPerformed
-        password_bar.setText("Escribe tu password aquí...");
+    private void password_barMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_password_barMouseMoved
+        password_bar.setText("Escribe tu password aquí");
         password_bar.setForeground(Color.GRAY);
 
         // Cuando el usuario hace clic o escribe
         password_bar.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent e) {
-                if (password_bar.getText().equals("Escribe tu password aquí...")) {
+                if (password_bar.getText().equals("Escribe tu password aquí")) {
                     password_bar.setText("");
                     password_bar.setForeground(Color.BLACK);
                 }
@@ -176,14 +228,7 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         });
-    }//GEN-LAST:event_password_barActionPerformed
-
-    private void create_accountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_accountActionPerformed
-        this.dispose();                     // Cierra la ventana actual (Login)
-        Sing_up registro = new Sing_up(); // Crea la nueva ventana
-        registro.setVisible(true);        // La muestra
-
-    }//GEN-LAST:event_create_accountActionPerformed
+    }//GEN-LAST:event_password_barMouseMoved
 
     /**
      * @param args the command line arguments
@@ -225,7 +270,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel unispace_text;
     private javax.swing.JLabel unispace_textGray;
     private javax.swing.JLabel user_img;
-    private javax.swing.JTextField user_textBar;
+    private javax.swing.JTextField user_textBarName;
     private javax.swing.JLabel white_logo_lbl;
     // End of variables declaration//GEN-END:variables
 }

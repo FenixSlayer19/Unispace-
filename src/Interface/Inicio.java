@@ -34,9 +34,9 @@ public class Inicio extends javax.swing.JFrame {
         tecResources_iconButton = new javax.swing.JLabel();
         logOut_icon = new javax.swing.JLabel();
         service_text = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        booking_text = new javax.swing.JLabel();
+        error_text = new javax.swing.JLabel();
+        historial_text = new javax.swing.JLabel();
         historial_iconDel = new javax.swing.JLabel();
         reservation_iconDel = new javax.swing.JLabel();
         error_iconDel = new javax.swing.JLabel();
@@ -78,20 +78,20 @@ public class Inicio extends javax.swing.JFrame {
         service_text.setText("Servicios");
         getContentPane().add(service_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, 60));
 
-        jLabel14.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 28)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Mis reservas");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 640, -1, -1));
+        booking_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 28)); // NOI18N
+        booking_text.setForeground(new java.awt.Color(255, 255, 255));
+        booking_text.setText("Mis reservas");
+        getContentPane().add(booking_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 640, -1, -1));
 
-        jLabel15.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 28)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Reportar error");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 640, -1, -1));
+        error_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 28)); // NOI18N
+        error_text.setForeground(new java.awt.Color(255, 255, 255));
+        error_text.setText("Reportar error");
+        getContentPane().add(error_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 640, -1, -1));
 
-        jLabel16.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 28)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Historial");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 640, -1, -1));
+        historial_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 28)); // NOI18N
+        historial_text.setForeground(new java.awt.Color(255, 255, 255));
+        historial_text.setText("Historial");
+        getContentPane().add(historial_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 640, -1, -1));
 
         historial_iconDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/historial_icon.png"))); // NOI18N
         getContentPane().add(historial_iconDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 590, -1, -1));
@@ -104,6 +104,11 @@ public class Inicio extends javax.swing.JFrame {
 
         historial_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/historial_background.png"))); // NOI18N
         historial_button.setBorder(null);
+        historial_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                historial_buttonMouseClicked(evt);
+            }
+        });
         historial_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 historial_buttonActionPerformed(evt);
@@ -113,6 +118,11 @@ public class Inicio extends javax.swing.JFrame {
 
         error_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/error_background.png"))); // NOI18N
         error_button.setBorder(null);
+        error_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                error_buttonMouseClicked(evt);
+            }
+        });
         error_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 error_buttonActionPerformed(evt);
@@ -122,6 +132,11 @@ public class Inicio extends javax.swing.JFrame {
 
         booking_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/booking_background.png"))); // NOI18N
         booking_button.setBorder(null);
+        booking_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                booking_buttonMouseClicked(evt);
+            }
+        });
         booking_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 booking_buttonActionPerformed(evt);
@@ -134,6 +149,11 @@ public class Inicio extends javax.swing.JFrame {
         logOutButton.setForeground(new java.awt.Color(255, 255, 255));
         logOutButton.setText("Cerrar Sesion ");
         logOutButton.setBorder(null);
+        logOutButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logOutButtonMouseClicked(evt);
+            }
+        });
         logOutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logOutButtonActionPerformed(evt);
@@ -146,6 +166,11 @@ public class Inicio extends javax.swing.JFrame {
         infrastructureButton.setForeground(new java.awt.Color(255, 255, 255));
         infrastructureButton.setText("Infraestructura");
         infrastructureButton.setBorder(null);
+        infrastructureButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                infrastructureButtonMouseClicked(evt);
+            }
+        });
         infrastructureButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 infrastructureButtonActionPerformed(evt);
@@ -158,6 +183,11 @@ public class Inicio extends javax.swing.JFrame {
         tec_resourcesButton.setForeground(new java.awt.Color(255, 255, 255));
         tec_resourcesButton.setText("Tecnologicos ");
         tec_resourcesButton.setBorder(null);
+        tec_resourcesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tec_resourcesButtonMouseClicked(evt);
+            }
+        });
         tec_resourcesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tec_resourcesButtonActionPerformed(evt);
@@ -222,38 +252,64 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_start_buttonActionPerformed
 
     private void tec_resourcesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tec_resourcesButtonActionPerformed
-        this.dispose();                     // Cierra la ventana actual (Inicio)
-        tecno_resources tecResourses = new tecno_resources(); // Crea la nueva ventana (tecno_resources)
-        tecResourses.setVisible(true);        // La muestra
+        
     }//GEN-LAST:event_tec_resourcesButtonActionPerformed
 
     private void infrastructureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infrastructureButtonActionPerformed
-        this.dispose();                     // Cierra la ventana actual (Inicio)
-        Insfractuture_resources infraResourses = new Insfractuture_resources(); // Crea la nueva ventana(Infraestructura)
-        infraResourses.setVisible(true);
+        
     }//GEN-LAST:event_infrastructureButtonActionPerformed
 
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
-        this.dispose(); //Cierra sesión
+        
     }//GEN-LAST:event_logOutButtonActionPerformed
 
     private void booking_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_booking_buttonActionPerformed
-       this.dispose();                     // Cierra la ventana actual (Login)
-        booking_page booking = new booking_page(); // Crea la nueva ventana
-        booking.setVisible(true);        // La muestra
+        
     }//GEN-LAST:event_booking_buttonActionPerformed
 
     private void error_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_error_buttonActionPerformed
-         this.dispose();                     // Cierra la ventana actual (Inicio)
-        Reportar_error error_page= new Reportar_error(); // Crea la nueva ventana(Infraestructura)
-        error_page.setVisible(true);
+        
     }//GEN-LAST:event_error_buttonActionPerformed
 
     private void historial_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historial_buttonActionPerformed
-         this.dispose();                     // Cierra la ventana actual (Inicio)
-        Historial histo= new Historial(); // Crea la nueva ventana(Infraestructura)
-        histo.setVisible(true);
+        
     }//GEN-LAST:event_historial_buttonActionPerformed
+
+    private void tec_resourcesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tec_resourcesButtonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Inicio)
+        tecno_resources tecResourses = new tecno_resources(); // Crea la nueva ventana (tecno_resources)
+        tecResourses.setVisible(true);        // La muestra
+    }//GEN-LAST:event_tec_resourcesButtonMouseClicked
+
+    private void infrastructureButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infrastructureButtonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Inicio)
+        Insfractuture_resources infraResourses = new Insfractuture_resources(); // Crea la nueva ventana(Infraestructura)
+        infraResourses.setVisible(true);
+    }//GEN-LAST:event_infrastructureButtonMouseClicked
+
+    private void historial_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historial_buttonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Inicio)
+        Historial histo= new Historial(); // Crea la nueva ventana(Historial)
+        histo.setVisible(true);
+    }//GEN-LAST:event_historial_buttonMouseClicked
+
+    private void error_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_error_buttonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Inicio)
+        Reportar_error error_page= new Reportar_error(); // Crea la nueva ventana(Error)
+        error_page.setVisible(true);
+    }//GEN-LAST:event_error_buttonMouseClicked
+
+    private void booking_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booking_buttonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Login)
+        booking_page booking = new booking_page(); // Crea la nueva ventana
+        booking.setVisible(true);        // La muestra
+    }//GEN-LAST:event_booking_buttonMouseClicked
+
+    private void logOutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutButtonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Inicio)
+        Login login = new Login(); // Crea la nueva ventana(Login)
+        login.setVisible(true);        // La muestra
+    }//GEN-LAST:event_logOutButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -294,15 +350,15 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel background_Space;
     private javax.swing.JLabel background_gradient;
     private javax.swing.JButton booking_button;
+    private javax.swing.JLabel booking_text;
     private javax.swing.JButton error_button;
     private javax.swing.JLabel error_iconDel;
+    private javax.swing.JLabel error_text;
     private javax.swing.JButton historial_button;
     private javax.swing.JLabel historial_iconDel;
+    private javax.swing.JLabel historial_text;
     private javax.swing.JButton infrastructureButton;
     private javax.swing.JLabel infrastructure_iconButton;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JButton logOutButton;
     private javax.swing.JLabel logOut_icon;

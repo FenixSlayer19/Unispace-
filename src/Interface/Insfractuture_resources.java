@@ -410,6 +410,11 @@ public class Insfractuture_resources extends javax.swing.JFrame {
         logOut_Button.setForeground(new java.awt.Color(255, 255, 255));
         logOut_Button.setText("Cerrar Sesion ");
         logOut_Button.setBorder(null);
+        logOut_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logOut_ButtonMouseClicked(evt);
+            }
+        });
         logOut_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logOut_ButtonActionPerformed(evt);
@@ -434,6 +439,11 @@ public class Insfractuture_resources extends javax.swing.JFrame {
         tec_resourcesButton.setForeground(new java.awt.Color(255, 255, 255));
         tec_resourcesButton.setText("Tecnologicos ");
         tec_resourcesButton.setBorder(null);
+        tec_resourcesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tec_resourcesButtonMouseClicked(evt);
+            }
+        });
         tec_resourcesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tec_resourcesButtonActionPerformed(evt);
@@ -446,6 +456,11 @@ public class Insfractuture_resources extends javax.swing.JFrame {
         start_Button.setForeground(new java.awt.Color(255, 255, 255));
         start_Button.setText("Inicio");
         start_Button.setBorder(null);
+        start_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                start_ButtonMouseClicked(evt);
+            }
+        });
         start_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 start_ButtonActionPerformed(evt);
@@ -536,15 +551,11 @@ public class Insfractuture_resources extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void start_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start_ButtonActionPerformed
-        this.dispose();                     // Cierra la ventana actual (Inicio)
-        Inicio start_page = new Inicio(); // Crea la nueva ventana(Infraestructura)
-        start_page.setVisible(true);
+        
     }//GEN-LAST:event_start_ButtonActionPerformed
 
     private void tec_resourcesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tec_resourcesButtonActionPerformed
-        this.dispose();                     // Cierra la ventana actual (Infrastructura)
-        tecno_resources tecResourses = new tecno_resources(); // Crea la nueva ventana (tecno_resources)
-        tecResourses.setVisible(true);        // La muestra
+        
     }//GEN-LAST:event_tec_resourcesButtonActionPerformed
 
     private void infrastructure_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infrastructure_ButtonActionPerformed
@@ -552,8 +563,26 @@ public class Insfractuture_resources extends javax.swing.JFrame {
     }//GEN-LAST:event_infrastructure_ButtonActionPerformed
 
     private void logOut_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOut_ButtonActionPerformed
-        this.dispose();
+        
     }//GEN-LAST:event_logOut_ButtonActionPerformed
+
+    private void start_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_start_ButtonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Infraestructura)
+        Inicio start_page = new Inicio(); // Crea la nueva ventana(Inicio)
+        start_page.setVisible(true);
+    }//GEN-LAST:event_start_ButtonMouseClicked
+
+    private void tec_resourcesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tec_resourcesButtonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Infrastructura)
+        tecno_resources tecResourses = new tecno_resources(); // Crea la nueva ventana (tecno_resources)
+        tecResourses.setVisible(true);        // La muestra
+    }//GEN-LAST:event_tec_resourcesButtonMouseClicked
+
+    private void logOut_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOut_ButtonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Infraestructura)
+        Login close_Seccion = new Login(); // Crea la nueva ventana(Login)
+        close_Seccion.setVisible(true);
+    }//GEN-LAST:event_logOut_ButtonMouseClicked
 
     /**
      * @param args the command line arguments
