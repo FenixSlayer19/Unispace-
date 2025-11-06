@@ -73,6 +73,11 @@ public class Login extends javax.swing.JFrame {
                 password_barMouseMoved(evt);
             }
         });
+        password_bar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                password_barMousePressed(evt);
+            }
+        });
         password_bar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 password_barActionPerformed(evt);
@@ -91,6 +96,9 @@ public class Login extends javax.swing.JFrame {
         user_textBarName.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 user_textBarNameMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                user_textBarNameMousePressed(evt);
             }
         });
         user_textBarName.addActionListener(new java.awt.event.ActionListener() {
@@ -182,7 +190,14 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_user_textBarNameActionPerformed
 
     private void user_textBarNameMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_textBarNameMouseMoved
-        // Texto guía
+        
+    }//GEN-LAST:event_user_textBarNameMouseMoved
+
+    private void password_barMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_password_barMouseMoved
+        
+    }//GEN-LAST:event_password_barMouseMoved
+
+    private void user_textBarNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_textBarNameMousePressed
         user_textBarName.setText("Escribe tu nombre aquí...");
         user_textBarName.setForeground(Color.GRAY);
 
@@ -204,9 +219,9 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         });
-    }//GEN-LAST:event_user_textBarNameMouseMoved
+    }//GEN-LAST:event_user_textBarNameMousePressed
 
-    private void password_barMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_password_barMouseMoved
+    private void password_barMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_password_barMousePressed
         password_bar.setText("Escribe tu password aquí");
         password_bar.setForeground(Color.GRAY);
 
@@ -228,7 +243,7 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         });
-    }//GEN-LAST:event_password_barMouseMoved
+    }//GEN-LAST:event_password_barMousePressed
 
     /**
      * @param args the command line arguments

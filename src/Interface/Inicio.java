@@ -16,7 +16,6 @@ public class Inicio extends javax.swing.JFrame {
     public Inicio() {
         initComponents();
         rsscalelabel.RSScaleLabel.setScaleLabel(background_Space, "src/images/start_background.png");
-
     }
 
     /**
