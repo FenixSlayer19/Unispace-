@@ -36,6 +36,7 @@ public class booking_page extends javax.swing.JFrame {
         scroll_pane = new javax.swing.JScrollPane();
         jScrollBar1 = new javax.swing.JScrollBar();
         booking_panel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         white_background = new javax.swing.JLabel();
         booking_background = new javax.swing.JLabel();
 
@@ -150,6 +151,12 @@ public class booking_page extends javax.swing.JFrame {
             }
         });
         booking_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 12)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Hola mundo");
+        booking_panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 180, 90));
+
         getContentPane().add(booking_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 1010, 640));
 
         white_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/white_background.png"))); // NOI18N
@@ -243,6 +250,7 @@ public class booking_page extends javax.swing.JFrame {
     private javax.swing.JPanel booking_panel;
     private javax.swing.JButton infrastructureButton;
     private javax.swing.JLabel infrastructure_iconButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JButton logOutButton;
     private javax.swing.JLabel logOut_icon;
