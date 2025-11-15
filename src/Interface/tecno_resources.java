@@ -429,7 +429,7 @@ public class tecno_resources extends javax.swing.JFrame {
 
         tecResourses_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 38)); // NOI18N
         tecResourses_text.setText("Recursos Tecnologicos");
-        getContentPane().add(tecResourses_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
+        getContentPane().add(tecResourses_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, -1, -1));
 
         logOut_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut_icon.png"))); // NOI18N
         getContentPane().add(logOut_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 635, 40, 30));
