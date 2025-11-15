@@ -23,6 +23,7 @@ public class Sing_up extends javax.swing.JFrame {
         text_barName = new javax.swing.JTextField();
         text_barId = new javax.swing.JTextField();
         text_barEmail = new javax.swing.JTextField();
+        employedToggleButton = new javax.swing.JToggleButton();
         employed_button = new javax.swing.JButton();
         student_button = new javax.swing.JButton();
         loginButton = new javax.swing.JButton();
@@ -117,8 +118,17 @@ public class Sing_up extends javax.swing.JFrame {
         });
         getContentPane().add(text_barEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 508, 250, 30));
 
+        employedToggleButton.setBackground(new java.awt.Color(145, 145, 145));
+        employedToggleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/employed_icon.png"))); // NOI18N
+        getContentPane().add(employedToggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(815, 240, 60, 60));
+
         employed_button.setBackground(new java.awt.Color(179, 179, 179));
         employed_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/employed_icon.png"))); // NOI18N
+        employed_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employed_buttonActionPerformed(evt);
+            }
+        });
         getContentPane().add(employed_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(815, 240, 60, 60));
 
         student_button.setBackground(new java.awt.Color(179, 179, 179));
@@ -380,6 +390,10 @@ public class Sing_up extends javax.swing.JFrame {
         login.setVisible(true);        // La muestra
     }//GEN-LAST:event_loginButtonMouseClicked
 
+    private void employed_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employed_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_employed_buttonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -414,6 +428,7 @@ public class Sing_up extends javax.swing.JFrame {
     private javax.swing.JLabel email_box;
     private javax.swing.JLabel email_img;
     private javax.swing.JLabel employedText_Del;
+    private javax.swing.JToggleButton employedToggleButton;
     private javax.swing.JButton employed_button;
     private javax.swing.JLabel gray_background;
     private javax.swing.JLabel id_box;

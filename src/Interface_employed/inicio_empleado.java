@@ -44,8 +44,8 @@ public class inicio_empleado extends javax.swing.JFrame {
         start_iconButton = new javax.swing.JLabel();
         start_button = new javax.swing.JButton();
         service_text = new javax.swing.JLabel();
-        logOutButton = new javax.swing.JButton();
         logOut_icon = new javax.swing.JLabel();
+        logOutButton = new javax.swing.JButton();
         reservation_iconDel = new javax.swing.JLabel();
         booking_text = new javax.swing.JLabel();
         booking_button = new javax.swing.JButton();
@@ -109,6 +109,9 @@ public class inicio_empleado extends javax.swing.JFrame {
         service_text.setText("Servicios");
         getContentPane().add(service_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, 60));
 
+        logOut_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut_icon.png"))); // NOI18N
+        getContentPane().add(logOut_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 640, 40, 30));
+
         logOutButton.setBackground(new java.awt.Color(44, 44, 44));
         logOutButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
         logOutButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,9 +128,6 @@ public class inicio_empleado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(logOutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 250, 70));
-
-        logOut_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut_icon.png"))); // NOI18N
-        getContentPane().add(logOut_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 640, 40, 30));
 
         reservation_iconDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/booking_logo.png"))); // NOI18N
         getContentPane().add(reservation_iconDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 590, -1, -1));
@@ -220,8 +220,8 @@ public class inicio_empleado extends javax.swing.JFrame {
 
     private void booking_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_booking_buttonMouseClicked
         this.dispose();                     // Cierra la ventana actual (Login)
-        booking_page booking = new booking_page(); // Crea la nueva ventana
-        booking.setVisible(true);        // La muestra
+        Gestión_reservas gestion_R = new Gestión_reservas(); // Crea la nueva ventana
+        gestion_R.setVisible(true);        // La muestra
     }//GEN-LAST:event_booking_buttonMouseClicked
 
     private void booking_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_booking_buttonActionPerformed
@@ -230,8 +230,8 @@ public class inicio_empleado extends javax.swing.JFrame {
 
     private void error_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_error_buttonMouseClicked
         this.dispose();                     // Cierra la ventana actual (Inicio)
-        Reportar_error error_page= new Reportar_error(); // Crea la nueva ventana(Error)
-        error_page.setVisible(true);
+        report_page report_P= new report_page(); // Crea la nueva ventana(Error)
+        report_P.setVisible(true);
     }//GEN-LAST:event_error_buttonMouseClicked
 
     private void error_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_error_buttonActionPerformed
@@ -239,9 +239,9 @@ public class inicio_empleado extends javax.swing.JFrame {
     }//GEN-LAST:event_error_buttonActionPerformed
 
     private void historial_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historial_buttonMouseClicked
-        this.dispose();                     // Cierra la ventana actual (Inicio)
-        Historial histo= new Historial(); // Crea la nueva ventana(Historial)
-        histo.setVisible(true);
+//        this.dispose();                     // Cierra la ventana actual (Inicio)
+//        Gestión_reservas Gestion_R= new Gestión_reservas(); // Crea la nueva ventana(Historial)
+//        Gestion_R.setVisible(true);
     }//GEN-LAST:event_historial_buttonMouseClicked
 
     private void historial_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historial_buttonActionPerformed
