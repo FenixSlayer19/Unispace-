@@ -13,6 +13,7 @@ public class Sing_up extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Sing_up.class.getName());
 
     private String rolSeleccionado = null;
+    private String codigoEmpleadoIngresado = null;
 
     public Sing_up() {
         initComponents();
@@ -32,8 +33,6 @@ public class Sing_up extends javax.swing.JFrame {
         createAccount_button = new javax.swing.JButton();
         studentToggleButton = new javax.swing.JToggleButton();
         employedToggleButton = new javax.swing.JToggleButton();
-        employed_button = new javax.swing.JButton();
-        student_button = new javax.swing.JButton();
         loginButton = new javax.swing.JButton();
         textBar_account = new javax.swing.JLabel();
         confirmPass_img = new javax.swing.JLabel();
@@ -158,11 +157,6 @@ public class Sing_up extends javax.swing.JFrame {
                 studentToggleButtonMouseClicked(evt);
             }
         });
-        studentToggleButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                studentToggleButtonActionPerformed(evt);
-            }
-        });
         getContentPane().add(studentToggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 240, 60, 60));
 
         employedToggleButton.setBackground(new java.awt.Color(145, 145, 145));
@@ -173,20 +167,6 @@ public class Sing_up extends javax.swing.JFrame {
             }
         });
         getContentPane().add(employedToggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(815, 240, 60, 60));
-
-        employed_button.setBackground(new java.awt.Color(179, 179, 179));
-        employed_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/employed_icon.png"))); // NOI18N
-        employed_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                employed_buttonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(employed_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(815, 240, 60, 60));
-
-        student_button.setBackground(new java.awt.Color(179, 179, 179));
-        student_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/student_icon.png"))); // NOI18N
-        student_button.setBorder(null);
-        getContentPane().add(student_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 240, 60, 60));
 
         loginButton.setBackground(new java.awt.Color(215, 215, 215));
         loginButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
@@ -314,10 +294,6 @@ public class Sing_up extends javax.swing.JFrame {
         login.setVisible(true);        // La muestra
     }//GEN-LAST:event_loginButtonMouseClicked
 
-    private void employed_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employed_buttonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_employed_buttonActionPerformed
-
     private void password_barActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_barActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_password_barActionPerformed
@@ -334,64 +310,135 @@ public class Sing_up extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_text_barNameMousePressed
 
-    private void createAccount_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAccount_buttonMouseClicked
+    private void employedToggleButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employedToggleButtonMouseClicked
+        // Usuario intenta seleccionar "Empleado"
+        String codigo = JOptionPane.showInputDialog(this, "Ingrese su código de empleado:");
 
-        String id = text_barId.getText();
-        String nombre = text_barName.getText();
-        String correo = text_barEmail.getText();
-        String telefono = text_barPhoneNum.getText();
-        String contraseña = password_bar.getText();
-        String repetir = confirmPassword_bar.getText();
-
-        if (!contraseña.equals(repetir)) {
-            JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden.");
-            return;
-        }
-        if (rolSeleccionado == null) {
-            JOptionPane.showMessageDialog(this, "Debes seleccionar un rol (estudiante o empleado).");
+        if (codigo == null || codigo.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No ingresaste ningún código.");
+            employedToggleButton.setBackground(new Color(179, 179, 179));
+            studentToggleButton.setBackground(new Color(100, 180, 255));
+            rolSeleccionado = "estudiante"; // Vuelve a estudiante
             return;
         }
 
+        // Validar código en la base de datos
         try {
-            Connection conexión = (Connection) Conexión.getConexion();
-            String sql = "INSERT INTO usuario (id, nombre, correo, telefono, contrasena, rol) VALUES (?, ?, ?, ?, ?, ?)";
+            Connection conexion = Conexión.getConexion();
+            String sql = "SELECT codigo FROM codigos_empleados WHERE codigo = ?";
+            PreparedStatement pst = conexion.prepareStatement(sql);
+            pst.setString(1, codigo);
 
-            PreparedStatement pst = conexión.prepareStatement(sql);
-            pst.setString(1, id);
-            pst.setString(2, nombre);
-            pst.setString(3, correo);
-            pst.setString(4, telefono);
-            pst.setString(5, contraseña);
-            pst.setString(6, rolSeleccionado);
+            java.sql.ResultSet rs = pst.executeQuery();
 
-            pst.executeUpdate();
+            if (rs.next()) {
+                // Código válido
+                codigoEmpleadoIngresado = codigo;
+                rolSeleccionado = "empleado";
+                employedToggleButton.setBackground(new Color(100, 180, 255));
+                studentToggleButton.setBackground(new Color(179, 179, 179));
+                JOptionPane.showMessageDialog(this, "Código verificado correctamente.");
+            } else {
+                // Código inválido
+                JOptionPane.showMessageDialog(this, "Código inválido. No puedes registrarte como empleado.");
+                employedToggleButton.setBackground(new Color(179, 179, 179));
+                studentToggleButton.setBackground(new Color(100, 180, 255));
+                rolSeleccionado = "estudiante"; // No se permite rol empleado
+            }
+
+            rs.close();
             pst.close();
-            conexión.close();
-            JOptionPane.showMessageDialog(this, "Registro exitoso");
+            conexion.close();
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+            JOptionPane.showMessageDialog(this, "Error al verificar el código: " + e.getMessage());
         }
-
-
-    }//GEN-LAST:event_createAccount_buttonMouseClicked
-
-    private void studentToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentToggleButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_studentToggleButtonActionPerformed
+    }//GEN-LAST:event_employedToggleButtonMouseClicked
 
     private void studentToggleButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentToggleButtonMouseClicked
         rolSeleccionado = "estudiante";
-        student_button.setBackground(new Color(100, 180, 255));
-        employed_button.setBackground(new Color(179, 179, 179));
+        studentToggleButton.setBackground(new Color(100, 180, 255));
+        employedToggleButton.setBackground(new Color(179, 179, 179));
     }//GEN-LAST:event_studentToggleButtonMouseClicked
 
-    private void employedToggleButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employedToggleButtonMouseClicked
-        rolSeleccionado = "empleado";
-        employed_button.setBackground(new Color(100, 180, 255)); // marca selección visual
-        student_button.setBackground(new Color(179, 179, 179));    // desmarca estudiante
-        // TODO add your handling code here:
-    }//GEN-LAST:event_employedToggleButtonMouseClicked
+    private void createAccount_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAccount_buttonMouseClicked
+   
+    // Obtener datos del formulario
+    String id = text_barId.getText().trim();
+    String correo = text_barEmail.getText().trim();
+    String telefono = text_barPhoneNum.getText().trim();
+    String nombre = text_barName.getText().trim();
+    String contraseña = new String(password_bar.getPassword());
+    String confirmarContraseña = new String(confirmPassword_bar.getPassword());
+
+    // Validaciones
+    if (id.isEmpty() || correo.isEmpty() || telefono.isEmpty() || nombre.isEmpty()
+            || contraseña.isEmpty() || confirmarContraseña.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Por favor, completa todos los campos.");
+        return;
+    }
+
+    if (!contraseña.equals(confirmarContraseña)) {
+        JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden.");
+        return;
+    }
+
+    if (rolSeleccionado == null) {
+        JOptionPane.showMessageDialog(this, "Debes seleccionar un rol (estudiante o empleado).");
+        return;
+    }
+
+    // ✔ SOLUCIÓN: valor obligatorio cuando el usuario NO es empleado
+    String codigoFinal = "SIN_CODIGO";
+
+    // Si es empleado → debe tener codigoEmpleadoIngresado
+    if (rolSeleccionado.equals("empleado")) {
+
+        if (codigoEmpleadoIngresado == null || codigoEmpleadoIngresado.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debes ingresar un código de empleado.");
+            return;
+        }
+
+        codigoFinal = codigoEmpleadoIngresado; // se guarda el código real
+    }
+
+    try {
+        Connection conexion = Conexión.getConexion();
+
+        String sql = "INSERT INTO usuario (id, nombre, correo, telefono, contrasena, rol, codigo_empleado) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        PreparedStatement pst = conexion.prepareStatement(sql);
+
+        pst.setString(1, id);
+        pst.setString(2, nombre);
+        pst.setString(3, correo);
+        pst.setString(4, telefono);
+        pst.setString(5, contraseña);
+        pst.setString(6, rolSeleccionado);
+        pst.setString(7, codigoFinal);  // ← SIEMPRE se envía algo
+        pst.setNull(7, java.sql.Types.VARCHAR);
+        pst.setString(7, codigoEmpleadoIngresado);
+
+
+
+        pst.executeUpdate();
+
+        pst.close();
+        conexion.close();
+
+        JOptionPane.showMessageDialog(this, "Cuenta creada exitosamente.");
+
+        // Redirigir al login
+        Login login = new Login();
+        login.setVisible(true);
+        this.dispose();
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al crear la cuenta: " + e.getMessage());
+    }
+        
+    }//GEN-LAST:event_createAccount_buttonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -429,7 +476,6 @@ public class Sing_up extends javax.swing.JFrame {
     private javax.swing.JLabel email_img;
     private javax.swing.JLabel employedText_Del;
     private javax.swing.JToggleButton employedToggleButton;
-    private javax.swing.JButton employed_button;
     private javax.swing.JLabel gray_background;
     private javax.swing.JLabel id_box;
     private javax.swing.JLabel id_img;
@@ -442,7 +488,6 @@ public class Sing_up extends javax.swing.JFrame {
     private javax.swing.JLabel phoneNum_img;
     private javax.swing.JLabel sing_upText;
     private javax.swing.JToggleButton studentToggleButton;
-    private javax.swing.JButton student_button;
     private javax.swing.JLabel student_textDel;
     private javax.swing.JLabel textBar_account;
     private javax.swing.JLabel text_Unispace;

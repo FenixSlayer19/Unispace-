@@ -1,5 +1,6 @@
 package Interface;
 
+import Interface_employed.inicio_empleado;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -195,7 +196,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_register_accountMouseClicked
 
     private void login_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_buttonMouseClicked
-       String id = user_textBarName.getText();
+      String id = user_textBarName.getText();
     String contrasena = password_bar.getText();
 
     if (id.isEmpty() || contrasena.isEmpty()) {
@@ -231,8 +232,8 @@ public class Login extends javax.swing.JFrame {
                 // si tienes una ventana especial para empleados
                 // EmpleadoInicio emp = new EmpleadoInicio();
                 // emp.setVisible(true);
-                Inicio inicio = new Inicio(); // temporal
-                inicio.setVisible(true);
+                inicio_empleado inicioEmp = new inicio_empleado(); // temporal
+                inicioEmp.setVisible(true);
             }
         } else {
             JOptionPane.showMessageDialog(this, "ID o contraseña incorrectos.");
@@ -265,14 +266,14 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_password_barMouseMoved
 
     private void user_textBarNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_textBarNameMousePressed
-        user_textBarName.setText("Escribe tu nombre aquí...");
+        user_textBarName.setText("Escribe tu ID aquí...");
         user_textBarName.setForeground(Color.GRAY);
 
         // Cuando el usuario hace clic o escribe
         user_textBarName.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent e) {
-                if (user_textBarName.getText().equals("Escribe tu nombre aquí...")) {
+                if (user_textBarName.getText().equals("Escribe tu ID aquí...")) {
                     user_textBarName.setText("");
                     user_textBarName.setForeground(Color.BLACK);
                 }
@@ -281,7 +282,7 @@ public class Login extends javax.swing.JFrame {
             @Override
             public void focusLost(java.awt.event.FocusEvent e) {
                 if (user_textBarName.getText().isEmpty()) {
-                    user_textBarName.setText("Escribe tu nombre aquí...");
+                    user_textBarName.setText("Escribe tu ID aquí...");
                     user_textBarName.setForeground(Color.GRAY);
                 }
             }
@@ -289,14 +290,14 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_user_textBarNameMousePressed
 
     private void password_barMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_password_barMousePressed
-        password_bar.setText("Escribe tu password aquí");
+        password_bar.setText("Escribe");
         password_bar.setForeground(Color.GRAY);
 
         // Cuando el usuario hace clic o escribe
         password_bar.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent e) {
-                if (password_bar.getText().equals("Escribe tu password aquí")) {
+                if (password_bar.getText().equals("Escribe")) {
                     password_bar.setText("");
                     password_bar.setForeground(Color.BLACK);
                 }
