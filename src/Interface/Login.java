@@ -15,7 +15,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        create_account = new javax.swing.JButton();
+        register_account = new javax.swing.JButton();
         login_button = new javax.swing.JButton();
         password_bar = new javax.swing.JPasswordField();
         user_textBarName = new javax.swing.JTextField();
@@ -35,22 +35,22 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        create_account.setBackground(new java.awt.Color(145, 145, 145));
-        create_account.setFont(new java.awt.Font("League Spartan ExtraBold", 3, 16)); // NOI18N
-        create_account.setForeground(new java.awt.Color(255, 255, 255));
-        create_account.setText("Crear cuenta");
-        create_account.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        create_account.addMouseListener(new java.awt.event.MouseAdapter() {
+        register_account.setBackground(new java.awt.Color(145, 145, 145));
+        register_account.setFont(new java.awt.Font("League Spartan ExtraBold", 3, 16)); // NOI18N
+        register_account.setForeground(new java.awt.Color(255, 255, 255));
+        register_account.setText("Registrarse");
+        register_account.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        register_account.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                create_accountMouseClicked(evt);
+                register_accountMouseClicked(evt);
             }
         });
-        create_account.addActionListener(new java.awt.event.ActionListener() {
+        register_account.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                create_accountActionPerformed(evt);
+                register_accountActionPerformed(evt);
             }
         });
-        getContentPane().add(create_account, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 500, 129, 40));
+        getContentPane().add(register_account, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 500, 140, 40));
 
         login_button.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
         login_button.setText("Iniciar sesión");
@@ -97,13 +97,27 @@ public class Login extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 user_textBarNameMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                user_textBarNameMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                user_textBarNameMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 user_textBarNameMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                user_textBarNameMouseReleased(evt);
             }
         });
         user_textBarName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 user_textBarNameActionPerformed(evt);
+            }
+        });
+        user_textBarName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                user_textBarNameKeyPressed(evt);
             }
         });
         getContentPane().add(user_textBarName, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 318, 400, 30));
@@ -164,16 +178,16 @@ public class Login extends javax.swing.JFrame {
         
     }//GEN-LAST:event_password_barActionPerformed
 
-    private void create_accountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_accountActionPerformed
+    private void register_accountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_register_accountActionPerformed
         
 
-    }//GEN-LAST:event_create_accountActionPerformed
+    }//GEN-LAST:event_register_accountActionPerformed
 
-    private void create_accountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_create_accountMouseClicked
+    private void register_accountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_register_accountMouseClicked
         this.dispose();                     // Cierra la ventana actual (Login)
         Sing_up registro = new Sing_up(); // Crea la nueva ventana (Resgistro)
         registro.setVisible(true);        // La muestra
-    }//GEN-LAST:event_create_accountMouseClicked
+    }//GEN-LAST:event_register_accountMouseClicked
 
     private void login_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_buttonMouseClicked
         this.dispose();                     // Cierra la ventana actual (Logim)
@@ -182,7 +196,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_login_buttonMouseClicked
 
     private void user_textBarNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_textBarNameMouseClicked
-        
+       
     }//GEN-LAST:event_user_textBarNameMouseClicked
 
     private void user_textBarNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_textBarNameActionPerformed
@@ -245,6 +259,22 @@ public class Login extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_password_barMousePressed
 
+    private void user_textBarNameMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_textBarNameMouseEntered
+       
+    }//GEN-LAST:event_user_textBarNameMouseEntered
+
+    private void user_textBarNameMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_textBarNameMouseReleased
+       
+    }//GEN-LAST:event_user_textBarNameMouseReleased
+
+    private void user_textBarNameMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_textBarNameMouseExited
+        
+    }//GEN-LAST:event_user_textBarNameMouseExited
+
+    private void user_textBarNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_textBarNameKeyPressed
+        
+    }//GEN-LAST:event_user_textBarNameKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -275,13 +305,13 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel black_bar;
     private javax.swing.JLabel black_bar2;
     private javax.swing.JLabel blue_logo;
-    private javax.swing.JButton create_account;
     private javax.swing.JLabel create_account_Del;
     private javax.swing.JLabel gray_background;
     private javax.swing.JButton login_button;
     private javax.swing.JLabel noAccount_text;
     private javax.swing.JPasswordField password_bar;
     private javax.swing.JLabel password_img;
+    private javax.swing.JButton register_account;
     private javax.swing.JLabel unispace_text;
     private javax.swing.JLabel unispace_textGray;
     private javax.swing.JLabel user_img;

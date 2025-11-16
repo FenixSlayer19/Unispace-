@@ -28,6 +28,8 @@ public class Historial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         infrastructure_iconButton = new javax.swing.JLabel();
         unispace_text = new javax.swing.JLabel();
@@ -50,6 +52,21 @@ public class Historial extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 900, 510));
 
         jTextField1.setText("Buscar");
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(923, 135, 240, -1));
@@ -188,26 +205,6 @@ public class Historial extends javax.swing.JFrame {
 
     }//GEN-LAST:event_start_ButtonActionPerformed
 
-    private void tec_resourcesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tec_resourcesButtonMouseClicked
-        this.dispose();                     // Cierra la ventana actual (Historial)
-        tecno_resources tecResourses = new tecno_resources(); // Crea la nueva ventana (tecno_resources)
-        tecResourses.setVisible(true);        // La muestra
-    }//GEN-LAST:event_tec_resourcesButtonMouseClicked
-
-    private void tec_resourcesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tec_resourcesButtonActionPerformed
-
-    }//GEN-LAST:event_tec_resourcesButtonActionPerformed
-
-    private void infrastructure_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infrastructure_ButtonMouseClicked
-        this.dispose();                     // Cierra la ventana actual (Historial)
-        Insfractuture_resources infraResourses = new Insfractuture_resources(); // Crea la nueva ventana(Infraestructura)
-        infraResourses.setVisible(true);
-    }//GEN-LAST:event_infrastructure_ButtonMouseClicked
-
-    private void infrastructure_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infrastructure_ButtonActionPerformed
-
-    }//GEN-LAST:event_infrastructure_ButtonActionPerformed
-
     private void logOut_Button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOut_Button1MouseClicked
         this.dispose();                     // Cierra la ventana actual (Historial)
         Login close_Seccion = new Login(); // Crea la nueva ventana(Login)
@@ -217,6 +214,26 @@ public class Historial extends javax.swing.JFrame {
     private void logOut_Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOut_Button1ActionPerformed
        
     }//GEN-LAST:event_logOut_Button1ActionPerformed
+
+    private void infrastructure_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infrastructure_ButtonActionPerformed
+
+    }//GEN-LAST:event_infrastructure_ButtonActionPerformed
+
+    private void infrastructure_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infrastructure_ButtonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Historial)
+        Insfractuture_resources infraResourses = new Insfractuture_resources(); // Crea la nueva ventana(Infraestructura)
+        infraResourses.setVisible(true);
+    }//GEN-LAST:event_infrastructure_ButtonMouseClicked
+
+    private void tec_resourcesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tec_resourcesButtonActionPerformed
+
+    }//GEN-LAST:event_tec_resourcesButtonActionPerformed
+
+    private void tec_resourcesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tec_resourcesButtonMouseClicked
+        this.dispose();                     // Cierra la ventana actual (Historial)
+        tecno_resources tecResourses = new tecno_resources(); // Crea la nueva ventana (tecno_resources)
+        tecResourses.setVisible(true);        // La muestra
+    }//GEN-LAST:event_tec_resourcesButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -252,6 +269,8 @@ public class Historial extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton logOut_Button1;
     private javax.swing.JLabel logOut_icon1;

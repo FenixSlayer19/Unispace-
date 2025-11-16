@@ -17,12 +17,14 @@ public class Sing_up extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        confirmPassword_bar = new javax.swing.JPasswordField();
         password_bar = new javax.swing.JPasswordField();
+        confirmPassword_bar = new javax.swing.JPasswordField();
         text_barPhoneNum = new javax.swing.JTextField();
         text_barName = new javax.swing.JTextField();
         text_barId = new javax.swing.JTextField();
         text_barEmail = new javax.swing.JTextField();
+        createAccount_button = new javax.swing.JButton();
+        studentToggleButton = new javax.swing.JToggleButton();
         employedToggleButton = new javax.swing.JToggleButton();
         employed_button = new javax.swing.JButton();
         student_button = new javax.swing.JButton();
@@ -54,6 +56,21 @@ public class Sing_up extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1290, 710));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        password_bar.setBackground(new java.awt.Color(78, 72, 72));
+        password_bar.setForeground(new java.awt.Color(255, 255, 255));
+        password_bar.setBorder(null);
+        password_bar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                password_barMousePressed(evt);
+            }
+        });
+        password_bar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                password_barActionPerformed(evt);
+            }
+        });
+        getContentPane().add(password_bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 438, 250, 30));
+
         confirmPassword_bar.setBackground(new java.awt.Color(78, 72, 72));
         confirmPassword_bar.setForeground(new java.awt.Color(255, 255, 255));
         confirmPassword_bar.setBorder(null);
@@ -63,16 +80,6 @@ public class Sing_up extends javax.swing.JFrame {
             }
         });
         getContentPane().add(confirmPassword_bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(742, 508, 250, 30));
-
-        password_bar.setBackground(new java.awt.Color(78, 72, 72));
-        password_bar.setForeground(new java.awt.Color(255, 255, 255));
-        password_bar.setBorder(null);
-        password_bar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                password_barActionPerformed(evt);
-            }
-        });
-        getContentPane().add(password_bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(742, 438, 250, 30));
 
         text_barPhoneNum.setBackground(new java.awt.Color(78, 72, 72));
         text_barPhoneNum.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
@@ -89,6 +96,11 @@ public class Sing_up extends javax.swing.JFrame {
         text_barName.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
         text_barName.setForeground(new java.awt.Color(255, 255, 255));
         text_barName.setBorder(null);
+        text_barName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                text_barNameMousePressed(evt);
+            }
+        });
         text_barName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 text_barNameActionPerformed(evt);
@@ -117,6 +129,20 @@ public class Sing_up extends javax.swing.JFrame {
             }
         });
         getContentPane().add(text_barEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 508, 250, 30));
+
+        createAccount_button.setBackground(new java.awt.Color(215, 215, 215));
+        createAccount_button.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
+        createAccount_button.setText("Crear Cuenta");
+        createAccount_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createAccount_buttonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(createAccount_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 590, 160, 40));
+
+        studentToggleButton.setBackground(new java.awt.Color(145, 145, 145));
+        studentToggleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/student_icon.png"))); // NOI18N
+        getContentPane().add(studentToggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 240, 60, 60));
 
         employedToggleButton.setBackground(new java.awt.Color(145, 145, 145));
         employedToggleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/employed_icon.png"))); // NOI18N
@@ -150,11 +176,11 @@ public class Sing_up extends javax.swing.JFrame {
                 loginButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(705, 597, 120, 40));
+        getContentPane().add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 590, 120, 40));
 
         textBar_account.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
         textBar_account.setText("ya tienes una cuenta.");
-        getContentPane().add(textBar_account, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 610, -1, -1));
+        getContentPane().add(textBar_account, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 604, -1, -1));
 
         confirmPass_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/changePassword_icon.png"))); // NOI18N
         getContentPane().add(confirmPass_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 503, -1, -1));
@@ -230,153 +256,25 @@ public class Sing_up extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void text_barIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_barIdActionPerformed
-        // Texto guía
-        text_barId.setText("Escribe tu ID aquí...");
-        text_barId.setForeground(Color.GRAY);
-
-        // Cuando el usuario hace clic o escribe
-        text_barId.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent e) {
-                if (text_barId.getText().equals("Escribe tu ID aquí...")) {
-                    text_barId.setText("");
-                    text_barId.setForeground(Color.BLACK);
-                }
-            }
-
-            @Override
-            public void focusLost(java.awt.event.FocusEvent e) {
-                if (text_barId.getText().isEmpty()) {
-                    text_barId.setText("Escribe tu ID aquí...");
-                    text_barId.setForeground(Color.GRAY);
-                }
-            }
-        });
+        
     }//GEN-LAST:event_text_barIdActionPerformed
 
     private void text_barNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_barNameActionPerformed
-        // Texto guía
-        text_barName.setText("Escribe tu nombre aquí...");
-        text_barName.setForeground(Color.GRAY);
-
-        // Cuando el usuario hace clic o escribe
-        text_barName.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent e) {
-                if (text_barName.getText().equals("Escribe tu nombre aquí...")) {
-                    text_barName.setText("");
-                    text_barName.setForeground(Color.BLACK);
-                }
-            }
-
-            @Override
-            public void focusLost(java.awt.event.FocusEvent e) {
-                if (text_barName.getText().isEmpty()) {
-                    text_barName.setText("Escribe tu nombre aquí...");
-                    text_barName.setForeground(Color.GRAY);
-                }
-            }
-        });
+        
     }//GEN-LAST:event_text_barNameActionPerformed
 
     private void text_barEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_barEmailActionPerformed
-        // Texto guía
-        text_barEmail.setText("Escribe tu Email aquí...");
-        text_barEmail.setForeground(Color.GRAY);
-
-        // Cuando el usuario hace clic o escribe
-        text_barEmail.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent e) {
-                if (text_barEmail.getText().equals("Escribe tu Email aquí...")) {
-                    text_barEmail.setText("");
-                    text_barEmail.setForeground(Color.BLACK);
-                }
-            }
-
-            @Override
-            public void focusLost(java.awt.event.FocusEvent e) {
-                if (text_barEmail.getText().isEmpty()) {
-                    text_barEmail.setText("Escribe tu Email aquí...");
-                    text_barEmail.setForeground(Color.GRAY);
-                }
-            }
-        });
+        
 
     }//GEN-LAST:event_text_barEmailActionPerformed
 
     private void text_barPhoneNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_barPhoneNumActionPerformed
-        // Texto guía
-        text_barPhoneNum.setText("Escribe tu telefono aquí...");
-        text_barPhoneNum.setForeground(Color.GRAY);
-
-        // Cuando el usuario hace clic o escribe
-        text_barPhoneNum.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent e) {
-                if (text_barPhoneNum.getText().equals("Escribe tu telefono aquí...")) {
-                    text_barPhoneNum.setText("");
-                    text_barPhoneNum.setForeground(Color.BLACK);
-                }
-            }
-
-            @Override
-            public void focusLost(java.awt.event.FocusEvent e) {
-                if (text_barPhoneNum.getText().isEmpty()) {
-                    text_barPhoneNum.setText("Escribe tu nombre aquí...");
-                    text_barPhoneNum.setForeground(Color.GRAY);
-                }
-            }
-        });
+        
     }//GEN-LAST:event_text_barPhoneNumActionPerformed
 
-    private void password_barActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_barActionPerformed
-        // Texto guía
-        password_bar.setText("Escribe tu password aquí...");
-        password_bar.setForeground(Color.GRAY);
-
-        // Cuando el usuario hace clic o escribe
-        password_bar.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent e) {
-                if (password_bar.getText().equals("Escribe tu password aquí...")) {
-                    password_bar.setText("");
-                    password_bar.setForeground(Color.BLACK);
-                }
-            }
-
-            @Override
-            public void focusLost(java.awt.event.FocusEvent e) {
-                if (password_bar.getText().isEmpty()) {
-                    password_bar.setText("Escribe tu password aquí...");
-                    password_bar.setForeground(Color.GRAY);
-                }
-            }
-        });
-    }//GEN-LAST:event_password_barActionPerformed
-
     private void confirmPassword_barActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPassword_barActionPerformed
-        // Texto guía
-        confirmPassword_bar.setText("Escribe tu password aquí...");
-        confirmPassword_bar.setForeground(Color.GRAY);
 
-        // Cuando el usuario hace clic o escribe
         confirmPassword_bar.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent e) {
-                if (confirmPassword_bar.getText().equals("Escribe tu password aquí...")) {
-                    confirmPassword_bar.setText("");
-                    confirmPassword_bar.setForeground(Color.BLACK);
-                }
-            }
-
-            @Override
-            public void focusLost(java.awt.event.FocusEvent e) {
-                if (confirmPassword_bar.getText().isEmpty()) {
-                    confirmPassword_bar.setText("Escribe tu password aquí...");
-                    confirmPassword_bar.setForeground(Color.GRAY);
-                }
-            }
         });    }//GEN-LAST:event_confirmPassword_barActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
@@ -393,6 +291,22 @@ public class Sing_up extends javax.swing.JFrame {
     private void employed_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employed_buttonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_employed_buttonActionPerformed
+
+    private void password_barActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_barActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_password_barActionPerformed
+
+    private void createAccount_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccount_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createAccount_buttonActionPerformed
+
+    private void password_barMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_password_barMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_password_barMousePressed
+
+    private void text_barNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_text_barNameMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_barNameMousePressed
 
     /**
      * @param args the command line arguments
@@ -425,6 +339,7 @@ public class Sing_up extends javax.swing.JFrame {
     private javax.swing.JLabel confirmPass_box;
     private javax.swing.JLabel confirmPass_img;
     private javax.swing.JPasswordField confirmPassword_bar;
+    private javax.swing.JButton createAccount_button;
     private javax.swing.JLabel email_box;
     private javax.swing.JLabel email_img;
     private javax.swing.JLabel employedText_Del;
@@ -441,6 +356,7 @@ public class Sing_up extends javax.swing.JFrame {
     private javax.swing.JLabel phoneNum_box;
     private javax.swing.JLabel phoneNum_img;
     private javax.swing.JLabel sing_upText;
+    private javax.swing.JToggleButton studentToggleButton;
     private javax.swing.JButton student_button;
     private javax.swing.JLabel student_textDel;
     private javax.swing.JLabel textBar_account;
