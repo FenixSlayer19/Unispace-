@@ -95,6 +95,11 @@ public class tecno_resources extends javax.swing.JFrame {
         unispace_text = new javax.swing.JLabel();
         white_background = new javax.swing.JLabel();
         tecno_background = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jButton21 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -483,6 +488,34 @@ public class tecno_resources extends javax.swing.JFrame {
         tecno_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/black_background.png"))); // NOI18N
         getContentPane().add(tecno_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 710));
 
+        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
+        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 140, -1, 150));
+
+        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/laptop.png"))); // NOI18N
+        getContentPane().add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 150, -1, -1));
+
+        jLabel44.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
+        jLabel44.setText("Laptop-12345SCZ");
+        getContentPane().add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 210, -1, -1));
+
+        jLabel45.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel45.setText("Disponible");
+        getContentPane().add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 240, -1, -1));
+
+        jButton21.setBackground(new java.awt.Color(0, 0, 0));
+        jButton21.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton21.setForeground(new java.awt.Color(255, 255, 255));
+        jButton21.setText("Reservar");
+        jButton21.setBorder(null);
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton21ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 260, 100, 22));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -556,6 +589,10 @@ public class tecno_resources extends javax.swing.JFrame {
         login.setVisible(true);        // La muestra
     }//GEN-LAST:event_logOut_ButtonMouseClicked
 
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton21ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -593,6 +630,7 @@ public class tecno_resources extends javax.swing.JFrame {
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -620,6 +658,7 @@ public class tecno_resources extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
@@ -630,6 +669,9 @@ public class tecno_resources extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

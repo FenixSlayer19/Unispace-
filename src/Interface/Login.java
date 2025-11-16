@@ -1,6 +1,11 @@
 package Interface;
 
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import conexión.Conexión;
 
 public class Login extends javax.swing.JFrame {
 
@@ -190,9 +195,57 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_register_accountMouseClicked
 
     private void login_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_buttonMouseClicked
-        this.dispose();                     // Cierra la ventana actual (Logim)
-        Inicio start_page = new Inicio(); // Crea la nueva ventana(Inicio)
-        start_page.setVisible(true);
+       String id = user_textBarName.getText();
+    String contrasena = password_bar.getText();
+
+    if (id.isEmpty() || contrasena.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Debes llenar todos los campos.");
+        return;
+    }
+
+    try {
+        Connection conexion = Conexión.getConexion();
+        
+        String sql = "SELECT * FROM usuario WHERE id = ? AND contrasena = ?";
+        PreparedStatement pst = conexion.prepareStatement(sql);
+        pst.setString(1, id);
+        pst.setString(2, contrasena);
+
+        ResultSet rs = pst.executeQuery();
+
+        if (rs.next()) {
+            // Login correcto
+            String nombre = rs.getString("nombre");
+            String rol = rs.getString("rol");
+
+            JOptionPane.showMessageDialog(this, 
+                    "Bienvenido " + nombre + " (" + rol + ")");
+
+            this.dispose();
+
+            // Aquí decides qué ventana abrir según su rol
+            if (rol.equalsIgnoreCase("estudiante")) {
+                Inicio inicio = new Inicio();
+                inicio.setVisible(true);
+            } else if (rol.equalsIgnoreCase("empleado")) {
+                // si tienes una ventana especial para empleados
+                // EmpleadoInicio emp = new EmpleadoInicio();
+                // emp.setVisible(true);
+                Inicio inicio = new Inicio(); // temporal
+                inicio.setVisible(true);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "ID o contraseña incorrectos.");
+        }
+
+        rs.close();
+        pst.close();
+        conexion.close();
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al iniciar sesión: " + e.getMessage());
+        e.printStackTrace();
+    }
     }//GEN-LAST:event_login_buttonMouseClicked
 
     private void user_textBarNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_textBarNameMouseClicked

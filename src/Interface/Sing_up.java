@@ -1,12 +1,18 @@
 package Interface;
 
+import conexión.Conexión;
+import java.sql.Connection;
 import java.awt.Color;
 import javax.swing.*;
 import java.awt.event.*;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class Sing_up extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Sing_up.class.getName());
+
+    private String rolSeleccionado = null;
 
     public Sing_up() {
         initComponents();
@@ -133,6 +139,11 @@ public class Sing_up extends javax.swing.JFrame {
         createAccount_button.setBackground(new java.awt.Color(215, 215, 215));
         createAccount_button.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
         createAccount_button.setText("Crear Cuenta");
+        createAccount_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                createAccount_buttonMouseClicked(evt);
+            }
+        });
         createAccount_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createAccount_buttonActionPerformed(evt);
@@ -142,10 +153,25 @@ public class Sing_up extends javax.swing.JFrame {
 
         studentToggleButton.setBackground(new java.awt.Color(145, 145, 145));
         studentToggleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/student_icon.png"))); // NOI18N
+        studentToggleButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                studentToggleButtonMouseClicked(evt);
+            }
+        });
+        studentToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentToggleButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(studentToggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 240, 60, 60));
 
         employedToggleButton.setBackground(new java.awt.Color(145, 145, 145));
         employedToggleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/employed_icon.png"))); // NOI18N
+        employedToggleButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                employedToggleButtonMouseClicked(evt);
+            }
+        });
         getContentPane().add(employedToggleButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(815, 240, 60, 60));
 
         employed_button.setBackground(new java.awt.Color(179, 179, 179));
@@ -256,20 +282,20 @@ public class Sing_up extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void text_barIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_barIdActionPerformed
-        
+
     }//GEN-LAST:event_text_barIdActionPerformed
 
     private void text_barNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_barNameActionPerformed
-        
+
     }//GEN-LAST:event_text_barNameActionPerformed
 
     private void text_barEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_barEmailActionPerformed
-        
+
 
     }//GEN-LAST:event_text_barEmailActionPerformed
 
     private void text_barPhoneNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_barPhoneNumActionPerformed
-        
+
     }//GEN-LAST:event_text_barPhoneNumActionPerformed
 
     private void confirmPassword_barActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPassword_barActionPerformed
@@ -278,7 +304,7 @@ public class Sing_up extends javax.swing.JFrame {
         });    }//GEN-LAST:event_confirmPassword_barActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        
+
 
     }//GEN-LAST:event_loginButtonActionPerformed
 
@@ -307,6 +333,65 @@ public class Sing_up extends javax.swing.JFrame {
     private void text_barNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_text_barNameMousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_text_barNameMousePressed
+
+    private void createAccount_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAccount_buttonMouseClicked
+
+        String id = text_barId.getText();
+        String nombre = text_barName.getText();
+        String correo = text_barEmail.getText();
+        String telefono = text_barPhoneNum.getText();
+        String contraseña = password_bar.getText();
+        String repetir = confirmPassword_bar.getText();
+
+        if (!contraseña.equals(repetir)) {
+            JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden.");
+            return;
+        }
+        if (rolSeleccionado == null) {
+            JOptionPane.showMessageDialog(this, "Debes seleccionar un rol (estudiante o empleado).");
+            return;
+        }
+
+        try {
+            Connection conexión = (Connection) Conexión.getConexion();
+            String sql = "INSERT INTO usuario (id, nombre, correo, telefono, contrasena, rol) VALUES (?, ?, ?, ?, ?, ?)";
+
+            PreparedStatement pst = conexión.prepareStatement(sql);
+            pst.setString(1, id);
+            pst.setString(2, nombre);
+            pst.setString(3, correo);
+            pst.setString(4, telefono);
+            pst.setString(5, contraseña);
+            pst.setString(6, rolSeleccionado);
+
+            pst.executeUpdate();
+            pst.close();
+            conexión.close();
+            JOptionPane.showMessageDialog(this, "Registro exitoso");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
+
+
+    }//GEN-LAST:event_createAccount_buttonMouseClicked
+
+    private void studentToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentToggleButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_studentToggleButtonActionPerformed
+
+    private void studentToggleButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentToggleButtonMouseClicked
+        rolSeleccionado = "estudiante";
+        student_button.setBackground(new Color(100, 180, 255));
+        employed_button.setBackground(new Color(179, 179, 179));
+    }//GEN-LAST:event_studentToggleButtonMouseClicked
+
+    private void employedToggleButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employedToggleButtonMouseClicked
+        rolSeleccionado = "empleado";
+        employed_button.setBackground(new Color(100, 180, 255)); // marca selección visual
+        student_button.setBackground(new Color(179, 179, 179));    // desmarca estudiante
+        // TODO add your handling code here:
+    }//GEN-LAST:event_employedToggleButtonMouseClicked
 
     /**
      * @param args the command line arguments

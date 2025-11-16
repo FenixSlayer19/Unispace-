@@ -75,7 +75,7 @@ public class Inicio extends javax.swing.JFrame {
         service_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 56)); // NOI18N
         service_text.setForeground(new java.awt.Color(255, 255, 255));
         service_text.setText("Servicios");
-        getContentPane().add(service_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, 60));
+        getContentPane().add(service_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 255, -1, 60));
 
         booking_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 28)); // NOI18N
         booking_text.setForeground(new java.awt.Color(255, 255, 255));
