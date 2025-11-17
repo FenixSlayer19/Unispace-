@@ -27,8 +27,8 @@ public class Login extends javax.swing.JFrame {
         login_button = new javax.swing.JButton();
         password_bar = new javax.swing.JPasswordField();
         user_textBarName = new javax.swing.JTextField();
-        user_img = new javax.swing.JLabel();
-        password_img = new javax.swing.JLabel();
+        id_icon = new javax.swing.JLabel();
+        password_login = new javax.swing.JLabel();
         black_bar = new javax.swing.JLabel();
         black_bar2 = new javax.swing.JLabel();
         blue_logo = new javax.swing.JLabel();
@@ -130,13 +130,13 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(user_textBarName, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 318, 400, 30));
 
-        user_img.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        user_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user_icon.png"))); // NOI18N
-        getContentPane().add(user_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, 40, 40));
+        id_icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        id_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ID_icon.png"))); // NOI18N
+        getContentPane().add(id_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, 40, 40));
 
-        password_img.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        password_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/password_icon.png"))); // NOI18N
-        getContentPane().add(password_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 40, 30));
+        password_login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        password_login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/passwordSignUp_icon.png"))); // NOI18N
+        getContentPane().add(password_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, 40, 40));
 
         black_bar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/blackBar.png"))); // NOI18N
         getContentPane().add(black_bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, 450, 3));
@@ -365,14 +365,14 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel blue_logo;
     private javax.swing.JLabel create_account_Del;
     private javax.swing.JLabel gray_background;
+    private javax.swing.JLabel id_icon;
     private javax.swing.JButton login_button;
     private javax.swing.JLabel noAccount_text;
     private javax.swing.JPasswordField password_bar;
-    private javax.swing.JLabel password_img;
+    private javax.swing.JLabel password_login;
     private javax.swing.JButton register_account;
     private javax.swing.JLabel unispace_text;
     private javax.swing.JLabel unispace_textGray;
-    private javax.swing.JLabel user_img;
     private javax.swing.JTextField user_textBarName;
     private javax.swing.JLabel white_logo_lbl;
     // End of variables declaration//GEN-END:variables
