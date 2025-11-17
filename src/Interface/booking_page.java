@@ -36,6 +36,7 @@ public class booking_page extends javax.swing.JFrame {
         scroll_pane = new javax.swing.JScrollPane();
         jScrollBar1 = new javax.swing.JScrollBar();
         booking_panel = new javax.swing.JPanel();
+        jToggleButton1 = new javax.swing.JToggleButton();
         white_background = new javax.swing.JLabel();
         booking_background = new javax.swing.JLabel();
 
@@ -150,6 +151,15 @@ public class booking_page extends javax.swing.JFrame {
             }
         });
         booking_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jToggleButton1.setText("Hola ");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        booking_panel.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 170, 90));
+
         getContentPane().add(booking_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 1010, 640));
 
         white_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/white_background.png"))); // NOI18N
@@ -213,6 +223,10 @@ public class booking_page extends javax.swing.JFrame {
         login.setVisible(true);        // La muestra
     }//GEN-LAST:event_logOutButtonMouseClicked
 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -244,6 +258,7 @@ public class booking_page extends javax.swing.JFrame {
     private javax.swing.JButton infrastructureButton;
     private javax.swing.JLabel infrastructure_iconButton;
     private javax.swing.JScrollBar jScrollBar1;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JButton logOutButton;
     private javax.swing.JLabel logOut_icon;
     private javax.swing.JScrollPane scroll_pane;
