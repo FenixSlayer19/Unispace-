@@ -29,12 +29,8 @@ public class report_page extends javax.swing.JFrame {
         report_icon = new javax.swing.JLabel();
         report_text = new javax.swing.JLabel();
         start_iconButton = new javax.swing.JLabel();
-        tecResources_iconButton = new javax.swing.JLabel();
-        infrastructure_iconButton = new javax.swing.JLabel();
         logOut_icon = new javax.swing.JLabel();
         start_button = new javax.swing.JButton();
-        tec_resourcesButton = new javax.swing.JButton();
-        infrastructureButton = new javax.swing.JButton();
         logOutButton = new javax.swing.JButton();
         white_background = new javax.swing.JLabel();
         whiteLogo = new javax.swing.JLabel();
@@ -101,13 +97,6 @@ public class report_page extends javax.swing.JFrame {
         start_iconButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/start_icon.png"))); // NOI18N
         getContentPane().add(start_iconButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 240, 40, 30));
 
-        tecResources_iconButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/resources_icon.png"))); // NOI18N
-        getContentPane().add(tecResources_iconButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 340, 40, 30));
-
-        infrastructure_iconButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        infrastructure_iconButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/infrastructure_icon.png"))); // NOI18N
-        getContentPane().add(infrastructure_iconButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 439, 40, 30));
-
         logOut_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logOut_icon.png"))); // NOI18N
         getContentPane().add(logOut_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 640, 40, 30));
 
@@ -127,40 +116,6 @@ public class report_page extends javax.swing.JFrame {
             }
         });
         getContentPane().add(start_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 250, 70));
-
-        tec_resourcesButton.setBackground(new java.awt.Color(44, 44, 44));
-        tec_resourcesButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
-        tec_resourcesButton.setForeground(new java.awt.Color(255, 255, 255));
-        tec_resourcesButton.setText("Tecnologicos ");
-        tec_resourcesButton.setBorder(null);
-        tec_resourcesButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tec_resourcesButtonMouseClicked(evt);
-            }
-        });
-        tec_resourcesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tec_resourcesButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(tec_resourcesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 250, 70));
-
-        infrastructureButton.setBackground(new java.awt.Color(44, 44, 44));
-        infrastructureButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
-        infrastructureButton.setForeground(new java.awt.Color(255, 255, 255));
-        infrastructureButton.setText("Infraestructura");
-        infrastructureButton.setBorder(null);
-        infrastructureButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                infrastructureButtonMouseClicked(evt);
-            }
-        });
-        infrastructureButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                infrastructureButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(infrastructureButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 250, 70));
 
         logOutButton.setBackground(new java.awt.Color(44, 44, 44));
         logOutButton.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
@@ -200,26 +155,6 @@ public class report_page extends javax.swing.JFrame {
     private void start_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start_buttonActionPerformed
         // Nada por el momento
     }//GEN-LAST:event_start_buttonActionPerformed
-
-    private void tec_resourcesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tec_resourcesButtonMouseClicked
-//        this.dispose();                     // Cierra la ventana actual (Inicio)
-//        tecno_resources tecResourses = new tecno_resources(); // Crea la nueva ventana (tecno_resources)
-//        tecResourses.setVisible(true);        // La muestra
-    }//GEN-LAST:event_tec_resourcesButtonMouseClicked
-
-    private void tec_resourcesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tec_resourcesButtonActionPerformed
-
-    }//GEN-LAST:event_tec_resourcesButtonActionPerformed
-
-    private void infrastructureButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infrastructureButtonMouseClicked
-//        this.dispose();                     // Cierra la ventana actual (Inicio)
-//        Insfractuture_resources infraResourses = new Insfractuture_resources(); // Crea la nueva ventana(Infraestructura)
-//        infraResourses.setVisible(true);
-    }//GEN-LAST:event_infrastructureButtonMouseClicked
-
-    private void infrastructureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infrastructureButtonActionPerformed
-
-    }//GEN-LAST:event_infrastructureButtonActionPerformed
 
     private void logOutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutButtonMouseClicked
 //        this.dispose();                     // Cierra la ventana actual (Inicio)
@@ -264,8 +199,6 @@ public class report_page extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background_Space;
-    private javax.swing.JButton infrastructureButton;
-    private javax.swing.JLabel infrastructure_iconButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton logOutButton;
@@ -274,8 +207,6 @@ public class report_page extends javax.swing.JFrame {
     private javax.swing.JLabel report_text;
     private javax.swing.JButton start_button;
     private javax.swing.JLabel start_iconButton;
-    private javax.swing.JLabel tecResources_iconButton;
-    private javax.swing.JButton tec_resourcesButton;
     private javax.swing.JLabel unispace_Text;
     private javax.swing.JLabel whiteLogo;
     private javax.swing.JLabel white_background;

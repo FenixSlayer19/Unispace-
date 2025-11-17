@@ -1,5 +1,12 @@
-//XD
 package Interface;
+
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+// importa la clase Conexión según su paquete:
+import conexión.Conexión; // AJUSTA según el package real en Conexión.java
 
 public class tecno_resources extends javax.swing.JFrame {
 
@@ -7,16 +14,161 @@ public class tecno_resources extends javax.swing.JFrame {
 
     public tecno_resources() {
         initComponents();
-        //Reescalado de los cuadrados azules de las paginas Tecno_resources y Infrastructure.
-        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel9, "src/images/skyBlue_square.png");
-        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel10, "src/images/skyBlue_square.png");
-        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel11, "src/images/skyBlue_square.png");
-        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel12, "src/images/skyBlue_square.png");
-        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel13, "src/images/skyBlue_square.png");
-        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel14, "src/images/skyBlue_square.png");
-        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel15, "src/images/skyBlue_square.png");
-        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel16, "src/images/skyBlue_square.png");
-        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel17, "src/images/skyBlue_square.png");
+        cargarEstadosRecursos();
+    }
+
+    private void actualizarEtiquetaEstado(int idRecurso, javax.swing.JLabel etiqueta) {
+        try {
+            Conexión cn = new Conexión();
+            Connection con = cn.getConexion();
+
+            String sql = "SELECT estado FROM recursos_tecno WHERE id_recurso = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setInt(1, idRecurso);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                etiqueta.setText(rs.getString("estado"));
+            }
+
+            rs.close();
+            pst.close();
+            con.close();
+
+        } catch (Exception e) {
+            System.out.println("Error al actualizar estado del recurso: " + e.getMessage());
+        }
+    }
+
+    private void cargarEstadosRecursos() {
+
+        // Computadores
+        actualizarEtiquetaEstado(1, boton_disponible1compu);
+        actualizarEtiquetaEstado(2, boton_disponible2compu);
+        actualizarEtiquetaEstado(3, boton_disponible3compu);
+        actualizarEtiquetaEstado(4, boton_disponible4compu);
+        actualizarEtiquetaEstado(5, boton_disponible5compu);
+
+        // Tablets
+        actualizarEtiquetaEstado(6, boton_disponible1tablet);
+        actualizarEtiquetaEstado(7, boton_disponible2tablet);
+        actualizarEtiquetaEstado(8, boton_disponible3tablet);
+        actualizarEtiquetaEstado(9, boton_disponible4tablet);
+        actualizarEtiquetaEstado(10, boton_disponible5tablet);
+
+        // Videobeams
+        actualizarEtiquetaEstado(11, boton_disponible1video);
+        actualizarEtiquetaEstado(12, boton_disponible2video);
+        actualizarEtiquetaEstado(13, boton_disponible3video);
+        actualizarEtiquetaEstado(14, boton_disponible4video);
+        actualizarEtiquetaEstado(15, boton_disponible5video);
+    }
+
+//separadorrrrrrrrrrrrrrrrrrrrr
+    private void reservarRecurso(int idRecurso) {
+        String fechaInicio = JOptionPane.showInputDialog(this, "Ingrese la FECHA de inicio (YYYY-MM-DD):");
+        if (fechaInicio == null) {
+            return;
+        }
+        String horaInicio = JOptionPane.showInputDialog(this, "Ingrese la HORA de inicio (HH:MM):");
+        if (horaInicio == null) {
+            return;
+        }
+        String fechaFin = JOptionPane.showInputDialog(this, "Ingrese la FECHA de fin (YYYY-MM-DD):");
+        if (fechaFin == null) {
+            return;
+        }
+        String horaFin = JOptionPane.showInputDialog(this, "Ingrese la HORA de fin (HH:MM):");
+        if (horaFin == null) {
+            return;
+        }
+
+        // ID del usuario logueado
+        int idUsuario = Login.usuarioID;
+
+        Conexión cn = null;
+        Connection con = null;
+
+        try {
+            cn = new Conexión();
+            con = cn.getConexion();
+
+            // 1) VALIDAR DISPONIBILIDAD
+            String sqlCheck = "SELECT 1 FROM reserva WHERE id_recurso = ? "
+                    + "AND NOT (fecha_fin < ? OR fecha_inicio > ? OR hora_fin < ? OR hora_inicio > ?)";
+
+            PreparedStatement pst = con.prepareStatement(sqlCheck);
+            pst.setInt(1, idRecurso);
+            pst.setString(2, fechaInicio);
+            pst.setString(3, fechaFin);
+            pst.setString(4, horaInicio);
+            pst.setString(5, horaFin);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(this, "⚠ El recurso ya está reservado en ese intervalo.");
+                rs.close();
+                pst.close();
+                return;
+            }
+
+            rs.close();
+            pst.close();
+
+            // 2) INSERTAR RESERVA
+//            String sqlInsert = "INSERT INTO reserva (id_recurso, id_usuario, fecha_inicio, hora_inicio, fecha_fin, hora_fin, estado_reserva) VALUES (?, ?, ?, ?, ?, ?, ?)";
+//            pst = con.prepareStatement(sqlInsert);
+//
+//            pst.setInt(1, idRecurso);
+//            pst.setInt(2, idUsuario);
+//            pst.setString(3, fechaInicio);
+//            pst.setString(4, horaInicio);
+//            pst.setString(5, fechaFin);
+//            pst.setString(6, horaFin);
+//            pst.setString(7, "Reservado");
+//
+//            pst.executeUpdate();
+//            pst.close();
+
+            //
+            String sqlInsert = "INSERT INTO reserva (id_recurso, id_usuario, nombre, fecha_inicio, hora_inicio, fecha_fin, hora_fin, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            pst = con.prepareStatement(sqlInsert);
+            pst.setInt(1, idRecurso);
+            pst.setInt(2, idUsuario);
+            // Nombre del recurso (puedes cambiar esto si tienes una tabla de recursos)
+            pst.setString(3, "Recurso " + idRecurso);
+            pst.setString(4, fechaInicio);
+            pst.setString(5, horaInicio);
+            pst.setString(6, fechaFin);
+            pst.setString(7, horaFin);
+            pst.setString(8, "Reservado");
+
+            // 3) ACTUALIZAR ESTADO DEL RECURSO
+            String update = "UPDATE recursos_tecno SET estado = 'Ocupado' WHERE id_recurso = ?";
+            pst = con.prepareStatement(update);
+            pst.setInt(1, idRecurso);
+            pst.executeUpdate();
+            pst.close();
+
+            JOptionPane.showMessageDialog(this, "✔ Reserva realizada correctamente.");
+
+            // 4) Actualizar UI
+            cargarEstadosRecursos();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error SQL: " + ex.getMessage());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            } catch (Exception e) {
+            }
+        }
     }
 
     /**
@@ -28,6 +180,41 @@ public class tecno_resources extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        boton_disponible4compu = new javax.swing.JLabel();
+        boton_reservar4compu = new javax.swing.JButton();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        boton_disponible5compu = new javax.swing.JLabel();
+        boton_reservar5_compu = new javax.swing.JButton();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        boton_reservar4video = new javax.swing.JButton();
+        boton_disponible4video = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel60 = new javax.swing.JLabel();
+        boton_disponible5video = new javax.swing.JLabel();
+        boton_reservar5video = new javax.swing.JButton();
+        jLabel59 = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel66 = new javax.swing.JLabel();
+        jLabel67 = new javax.swing.JLabel();
+        boton_disponible4tablet = new javax.swing.JLabel();
+        boton_reservar4tablet = new javax.swing.JButton();
+        jLabel63 = new javax.swing.JLabel();
+        boton_reservar5tablet = new javax.swing.JButton();
+        boton_disponible5tablet = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
         tecResources_iconButton = new javax.swing.JLabel();
         infrastructure_iconButton = new javax.swing.JLabel();
         start_iconButton = new javax.swing.JLabel();
@@ -36,24 +223,24 @@ public class tecno_resources extends javax.swing.JFrame {
         infrastructure_Button = new javax.swing.JButton();
         tec_resourcesButton = new javax.swing.JButton();
         start_Button = new javax.swing.JButton();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jButton20 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        boton_disponible3tablet = new javax.swing.JLabel();
+        boton_disponible2tablet = new javax.swing.JLabel();
+        boton_disponible3video = new javax.swing.JLabel();
+        boton_disponible1tablet = new javax.swing.JLabel();
+        boton_disponible3compu = new javax.swing.JLabel();
+        boton_disponible2video = new javax.swing.JLabel();
+        boton_disponible1video = new javax.swing.JLabel();
+        boton_disponible2compu = new javax.swing.JLabel();
+        boton_disponible1compu = new javax.swing.JLabel();
+        boton_reservar3tablet = new javax.swing.JButton();
+        boton_reservar2tablet = new javax.swing.JButton();
+        boton_reservar1tablet = new javax.swing.JButton();
+        boton_reservar3video = new javax.swing.JButton();
+        boton_reservar2video = new javax.swing.JButton();
+        boton_reservar1video = new javax.swing.JButton();
+        boton_reservar3compu = new javax.swing.JButton();
+        boton_reservar2compu = new javax.swing.JButton();
+        boton_reservar1compu = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
@@ -95,14 +282,235 @@ public class tecno_resources extends javax.swing.JFrame {
         unispace_text = new javax.swing.JLabel();
         white_background = new javax.swing.JLabel();
         tecno_background = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        jButton21 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/laptop.png"))); // NOI18N
+        getContentPane().add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 150, -1, -1));
+
+        jLabel44.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
+        jLabel44.setText("Laptop-236VCH");
+        getContentPane().add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 210, -1, -1));
+
+        boton_disponible4compu.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        boton_disponible4compu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        boton_disponible4compu.setText("Disponible");
+        getContentPane().add(boton_disponible4compu, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 240, -1, -1));
+
+        boton_reservar4compu.setBackground(new java.awt.Color(0, 0, 0));
+        boton_reservar4compu.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        boton_reservar4compu.setForeground(new java.awt.Color(255, 255, 255));
+        boton_reservar4compu.setText("Reservar");
+        boton_reservar4compu.setBorder(null);
+        boton_reservar4compu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_reservar4compuMouseClicked(evt);
+            }
+        });
+        boton_reservar4compu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_reservar4compuActionPerformed(evt);
+            }
+        });
+        getContentPane().add(boton_reservar4compu, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 260, 100, 22));
+
+        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
+        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 140, -1, 150));
+
+        jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/laptop.png"))); // NOI18N
+        getContentPane().add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 150, -1, -1));
+
+        jLabel47.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
+        jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel47.setText("Laptop-12345SCZ");
+        getContentPane().add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 210, -1, -1));
+
+        jLabel48.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        jLabel48.setText("Disponible");
+        getContentPane().add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 240, -1, -1));
+
+        jButton5.setBackground(new java.awt.Color(0, 0, 0));
+        jButton5.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setText("Reservar");
+        jButton5.setBorder(null);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 260, 100, 22));
+
+        jLabel49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/laptop.png"))); // NOI18N
+        getContentPane().add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 150, -1, -1));
+
+        jLabel50.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
+        jLabel50.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel50.setText("Laptop-321DSG");
+        getContentPane().add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 210, -1, -1));
+
+        boton_disponible5compu.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        boton_disponible5compu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        boton_disponible5compu.setText("Disponible");
+        getContentPane().add(boton_disponible5compu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 240, -1, -1));
+
+        boton_reservar5_compu.setBackground(new java.awt.Color(0, 0, 0));
+        boton_reservar5_compu.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        boton_reservar5_compu.setForeground(new java.awt.Color(255, 255, 255));
+        boton_reservar5_compu.setText("Reservar");
+        boton_reservar5_compu.setBorder(null);
+        boton_reservar5_compu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_reservar5_compuMouseClicked(evt);
+            }
+        });
+        boton_reservar5_compu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_reservar5_compuActionPerformed(evt);
+            }
+        });
+        getContentPane().add(boton_reservar5_compu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 260, 100, 22));
+
+        jLabel52.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
+        getContentPane().add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 140, 160, 150));
+
+        jLabel53.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
+        getContentPane().add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 140, -1, 150));
+
+        jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/videobean.png"))); // NOI18N
+        getContentPane().add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 320, -1, -1));
+
+        jLabel55.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
+        jLabel55.setText("Proyector-154JHG");
+        getContentPane().add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 380, -1, -1));
+
+        boton_reservar4video.setBackground(new java.awt.Color(0, 0, 0));
+        boton_reservar4video.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        boton_reservar4video.setForeground(new java.awt.Color(255, 255, 255));
+        boton_reservar4video.setText("Reservar");
+        boton_reservar4video.setBorder(null);
+        boton_reservar4video.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_reservar4videoMouseClicked(evt);
+            }
+        });
+        boton_reservar4video.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_reservar4videoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(boton_reservar4video, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 430, 100, 22));
+
+        boton_disponible4video.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        boton_disponible4video.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        boton_disponible4video.setText("Disponible");
+        getContentPane().add(boton_disponible4video, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 410, -1, -1));
+
+        jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
+        getContentPane().add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 310, -1, 150));
+
+        jLabel58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/videobean.png"))); // NOI18N
+        getContentPane().add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 320, -1, -1));
+
+        jLabel60.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
+        jLabel60.setText("Proyector-615NGS");
+        getContentPane().add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 380, -1, -1));
+
+        boton_disponible5video.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        boton_disponible5video.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        boton_disponible5video.setText("Disponible");
+        getContentPane().add(boton_disponible5video, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 410, -1, -1));
+
+        boton_reservar5video.setBackground(new java.awt.Color(0, 0, 0));
+        boton_reservar5video.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        boton_reservar5video.setForeground(new java.awt.Color(255, 255, 255));
+        boton_reservar5video.setText("Reservar");
+        boton_reservar5video.setBorder(null);
+        boton_reservar5video.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_reservar5videoMouseClicked(evt);
+            }
+        });
+        boton_reservar5video.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_reservar5videoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(boton_reservar5video, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 430, 100, 22));
+
+        jLabel59.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel59.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
+        getContentPane().add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 310, 160, 150));
+
+        jLabel62.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tablet.png"))); // NOI18N
+        getContentPane().add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 500, -1, -1));
+
+        jLabel64.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tablet.png"))); // NOI18N
+        getContentPane().add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 500, -1, -1));
+
+        jLabel66.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
+        jLabel66.setText("Tablet-265HVA");
+        getContentPane().add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 560, -1, -1));
+
+        jLabel67.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
+        jLabel67.setText("Tablet-836IKL");
+        getContentPane().add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 560, -1, -1));
+
+        boton_disponible4tablet.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        boton_disponible4tablet.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        boton_disponible4tablet.setText("Disponible");
+        getContentPane().add(boton_disponible4tablet, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 590, -1, -1));
+
+        boton_reservar4tablet.setBackground(new java.awt.Color(0, 0, 0));
+        boton_reservar4tablet.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        boton_reservar4tablet.setForeground(new java.awt.Color(255, 255, 255));
+        boton_reservar4tablet.setText("Reservar");
+        boton_reservar4tablet.setBorder(null);
+        boton_reservar4tablet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_reservar4tabletMouseClicked(evt);
+            }
+        });
+        boton_reservar4tablet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_reservar4tabletActionPerformed(evt);
+            }
+        });
+        getContentPane().add(boton_reservar4tablet, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 610, 100, 22));
+
+        jLabel63.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
+        getContentPane().add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 490, 160, 150));
+
+        boton_reservar5tablet.setBackground(new java.awt.Color(0, 0, 0));
+        boton_reservar5tablet.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        boton_reservar5tablet.setForeground(new java.awt.Color(255, 255, 255));
+        boton_reservar5tablet.setText("Reservar");
+        boton_reservar5tablet.setBorder(null);
+        boton_reservar5tablet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_reservar5tabletMouseClicked(evt);
+            }
+        });
+        boton_reservar5tablet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_reservar5tabletActionPerformed(evt);
+            }
+        });
+        getContentPane().add(boton_reservar5tablet, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 610, 100, 22));
+
+        boton_disponible5tablet.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        boton_disponible5tablet.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        boton_disponible5tablet.setText("Disponible");
+        getContentPane().add(boton_disponible5tablet, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 590, -1, -1));
+
+        jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel65.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
+        getContentPane().add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 490, 160, 150));
 
         tecResources_iconButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/resources_icon.png"))); // NOI18N
         getContentPane().add(tecResources_iconButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 340, 40, 30));
@@ -180,194 +588,239 @@ public class tecno_resources extends javax.swing.JFrame {
         });
         getContentPane().add(start_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 250, 70));
 
-        jLabel42.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
-        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel42.setText("Disponible");
-        getContentPane().add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 590, -1, -1));
+        boton_disponible3tablet.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        boton_disponible3tablet.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        boton_disponible3tablet.setText("Disponible");
+        getContentPane().add(boton_disponible3tablet, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 590, -1, -1));
 
-        jLabel41.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
-        jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel41.setText("Disponible");
-        getContentPane().add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 592, -1, -1));
+        boton_disponible2tablet.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        boton_disponible2tablet.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        boton_disponible2tablet.setText("Disponible");
+        getContentPane().add(boton_disponible2tablet, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 592, -1, -1));
 
-        jLabel39.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
-        jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel39.setText("Disponible");
-        getContentPane().add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 410, -1, -1));
+        boton_disponible3video.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        boton_disponible3video.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        boton_disponible3video.setText("Disponible");
+        getContentPane().add(boton_disponible3video, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 410, -1, -1));
 
-        jLabel40.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
-        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel40.setText("Disponible");
-        getContentPane().add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 592, -1, -1));
+        boton_disponible1tablet.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        boton_disponible1tablet.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        boton_disponible1tablet.setText("Disponible");
+        getContentPane().add(boton_disponible1tablet, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 592, -1, -1));
 
-        jLabel36.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
-        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel36.setText("Disponible");
-        getContentPane().add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 240, -1, -1));
+        boton_disponible3compu.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        boton_disponible3compu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        boton_disponible3compu.setText("Disponible");
+        getContentPane().add(boton_disponible3compu, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 240, -1, -1));
 
-        jLabel38.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
-        jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel38.setText("Disponible");
-        getContentPane().add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 412, -1, -1));
+        boton_disponible2video.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        boton_disponible2video.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        boton_disponible2video.setText("Disponible");
+        getContentPane().add(boton_disponible2video, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 412, -1, -1));
 
-        jLabel37.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
-        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel37.setText("Disponible");
-        getContentPane().add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 412, -1, -1));
+        boton_disponible1video.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        boton_disponible1video.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        boton_disponible1video.setText("Disponible");
+        getContentPane().add(boton_disponible1video, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 412, -1, -1));
 
-        jLabel35.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
-        jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel35.setText("Disponible");
-        getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 242, -1, -1));
+        boton_disponible2compu.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        boton_disponible2compu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        boton_disponible2compu.setText("Disponible");
+        getContentPane().add(boton_disponible2compu, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 242, -1, -1));
 
-        jLabel34.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
-        jLabel34.setText("Disponible");
-        getContentPane().add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 242, -1, -1));
+        boton_disponible1compu.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        boton_disponible1compu.setText("Disponible");
+        getContentPane().add(boton_disponible1compu, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 242, -1, -1));
 
-        jButton20.setBackground(new java.awt.Color(0, 0, 0));
-        jButton20.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
-        jButton20.setForeground(new java.awt.Color(255, 255, 255));
-        jButton20.setText("Reservar");
-        jButton20.setBorder(null);
-        jButton20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton20ActionPerformed(evt);
+        boton_reservar3tablet.setBackground(new java.awt.Color(0, 0, 0));
+        boton_reservar3tablet.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        boton_reservar3tablet.setForeground(new java.awt.Color(255, 255, 255));
+        boton_reservar3tablet.setText("Reservar");
+        boton_reservar3tablet.setBorder(null);
+        boton_reservar3tablet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_reservar3tabletMouseClicked(evt);
             }
         });
-        getContentPane().add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 610, 100, 22));
-
-        jButton19.setBackground(new java.awt.Color(0, 0, 0));
-        jButton19.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
-        jButton19.setForeground(new java.awt.Color(255, 255, 255));
-        jButton19.setText("Reservar");
-        jButton19.setBorder(null);
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
+        boton_reservar3tablet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton19ActionPerformed(evt);
+                boton_reservar3tabletActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 610, 100, 22));
+        getContentPane().add(boton_reservar3tablet, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 610, 100, 22));
 
-        jButton18.setBackground(new java.awt.Color(0, 0, 0));
-        jButton18.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
-        jButton18.setForeground(new java.awt.Color(255, 255, 255));
-        jButton18.setText("Reservar");
-        jButton18.setBorder(null);
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton18ActionPerformed(evt);
+        boton_reservar2tablet.setBackground(new java.awt.Color(0, 0, 0));
+        boton_reservar2tablet.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        boton_reservar2tablet.setForeground(new java.awt.Color(255, 255, 255));
+        boton_reservar2tablet.setText("Reservar");
+        boton_reservar2tablet.setBorder(null);
+        boton_reservar2tablet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_reservar2tabletMouseClicked(evt);
             }
         });
-        getContentPane().add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 610, 100, 22));
-
-        jButton17.setBackground(new java.awt.Color(0, 0, 0));
-        jButton17.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
-        jButton17.setForeground(new java.awt.Color(255, 255, 255));
-        jButton17.setText("Reservar");
-        jButton17.setBorder(null);
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
+        boton_reservar2tablet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
+                boton_reservar2tabletActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, 100, 22));
+        getContentPane().add(boton_reservar2tablet, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 610, 100, 22));
 
-        jButton16.setBackground(new java.awt.Color(0, 0, 0));
-        jButton16.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
-        jButton16.setForeground(new java.awt.Color(255, 255, 255));
-        jButton16.setText("Reservar");
-        jButton16.setBorder(null);
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
+        boton_reservar1tablet.setBackground(new java.awt.Color(0, 0, 0));
+        boton_reservar1tablet.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        boton_reservar1tablet.setForeground(new java.awt.Color(255, 255, 255));
+        boton_reservar1tablet.setText("Reservar");
+        boton_reservar1tablet.setBorder(null);
+        boton_reservar1tablet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_reservar1tabletMouseClicked(evt);
             }
         });
-        getContentPane().add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 100, 22));
-
-        jButton15.setBackground(new java.awt.Color(0, 0, 0));
-        jButton15.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
-        jButton15.setForeground(new java.awt.Color(255, 255, 255));
-        jButton15.setText("Reservar");
-        jButton15.setBorder(null);
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
+        boton_reservar1tablet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
+                boton_reservar1tabletActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 100, 22));
+        getContentPane().add(boton_reservar1tablet, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 610, 100, 22));
 
-        jButton14.setBackground(new java.awt.Color(0, 0, 0));
-        jButton14.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
-        jButton14.setForeground(new java.awt.Color(255, 255, 255));
-        jButton14.setText("Reservar");
-        jButton14.setBorder(null);
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
+        boton_reservar3video.setBackground(new java.awt.Color(0, 0, 0));
+        boton_reservar3video.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        boton_reservar3video.setForeground(new java.awt.Color(255, 255, 255));
+        boton_reservar3video.setText("Reservar");
+        boton_reservar3video.setBorder(null);
+        boton_reservar3video.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_reservar3videoMouseClicked(evt);
             }
         });
-        getContentPane().add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, 100, 22));
-
-        jButton13.setBackground(new java.awt.Color(0, 0, 0));
-        jButton13.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
-        jButton13.setForeground(new java.awt.Color(255, 255, 255));
-        jButton13.setText("Reservar");
-        jButton13.setBorder(null);
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        boton_reservar3video.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                boton_reservar3videoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 100, 22));
+        getContentPane().add(boton_reservar3video, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, 100, 22));
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 0));
-        jButton4.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Reservar");
-        jButton4.setBorder(null);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+        boton_reservar2video.setBackground(new java.awt.Color(0, 0, 0));
+        boton_reservar2video.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        boton_reservar2video.setForeground(new java.awt.Color(255, 255, 255));
+        boton_reservar2video.setText("Reservar");
+        boton_reservar2video.setBorder(null);
+        boton_reservar2video.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_reservar2videoMouseClicked(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 260, 100, 22));
+        boton_reservar2video.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_reservar2videoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(boton_reservar2video, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 100, 22));
+
+        boton_reservar1video.setBackground(new java.awt.Color(0, 0, 0));
+        boton_reservar1video.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        boton_reservar1video.setForeground(new java.awt.Color(255, 255, 255));
+        boton_reservar1video.setText("Reservar");
+        boton_reservar1video.setBorder(null);
+        boton_reservar1video.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_reservar1videoMouseClicked(evt);
+            }
+        });
+        boton_reservar1video.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_reservar1videoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(boton_reservar1video, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 100, 22));
+
+        boton_reservar3compu.setBackground(new java.awt.Color(0, 0, 0));
+        boton_reservar3compu.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        boton_reservar3compu.setForeground(new java.awt.Color(255, 255, 255));
+        boton_reservar3compu.setText("Reservar");
+        boton_reservar3compu.setBorder(null);
+        boton_reservar3compu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_reservar3compuMouseClicked(evt);
+            }
+        });
+        boton_reservar3compu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_reservar3compuActionPerformed(evt);
+            }
+        });
+        getContentPane().add(boton_reservar3compu, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, 100, 22));
+
+        boton_reservar2compu.setBackground(new java.awt.Color(0, 0, 0));
+        boton_reservar2compu.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        boton_reservar2compu.setForeground(new java.awt.Color(255, 255, 255));
+        boton_reservar2compu.setText("Reservar");
+        boton_reservar2compu.setBorder(null);
+        boton_reservar2compu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_reservar2compuMouseClicked(evt);
+            }
+        });
+        boton_reservar2compu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_reservar2compuActionPerformed(evt);
+            }
+        });
+        getContentPane().add(boton_reservar2compu, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 100, 22));
+
+        boton_reservar1compu.setBackground(new java.awt.Color(0, 0, 0));
+        boton_reservar1compu.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        boton_reservar1compu.setForeground(new java.awt.Color(255, 255, 255));
+        boton_reservar1compu.setText("Reservar");
+        boton_reservar1compu.setBorder(null);
+        boton_reservar1compu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_reservar1compuMouseClicked(evt);
+            }
+        });
+        boton_reservar1compu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_reservar1compuActionPerformed(evt);
+            }
+        });
+        getContentPane().add(boton_reservar1compu, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 260, 100, 22));
 
         jLabel32.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
-        jLabel32.setText("Tablet-02545SXZ");
+        jLabel32.setText("Tablet-023NVB");
         getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 560, -1, -1));
 
         jLabel31.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
-        jLabel31.setText("Tablet-02545SXZ");
+        jLabel31.setText("Tablet-432ASD");
         getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 560, -1, -1));
 
         jLabel30.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
-        jLabel30.setText("Tablet-02545SXZ");
+        jLabel30.setText("Tablet-441MHU");
         getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 560, -1, -1));
 
         jLabel29.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
-        jLabel29.setText("Proyector-7425SXZ");
+        jLabel29.setText("Proyector-777JLO");
         getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 380, -1, -1));
 
         jLabel28.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
-        jLabel28.setText("Proyector-7425SXZ");
+        jLabel28.setText("Proyector-325SDA");
         getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, -1, -1));
 
         jLabel27.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
-        jLabel27.setText("Proyector-7425SXZ");
+        jLabel27.setText("Proyector-745SXZ");
         getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 380, -1, -1));
 
         jLabel26.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
-        jLabel26.setText("Laptop-12345SCZ");
+        jLabel26.setText("Laptop-421FDX");
         getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(645, 210, -1, -1));
 
         jLabel25.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setText("Laptop-12345SCZ");
+        jLabel25.setText("Laptop-331VGD");
         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("Laptop-12345SCZ");
+        jLabel20.setText("Laptop-123SCZ");
         getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 210, -1, -1));
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tablet.png"))); // NOI18N
@@ -488,75 +941,47 @@ public class tecno_resources extends javax.swing.JFrame {
         tecno_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/black_background.png"))); // NOI18N
         getContentPane().add(tecno_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 710));
 
-        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
-        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 140, -1, 150));
-
-        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/laptop.png"))); // NOI18N
-        getContentPane().add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 150, -1, -1));
-
-        jLabel44.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
-        jLabel44.setText("Laptop-12345SCZ");
-        getContentPane().add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 210, -1, -1));
-
-        jLabel45.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
-        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel45.setText("Disponible");
-        getContentPane().add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 240, -1, -1));
-
-        jButton21.setBackground(new java.awt.Color(0, 0, 0));
-        jButton21.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
-        jButton21.setForeground(new java.awt.Color(255, 255, 255));
-        jButton21.setText("Reservar");
-        jButton21.setBorder(null);
-        jButton21.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton21ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 260, 100, 22));
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void boton_reservar1compuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_reservar1compuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_boton_reservar1compuActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void boton_reservar2compuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_reservar2compuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
+    }//GEN-LAST:event_boton_reservar2compuActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+    private void boton_reservar3compuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_reservar3compuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton14ActionPerformed
+    }//GEN-LAST:event_boton_reservar3compuActionPerformed
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    private void boton_reservar1videoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_reservar1videoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton15ActionPerformed
+    }//GEN-LAST:event_boton_reservar1videoActionPerformed
 
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+    private void boton_reservar2videoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_reservar2videoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton16ActionPerformed
+    }//GEN-LAST:event_boton_reservar2videoActionPerformed
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+    private void boton_reservar3videoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_reservar3videoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton17ActionPerformed
+    }//GEN-LAST:event_boton_reservar3videoActionPerformed
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+    private void boton_reservar1tabletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_reservar1tabletActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton18ActionPerformed
+    }//GEN-LAST:event_boton_reservar1tabletActionPerformed
 
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+    private void boton_reservar2tabletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_reservar2tabletActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton19ActionPerformed
+    }//GEN-LAST:event_boton_reservar2tabletActionPerformed
 
-    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+    private void boton_reservar3tabletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_reservar3tabletActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton20ActionPerformed
+    }//GEN-LAST:event_boton_reservar3tabletActionPerformed
 
     private void start_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start_ButtonActionPerformed
-        
+
     }//GEN-LAST:event_start_ButtonActionPerformed
 
     private void tec_resourcesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tec_resourcesButtonActionPerformed
@@ -564,11 +989,11 @@ public class tecno_resources extends javax.swing.JFrame {
     }//GEN-LAST:event_tec_resourcesButtonActionPerformed
 
     private void infrastructure_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infrastructure_ButtonActionPerformed
-        
+
     }//GEN-LAST:event_infrastructure_ButtonActionPerformed
 
     private void logOut_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOut_ButtonActionPerformed
-        
+
     }//GEN-LAST:event_logOut_ButtonActionPerformed
 
     private void start_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_start_ButtonMouseClicked
@@ -589,9 +1014,94 @@ public class tecno_resources extends javax.swing.JFrame {
         login.setVisible(true);        // La muestra
     }//GEN-LAST:event_logOut_ButtonMouseClicked
 
-    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+    private void boton_reservar4compuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_reservar4compuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton21ActionPerformed
+    }//GEN-LAST:event_boton_reservar4compuActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void boton_reservar5_compuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_reservar5_compuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton_reservar5_compuActionPerformed
+
+    private void boton_reservar4videoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_reservar4videoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton_reservar4videoActionPerformed
+
+    private void boton_reservar5videoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_reservar5videoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton_reservar5videoActionPerformed
+
+    private void boton_reservar4tabletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_reservar4tabletActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton_reservar4tabletActionPerformed
+
+    private void boton_reservar5tabletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_reservar5tabletActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boton_reservar5tabletActionPerformed
+
+    private void boton_reservar1compuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar1compuMouseClicked
+        reservarRecurso(1); // si el id del recurso es 1
+    }//GEN-LAST:event_boton_reservar1compuMouseClicked
+
+    private void boton_reservar2compuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar2compuMouseClicked
+        reservarRecurso(2); // si el id del recurso es 1
+
+    }//GEN-LAST:event_boton_reservar2compuMouseClicked
+
+    private void boton_reservar3compuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar3compuMouseClicked
+        reservarRecurso(3);
+    }//GEN-LAST:event_boton_reservar3compuMouseClicked
+
+    private void boton_reservar4compuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar4compuMouseClicked
+        reservarRecurso(4);
+    }//GEN-LAST:event_boton_reservar4compuMouseClicked
+
+    private void boton_reservar5_compuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar5_compuMouseClicked
+        reservarRecurso(5);
+    }//GEN-LAST:event_boton_reservar5_compuMouseClicked
+
+    private void boton_reservar1videoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar1videoMouseClicked
+        reservarRecurso(6);
+    }//GEN-LAST:event_boton_reservar1videoMouseClicked
+
+    private void boton_reservar2videoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar2videoMouseClicked
+        reservarRecurso(7);
+    }//GEN-LAST:event_boton_reservar2videoMouseClicked
+
+    private void boton_reservar3videoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar3videoMouseClicked
+        reservarRecurso(8);
+    }//GEN-LAST:event_boton_reservar3videoMouseClicked
+
+    private void boton_reservar4videoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar4videoMouseClicked
+        reservarRecurso(9);
+    }//GEN-LAST:event_boton_reservar4videoMouseClicked
+
+    private void boton_reservar5videoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar5videoMouseClicked
+        reservarRecurso(10);
+    }//GEN-LAST:event_boton_reservar5videoMouseClicked
+
+    private void boton_reservar1tabletMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar1tabletMouseClicked
+        reservarRecurso(11);
+    }//GEN-LAST:event_boton_reservar1tabletMouseClicked
+
+    private void boton_reservar2tabletMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar2tabletMouseClicked
+        reservarRecurso(12);
+    }//GEN-LAST:event_boton_reservar2tabletMouseClicked
+
+    private void boton_reservar3tabletMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar3tabletMouseClicked
+        reservarRecurso(13);
+    }//GEN-LAST:event_boton_reservar3tabletMouseClicked
+
+    private void boton_reservar4tabletMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar4tabletMouseClicked
+        reservarRecurso(14);
+    }//GEN-LAST:event_boton_reservar4tabletMouseClicked
+
+    private void boton_reservar5tabletMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar5tabletMouseClicked
+        reservarRecurso(15);
+    }//GEN-LAST:event_boton_reservar5tabletMouseClicked
 
     /**
      * @param args the command line arguments
@@ -619,19 +1129,40 @@ public class tecno_resources extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel boton_disponible1compu;
+    private javax.swing.JLabel boton_disponible1tablet;
+    private javax.swing.JLabel boton_disponible1video;
+    private javax.swing.JLabel boton_disponible2compu;
+    private javax.swing.JLabel boton_disponible2tablet;
+    private javax.swing.JLabel boton_disponible2video;
+    private javax.swing.JLabel boton_disponible3compu;
+    private javax.swing.JLabel boton_disponible3tablet;
+    private javax.swing.JLabel boton_disponible3video;
+    private javax.swing.JLabel boton_disponible4compu;
+    private javax.swing.JLabel boton_disponible4tablet;
+    private javax.swing.JLabel boton_disponible4video;
+    private javax.swing.JLabel boton_disponible5compu;
+    private javax.swing.JLabel boton_disponible5tablet;
+    private javax.swing.JLabel boton_disponible5video;
+    private javax.swing.JButton boton_reservar1compu;
+    private javax.swing.JButton boton_reservar1tablet;
+    private javax.swing.JButton boton_reservar1video;
+    private javax.swing.JButton boton_reservar2compu;
+    private javax.swing.JButton boton_reservar2tablet;
+    private javax.swing.JButton boton_reservar2video;
+    private javax.swing.JButton boton_reservar3compu;
+    private javax.swing.JButton boton_reservar3tablet;
+    private javax.swing.JButton boton_reservar3video;
+    private javax.swing.JButton boton_reservar4compu;
+    private javax.swing.JButton boton_reservar4tablet;
+    private javax.swing.JButton boton_reservar4video;
+    private javax.swing.JButton boton_reservar5_compu;
+    private javax.swing.JButton boton_reservar5tablet;
+    private javax.swing.JButton boton_reservar5video;
     private javax.swing.JButton infrastructure_Button;
     private javax.swing.JLabel infrastructure_icon;
     private javax.swing.JLabel infrastructure_iconButton;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -659,21 +1190,30 @@ public class tecno_resources extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

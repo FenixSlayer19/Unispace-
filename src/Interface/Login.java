@@ -11,6 +11,8 @@ import conexión.Conexión;
 public class Login extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
+    
+    public static int usuarioID;
 
     public Login() {
         initComponents();
@@ -216,6 +218,8 @@ public class Login extends javax.swing.JFrame {
 
         if (rs.next()) {
             // Login correcto
+            
+            Login.usuarioID = rs.getInt("id");
             String nombre = rs.getString("nombre");
             String rol = rs.getString("rol");
 
