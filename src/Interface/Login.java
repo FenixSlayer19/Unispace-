@@ -199,7 +199,7 @@ public class Login extends javax.swing.JFrame {
 
     private void login_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_buttonMouseClicked
       String id = user_textBarName.getText();
-    String contrasena = password_bar.getText();
+      String contrasena = password_bar.getText();
 
     if (id.isEmpty() || contrasena.isEmpty()) {
         JOptionPane.showMessageDialog(this, "Debes llenar todos los campos.");
@@ -209,7 +209,7 @@ public class Login extends javax.swing.JFrame {
     try {
         Connection conexion = Conexión.getConexion();
         
-        String sql = "SELECT * FROM usuario WHERE id = ? AND contrasena = ?";
+        String sql = "SELECT * FROM usuario WHERE id_usuario = ? AND contrasena = ?";
         PreparedStatement pst = conexion.prepareStatement(sql);
         pst.setString(1, id);
         pst.setString(2, contrasena);
@@ -219,7 +219,7 @@ public class Login extends javax.swing.JFrame {
         if (rs.next()) {
             // Login correcto
             
-            Login.usuarioID = rs.getInt("id");
+            Login.usuarioID = rs.getInt("id_usuario");
             String nombre = rs.getString("nombre");
             String rol = rs.getString("rol");
 
