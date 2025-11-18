@@ -20,72 +20,60 @@ public class ReservaFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        cajaTextoFecha = new javax.swing.JTextField();
+        cajaTextoHoraIni = new javax.swing.JTextField();
+        cajaTextoHoraFin = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        cajaTextoMotivos = new javax.swing.JTextArea();
+        tituloReservas = new javax.swing.JLabel();
+        tituloFecha = new javax.swing.JLabel();
+        tituloHoraIni = new javax.swing.JLabel();
+        tituloHoraFin = new javax.swing.JLabel();
+        tituloMotivos = new javax.swing.JLabel();
+        botonCancelar = new javax.swing.JButton();
+        botonConfirmar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        cajaTextoMotivos.setColumns(20);
+        cajaTextoMotivos.setRows(5);
+        jScrollPane1.setViewportView(cajaTextoMotivos);
 
-        jLabel1.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Reservar recurso: ");
+        tituloReservas.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
+        tituloReservas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloReservas.setText("Reservar recurso: ");
 
-        jLabel2.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
-        jLabel2.setText("Fecha: ");
+        tituloFecha.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
+        tituloFecha.setText("Fecha: ");
 
-        jLabel3.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
-        jLabel3.setText("Hora inicio:");
+        tituloHoraIni.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
+        tituloHoraIni.setText("Hora inicio:");
 
-        jLabel4.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
-        jLabel4.setText("Hora fin:");
+        tituloHoraFin.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
+        tituloHoraFin.setText("Hora fin:");
 
-        jLabel5.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
-        jLabel5.setText("Motivos: ");
+        tituloMotivos.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
+        tituloMotivos.setText("Motivos: ");
 
-        jButton1.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
-        jButton1.setText("Cancelar");
+        botonCancelar.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
+        botonCancelar.setText("Cancelar");
 
-        jButton2.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
-        jButton2.setText("Confirmar");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        botonConfirmar.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
+        botonConfirmar.setText("Confirmar");
+        botonConfirmar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                botonConfirmarMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton2MouseEntered(evt);
+                botonConfirmarMouseEntered(evt);
             }
         });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botonConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botonConfirmarActionPerformed(evt);
             }
         });
-
-        jLabel6.setText("jLabel6");
-
-        jLabel7.setText("jLabel7");
-
-        jLabel8.setText("jLabel8");
-
-        jLabel9.setText("jLabel9");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -95,84 +83,60 @@ public class ReservaFrame extends javax.swing.JFrame {
                 .addGap(95, 95, 95)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(28, 28, 28)
-                        .addComponent(jScrollPane1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(tituloReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(234, 234, 234))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(81, 81, 81)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(144, 144, 144))
+                                .addComponent(botonConfirmar))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(tituloMotivos)
+                                .addGap(28, 28, 28)
+                                .addComponent(jScrollPane1))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(tituloHoraFin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(234, 234, 234))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(tituloFecha)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(tituloHoraIni)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cajaTextoFecha)
+                                    .addComponent(cajaTextoHoraIni)
+                                    .addComponent(cajaTextoHoraFin, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))))
+                        .addGap(99, 99, 99))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(7, 7, 7)))
+                .addComponent(tituloReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel7))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(cajaTextoFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloFecha))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel8))
+                    .addComponent(cajaTextoHoraIni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloHoraIni))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cajaTextoHoraFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloHoraFin))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
+                    .addComponent(tituloMotivos)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24))
         );
 
@@ -181,19 +145,19 @@ public class ReservaFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void botonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_botonConfirmarActionPerformed
 
-    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
+    private void botonConfirmarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonConfirmarMouseEntered
 
-    }//GEN-LAST:event_jButton2MouseEntered
+    }//GEN-LAST:event_botonConfirmarMouseEntered
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        String fecha = jTextField1.getText();
-        String horaInicio = jTextField2.getText();
-        String horaFin = jTextField3.getText();
-        String motivos = jTextArea1.getText();
+    private void botonConfirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonConfirmarMouseClicked
+        String fecha = cajaTextoFecha.getText();
+        String horaInicio = cajaTextoHoraIni.getText();
+        String horaFin = cajaTextoHoraFin.getText();
+        String motivos = cajaTextoMotivos.getText();
 
         // Validaciones simples
         if (fecha.isEmpty() || horaInicio.isEmpty() || horaFin.isEmpty() || motivos.isEmpty()) {
@@ -210,35 +174,13 @@ public class ReservaFrame extends javax.swing.JFrame {
             ps.setString(3, horaFin);
             ps.setString(4, motivos);
             ps.executeUpdate();
-//            java.sql.Connection conexion = Conexión.getConexion();
-//            String sql = "INSERT INTO reservas (id_recurso, id_usuario, nombre, fecha_inicio, hora_inicio, fecha_fin, hora_fin, estado) "
-//                    + "VALUES (?,?,?,?,?,?,?,?)";
-
-//            java.sql.PreparedStatement ps = conexion.prepareStatement(sql);
-//
-//            // Valores que NO están en tu formulario (obligatorios en la tabla)
-//            ps.setString(1, "1");                 // id_recurso (puedes cambiarlo cuando tengas selector)
-//            ps.setString(2, "1");                 // id_usuario  (cuando inicies sesión lo sustituyes)
-//            ps.setString(3, motivos);             // nombre → usamos el motivo que escribiste
-//
-//            // Datos del formulario
-//            ps.setString(4, fecha);               // fecha_inicio
-//            ps.setString(5, horaInicio);          // hora_inicio
-//
-//            // Para fecha_fin reutilizamos la misma fecha por ahora
-//            ps.setString(6, fecha);               // fecha_fin
-//            ps.setString(7, horaFin);             // hora_fin
-//
-//            ps.setString(8, "Activo");            // estado de la reserva
-//
-           
 
             javax.swing.JOptionPane.showMessageDialog(this, "Reserva guardada exitosamente.");
 
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
         }
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_botonConfirmarMouseClicked
 
     public static void main(String args[]) {
 
@@ -259,22 +201,18 @@ public class ReservaFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton botonCancelar;
+    private javax.swing.JButton botonConfirmar;
+    private javax.swing.JTextField cajaTextoFecha;
+    private javax.swing.JTextField cajaTextoHoraFin;
+    private javax.swing.JTextField cajaTextoHoraIni;
+    private javax.swing.JTextArea cajaTextoMotivos;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel tituloFecha;
+    private javax.swing.JLabel tituloHoraFin;
+    private javax.swing.JLabel tituloHoraIni;
+    private javax.swing.JLabel tituloMotivos;
+    private javax.swing.JLabel tituloReservas;
     // End of variables declaration//GEN-END:variables
 }
