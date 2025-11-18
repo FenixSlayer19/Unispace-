@@ -39,7 +39,7 @@ public class Insfractuture_resources extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel20 = new javax.swing.JLabel();
+        titulo_salon = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
@@ -102,12 +102,12 @@ public class Insfractuture_resources extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel20.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
-        jLabel20.setText("Salón 7- 403");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, -1, -1));
+        titulo_salon.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
+        titulo_salon.setText("Salón 7- 403");
+        getContentPane().add(titulo_salon, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, -1, -1));
 
         jLabel27.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
-        jLabel27.setText("Salón 7- 403");
+        jLabel27.setText("Salón 7- 402");
         getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 360, -1, -1));
 
         jLabel29.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
@@ -167,6 +167,11 @@ public class Insfractuture_resources extends javax.swing.JFrame {
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Reservar");
         jButton4.setBorder(null);
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -584,6 +589,11 @@ public class Insfractuture_resources extends javax.swing.JFrame {
         close_Seccion.setVisible(true);
     }//GEN-LAST:event_logOut_ButtonMouseClicked
 
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        ReservaFrame reservacion = new ReservaFrame(); 
+        reservacion.setVisible(true);
+    }//GEN-LAST:event_jButton4MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -645,7 +655,6 @@ public class Insfractuture_resources extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -677,6 +686,7 @@ public class Insfractuture_resources extends javax.swing.JFrame {
     private javax.swing.JLabel tecResources_iconButton;
     private javax.swing.JLabel tecResourses_text;
     private javax.swing.JButton tec_resourcesButton;
+    private javax.swing.JLabel titulo_salon;
     private javax.swing.JLabel unispace_text;
     private javax.swing.JLabel whiteLogo;
     private javax.swing.JLabel white_background;
