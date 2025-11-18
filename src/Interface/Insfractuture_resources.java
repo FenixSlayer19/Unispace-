@@ -39,6 +39,7 @@ public class Insfractuture_resources extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         titulo_salon = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
@@ -101,6 +102,9 @@ public class Insfractuture_resources extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setText("Hola mundo ");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 160, 140, 100));
 
         titulo_salon.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
         titulo_salon.setText("Salón 7- 403");
@@ -647,6 +651,7 @@ public class Insfractuture_resources extends javax.swing.JFrame {
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
