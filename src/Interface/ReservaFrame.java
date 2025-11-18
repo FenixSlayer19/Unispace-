@@ -175,7 +175,7 @@ public class ReservaFrame extends javax.swing.JFrame {
 
         try {
             java.sql.Connection conexion = Conexión.getConexion();
-            String sql = "INSERT INTO reservas (id, fecha, hora_inicio, hora_fin, motivos) VALUES (?,?,?,?,?)";
+            String sql = "INSERT INTO reservas (fecha, hora_inicio, hora_fin, motivos) VALUES (?,?,?,?)";
             java.sql.PreparedStatement ps = conexion.prepareStatement(sql);
             ps.setString(1, fecha);
             ps.setString(2, horaInicio);
