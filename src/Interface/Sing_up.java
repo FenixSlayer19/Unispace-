@@ -405,7 +405,7 @@ public class Sing_up extends javax.swing.JFrame {
     try {
         Connection conexion = Conexión.getConexion();
 
-        String sql = "INSERT INTO usuario (id, nombre, correo, telefono, contrasena, rol, codigo_empleado) "
+        String sql = "INSERT INTO usuario (id_usuario, nombre, correo, telefono, contrasena, rol, codigo_empleado) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement pst = conexion.prepareStatement(sql);

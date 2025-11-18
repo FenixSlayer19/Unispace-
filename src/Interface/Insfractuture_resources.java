@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Interface;
 
 import java.sql.Connection;
@@ -25,7 +22,69 @@ public class Insfractuture_resources extends javax.swing.JFrame {
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel15, "src/images/skyBlue_square.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel16, "src/images/skyBlue_square.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel17, "src/images/skyBlue_square.png");
+            cargarEstados();  // ✔ MUY IMPORTANTE
     }
+    private void cargarEstados() {
+    Connection conn = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+
+    try {
+        conn = Conexión.getConexion();
+
+        String sql = "SELECT nombre_recurso, estado FROM Recursos_Infraestructura";
+        pst = conn.prepareStatement(sql);
+        rs = pst.executeQuery();
+
+        while (rs.next()) {
+            String nombre = rs.getString("nombre_recurso");
+            String estado = rs.getString("estado");
+
+            // AQUÍ ACTUALIZAS LOS LABELS SEGÚN TU JFRAME
+            if (nombre.equals("Salón 7- 403")) {
+                disponible1.setText(estado);
+            }
+            if (nombre.equals("Salón 7- 303")) {
+                disponible2.setText(estado);
+            }
+            if (nombre.equals("Salón 7- 402")) {
+                disponible3.setText(estado);
+            }
+            if (nombre.equals("Salón 7- 503")) {
+                disponible4.setText(estado);
+            }
+            if (nombre.equals("Salón 7- 404")) {
+                disponible5.setText(estado);
+            }
+            if (nombre.equals("Salón 7- 401")) {
+                disponible6.setText(estado);
+            }
+            if (nombre.equals("Salón 7- 405")) {
+                disponible7.setText(estado);
+            }
+            if (nombre.equals("Salón 7-406")) {
+                disponible8.setText(estado);
+            }
+            if (nombre.equals("Salón 7- 301")) {
+                disponible9.setText(estado);
+            }
+            
+            // → agregas todos tus recursos aquí
+        }
+
+    } catch (Exception e) {
+        System.out.println("ERROR: " + e.getMessage());
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (pst != null) pst.close();
+            if (conn != null) conn.close();
+        } catch (SQLException ex) {
+            System.out.println("Error al cerrar: " + ex.getMessage());
+        }
+    }
+}
+
 
    private void abrirReserva(String nombreRecurso, String tipoRecurso) {
     Connection conn = null;
@@ -82,10 +141,10 @@ public class Insfractuture_resources extends javax.swing.JFrame {
         reservas9 = new javax.swing.JButton();
         reservas8 = new javax.swing.JButton();
         reservas1 = new javax.swing.JButton();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
+        disponible1 = new javax.swing.JLabel();
+        disponible5 = new javax.swing.JLabel();
+        disponible6 = new javax.swing.JLabel();
+        disponible8 = new javax.swing.JLabel();
         reservas3 = new javax.swing.JButton();
         reservas4 = new javax.swing.JButton();
         reservas5 = new javax.swing.JButton();
@@ -93,26 +152,26 @@ public class Insfractuture_resources extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         reservas2 = new javax.swing.JButton();
-        jLabel35 = new javax.swing.JLabel();
+        disponible2 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
+        disponible3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jButton18 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jButton19 = new javax.swing.JButton();
         jButton20 = new javax.swing.JButton();
-        jLabel37 = new javax.swing.JLabel();
+        disponible4 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
         jButton21 = new javax.swing.JButton();
-        jLabel40 = new javax.swing.JLabel();
+        disponible7 = new javax.swing.JLabel();
         reservas7 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
+        disponible9 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         tecResources_iconButton = new javax.swing.JLabel();
         logOut_icon1 = new javax.swing.JLabel();
@@ -221,24 +280,24 @@ public class Insfractuture_resources extends javax.swing.JFrame {
         });
         getContentPane().add(reservas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 260, 100, 22));
 
-        jLabel44.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
-        jLabel44.setText("Disponible");
-        getContentPane().add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 242, -1, -1));
+        disponible1.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        disponible1.setText("Disponible");
+        getContentPane().add(disponible1, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 242, -1, -1));
 
-        jLabel45.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
-        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel45.setText("Disponible");
-        getContentPane().add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 412, -1, -1));
+        disponible5.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        disponible5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        disponible5.setText("Disponible");
+        getContentPane().add(disponible5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 412, -1, -1));
 
-        jLabel46.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
-        jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel46.setText("Disponible");
-        getContentPane().add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 410, -1, -1));
+        disponible6.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        disponible6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        disponible6.setText("Disponible");
+        getContentPane().add(disponible6, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 410, -1, -1));
 
-        jLabel47.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
-        jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel47.setText("Disponible");
-        getContentPane().add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 592, -1, -1));
+        disponible8.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        disponible8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        disponible8.setText("Disponible");
+        getContentPane().add(disponible8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 592, -1, -1));
 
         reservas3.setBackground(new java.awt.Color(0, 0, 0));
         reservas3.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
@@ -333,19 +392,19 @@ public class Insfractuture_resources extends javax.swing.JFrame {
         });
         getContentPane().add(reservas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 100, 22));
 
-        jLabel35.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
-        jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel35.setText("Disponible");
-        getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 242, -1, -1));
+        disponible2.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        disponible2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        disponible2.setText("Disponible");
+        getContentPane().add(disponible2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 242, -1, -1));
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 160, 150));
 
-        jLabel36.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
-        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel36.setText("Disponible");
-        getContentPane().add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 240, -1, -1));
+        disponible3.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        disponible3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        disponible3.setText("Disponible");
+        getContentPane().add(disponible3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 240, -1, -1));
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
@@ -396,10 +455,10 @@ public class Insfractuture_resources extends javax.swing.JFrame {
         });
         getContentPane().add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 100, 22));
 
-        jLabel37.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
-        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel37.setText("Disponible");
-        getContentPane().add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 412, -1, -1));
+        disponible4.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        disponible4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        disponible4.setText("Disponible");
+        getContentPane().add(disponible4, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 412, -1, -1));
 
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
@@ -426,10 +485,10 @@ public class Insfractuture_resources extends javax.swing.JFrame {
         });
         getContentPane().add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, 100, 22));
 
-        jLabel40.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
-        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel40.setText("Disponible");
-        getContentPane().add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 592, -1, -1));
+        disponible7.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        disponible7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        disponible7.setText("Disponible");
+        getContentPane().add(disponible7, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 592, -1, -1));
 
         reservas7.setBackground(new java.awt.Color(0, 0, 0));
         reservas7.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
@@ -460,10 +519,10 @@ public class Insfractuture_resources extends javax.swing.JFrame {
         jLabel42.setText("Disponible");
         getContentPane().add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 592, -1, -1));
 
-        jLabel43.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
-        jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel43.setText("Disponible");
-        getContentPane().add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 590, -1, -1));
+        disponible9.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 12)); // NOI18N
+        disponible9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        disponible9.setText("Disponible");
+        getContentPane().add(disponible9, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 590, -1, -1));
 
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/skyBlue_square.png"))); // NOI18N
@@ -662,7 +721,7 @@ public class Insfractuture_resources extends javax.swing.JFrame {
     }//GEN-LAST:event_logOut_ButtonMouseClicked
 
     private void reservas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservas1MouseClicked
-
+        
         String nombreRecurso = "Salón 7- 403";
         String tipoRecurso = "Aula";
 
@@ -741,6 +800,15 @@ public class Insfractuture_resources extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel disponible1;
+    private javax.swing.JLabel disponible2;
+    private javax.swing.JLabel disponible3;
+    private javax.swing.JLabel disponible4;
+    private javax.swing.JLabel disponible5;
+    private javax.swing.JLabel disponible6;
+    private javax.swing.JLabel disponible7;
+    private javax.swing.JLabel disponible8;
+    private javax.swing.JLabel disponible9;
     private javax.swing.JLabel infraestructura_fondo;
     private javax.swing.JButton infrastructure_Button;
     private javax.swing.JLabel infrastructure_iconButton;
@@ -766,19 +834,10 @@ public class Insfractuture_resources extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JButton logOut_Button;
     private javax.swing.JLabel logOut_icon1;
