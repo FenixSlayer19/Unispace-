@@ -15,15 +15,17 @@ public class ReservaFrame extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ReservaFrame.class.getName());
     private String nombreRecurso;
     private String tipoRecurso;
+    private Insfractuture_resources padre;
 
-    public ReservaFrame(String nombreRecurso, String tipoRecurso) {
-
+    public ReservaFrame(String nombreRecurso, String tipoRecurso, Insfractuture_resources padre) {
         initComponents();
         this.nombreRecurso = nombreRecurso;
         this.tipoRecurso = tipoRecurso;
+        this.padre = padre;
 
         tituloReservas.setText("Reservar " + nombreRecurso);
     }
+    
 
 //    private void abrirReserva(String nombreRecurso, String tipoRecurso) {
 //    try {
@@ -97,6 +99,11 @@ public class ReservaFrame extends javax.swing.JFrame {
 
         botonCancelar.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
         botonCancelar.setText("Cancelar");
+        botonCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonCancelarMouseClicked(evt);
+            }
+        });
 
         botonConfirmar.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 16)); // NOI18N
         botonConfirmar.setText("Confirmar");
@@ -257,6 +264,11 @@ public class ReservaFrame extends javax.swing.JFrame {
             PreparedStatement pst2 = conn.prepareStatement(update);
             pst2.setString(1, nombreRecurso);
             pst2.executeUpdate();
+            // ✔ REFRESCAR AUTOMÁTICAMENTE LA VENTANA DE INFRAESTRUCTURA
+            if (padre != null) {
+                padre.cargarEstados();
+                this.dispose();
+            }
 
             JOptionPane.showMessageDialog(this, "Reserva creada con éxito.");
 
@@ -294,6 +306,10 @@ public class ReservaFrame extends javax.swing.JFrame {
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         this.dispose();
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void botonCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCancelarMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_botonCancelarMouseClicked
 
     public static void main(String args[]) {
 
