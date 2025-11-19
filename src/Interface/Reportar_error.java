@@ -13,6 +13,7 @@ public class Reportar_error extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         reportarError_Icon = new javax.swing.JLabel();
         start_iconButton = new javax.swing.JLabel();
         start_Button = new javax.swing.JButton();
@@ -36,6 +37,9 @@ public class Reportar_error extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setText("Hola mundo");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 80, 240, 30));
 
         reportarError_Icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/error_icon_1.png"))); // NOI18N
         getContentPane().add(reportarError_Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 75, -1, -1));
@@ -247,6 +251,7 @@ public class Reportar_error extends javax.swing.JFrame {
     private javax.swing.JLabel gray_background;
     private javax.swing.JButton infrastructure_Button;
     private javax.swing.JLabel infrastructure_iconButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logOut_Button1;
     private javax.swing.JLabel logOut_icon1;
