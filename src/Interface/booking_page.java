@@ -30,6 +30,7 @@ public class booking_page extends javax.swing.JFrame {
         whiteLogo = new javax.swing.JLabel();
         white_background = new javax.swing.JLabel();
         booking_background = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -138,6 +139,9 @@ public class booking_page extends javax.swing.JFrame {
         booking_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/black_background.png"))); // NOI18N
         getContentPane().add(booking_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 710));
 
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, 120, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -211,6 +215,7 @@ public class booking_page extends javax.swing.JFrame {
     private javax.swing.JLabel booking_background;
     private javax.swing.JButton infrastructureButton;
     private javax.swing.JLabel infrastructure_iconButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelContenedorReservas;
     private javax.swing.JButton logOutButton;
     private javax.swing.JLabel logOut_icon;
