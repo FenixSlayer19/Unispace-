@@ -1,19 +1,122 @@
-
 package Interface;
 
+import conexión.Conexión;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JFileChooser;
+import java.sql.Connection;
+
 public class Reportar_error extends javax.swing.JFrame {
+    // ruta temporal del multimeda seleccionado (relativa a la carpeta del proyecto)
+
+    private String rutaMultimediaSeleccionada = "";
+
+// Si quieres guardar el recurso relacionado (si abres el frame desde recurso)
+    private String recursoSeleccionado = ""; // asigna esto al abrir el frame si aplica
 
     public Reportar_error() {
         initComponents();
-        
+    }
 
+    private String copiarArchivoMultimedia(File origen) throws IOException {
+        if (origen == null) {
+            return "";
+        }
+
+        File carpetaDestino = new File(System.getProperty("user.dir"), "multimedia_reportes");
+        if (!carpetaDestino.exists()) {
+            carpetaDestino.mkdirs();
+        }
+
+        // crear nombre único para evitar colisiones (timestamp + nombre original)
+        String nombreUnico = System.currentTimeMillis() + "_" + origen.getName();
+        File destino = new File(carpetaDestino, nombreUnico);
+
+        Files.copy(origen.toPath(), destino.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        // devolvemos ruta relativa (útil si mueves la app)
+        return "multimedia_reportes/" + nombreUnico;
+    }
+
+    private void guardarReporte() {
+        String asunto = cajaTextoAsunto.getText().trim();
+        String descripcion = CajaTextoDescripcion.getText().trim();
+        String multimediaRuta = rutaMultimediaSeleccionada; // puede estar vacío
+        int idUsuario = Login.usuarioID;
+        String nombreRecurso = recursoSeleccionado == null ? "" : recursoSeleccionado;
+        String estado = "Sin revisar";
+
+        // Validaciones
+        if (asunto.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor escribe un asunto.");
+            return;
+        }
+        if (descripcion.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor escribe una descripción.");
+            return;
+        }
+
+        // Fecha
+        LocalDateTime ahora = LocalDateTime.now();
+        String fechaHora = ahora.format(DateTimeFormatter.ofPattern("dd/MM/yyyy - hh:mma"));
+
+        Connection conn = null;
+        PreparedStatement pst = null;
+
+        try {
+            conn = Conexión.getConexion();
+            String sql = "INSERT INTO reportar_error (id_usuario, nombre_recurso, asunto, descripcion, fecha_hora_error, estado, multimedia) "
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+            pst = conn.prepareStatement(sql);
+            pst.setInt(1, idUsuario);
+            pst.setString(2, nombreRecurso);
+            pst.setString(3, asunto);
+            pst.setString(4, descripcion);
+            pst.setString(5, fechaHora);
+            pst.setString(6, estado);
+            pst.setString(7, multimediaRuta);
+
+            pst.executeUpdate();
+
+            JOptionPane.showMessageDialog(this, "Reporte enviado correctamente.");
+
+            // Limpiar campos sin cerrar la ventana
+            cajaTextoAsunto.setText("");
+            CajaTextoDescripcion.setText("");
+            rutaMultimediaSeleccionada = "";
+            labelNombreArchivo.setText("Ningún archivo seleccionado");
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error guardando reporte: " + ex.getMessage());
+        } finally {
+            try {
+                if (pst != null) {
+                    pst.close();
+                }
+            } catch (SQLException e) {
+            }
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+            }
+        }
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        labelNombreArchivo = new javax.swing.JLabel();
         reportarError_Icon = new javax.swing.JLabel();
         start_iconButton = new javax.swing.JLabel();
         start_Button = new javax.swing.JButton();
@@ -25,7 +128,6 @@ public class Reportar_error extends javax.swing.JFrame {
         CajaTextoDescripcion = new javax.swing.JTextArea();
         logOut_icon1 = new javax.swing.JLabel();
         logOut_Button1 = new javax.swing.JButton();
-        desplegableFotosVideos = new javax.swing.JComboBox<>();
         botonEnviar = new javax.swing.JButton();
         cajaTextoAsunto = new javax.swing.JTextField();
         tecResourses_text = new javax.swing.JLabel();
@@ -38,8 +140,15 @@ public class Reportar_error extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Hola mundo");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 80, 240, 30));
+        jButton1.setBackground(new java.awt.Color(175, 175, 175));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clip.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 580, 40, 50));
+        getContentPane().add(labelNombreArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 590, 390, 40));
 
         reportarError_Icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/error_icon_1.png"))); // NOI18N
         getContentPane().add(reportarError_Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 75, -1, -1));
@@ -106,6 +215,7 @@ public class Reportar_error extends javax.swing.JFrame {
         getContentPane().add(infrastructure_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 250, 70));
 
         CajaTextoDescripcion.setColumns(20);
+        CajaTextoDescripcion.setFont(new java.awt.Font("Source Code Pro ExtraLight", 0, 14)); // NOI18N
         CajaTextoDescripcion.setRows(5);
         jScrollPane1.setViewportView(CajaTextoDescripcion);
 
@@ -126,15 +236,17 @@ public class Reportar_error extends javax.swing.JFrame {
         });
         getContentPane().add(logOut_Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 250, 70));
 
-        desplegableFotosVideos.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
-        desplegableFotosVideos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fotos ", "Documentos", " " }));
-        getContentPane().add(desplegableFotosVideos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 570, 110, 40));
-
         botonEnviar.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 20)); // NOI18N
         botonEnviar.setText("Enviar");
         botonEnviar.setToolTipText("");
-        getContentPane().add(botonEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 570, 110, 40));
+        botonEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEnviarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 590, 110, 40));
 
+        cajaTextoAsunto.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
         cajaTextoAsunto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cajaTextoAsuntoActionPerformed(evt);
@@ -172,15 +284,15 @@ public class Reportar_error extends javax.swing.JFrame {
     }//GEN-LAST:event_cajaTextoAsuntoActionPerformed
 
     private void start_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start_ButtonActionPerformed
-       
+
     }//GEN-LAST:event_start_ButtonActionPerformed
 
     private void tec_resourcesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tec_resourcesButtonActionPerformed
-        
+
     }//GEN-LAST:event_tec_resourcesButtonActionPerformed
 
     private void infrastructure_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infrastructure_ButtonActionPerformed
-        
+
     }//GEN-LAST:event_infrastructure_ButtonActionPerformed
 
     private void logOut_Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOut_Button1ActionPerformed
@@ -206,6 +318,55 @@ public class Reportar_error extends javax.swing.JFrame {
         Insfractuture_resources infraResourses = new Insfractuture_resources(); // Crea la nueva ventana(Infraestructura)
         infraResourses.setVisible(true);
     }//GEN-LAST:event_infrastructure_ButtonMouseClicked
+
+    private void botonEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEnviarActionPerformed
+        String asunto = cajaTextoAsunto.getText().trim();
+        String descripcion = CajaTextoDescripcion.getText().trim();
+
+        // Validaciones básicas
+        if (asunto.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "El asunto no puede estar vacío.");
+            return;
+        }
+        if (descripcion.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "La descripción no puede estar vacía.");
+            return;
+        }
+
+        guardarReporte(); // usa la rutaMultimediaSeleccionada si existe 
+        
+        // No cerrar el JFrame
+        // Limpiar campos
+        cajaTextoAsunto.setText("");
+        CajaTextoDescripcion.setText("");
+        labelNombreArchivo.setText("Sin archivo");
+        rutaMultimediaSeleccionada = "";
+    }//GEN-LAST:event_botonEnviarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Seleccionar imagen o video");
+
+        int result = chooser.showOpenDialog(this);
+        if (result == JFileChooser.APPROVE_OPTION) {
+
+            File seleccionado = chooser.getSelectedFile();
+            try {
+                String rutaRel = copiarArchivoMultimedia(seleccionado);
+                rutaMultimediaSeleccionada = rutaRel;
+
+                // mostrar solo el nombre
+                labelNombreArchivo.setText(seleccionado.getName());
+
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this,
+                        "No se pudo copiar el archivo:\n" + ex.getMessage(),
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                rutaMultimediaSeleccionada = "";
+                labelNombreArchivo.setText("Sin archivo");
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,12 +408,12 @@ public class Reportar_error extends javax.swing.JFrame {
     private javax.swing.JLabel Error_fondo;
     private javax.swing.JButton botonEnviar;
     private javax.swing.JTextField cajaTextoAsunto;
-    private javax.swing.JComboBox<String> desplegableFotosVideos;
     private javax.swing.JLabel gray_background;
     private javax.swing.JButton infrastructure_Button;
     private javax.swing.JLabel infrastructure_iconButton;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelNombreArchivo;
     private javax.swing.JButton logOut_Button1;
     private javax.swing.JLabel logOut_icon1;
     private javax.swing.JLabel reportarError_Icon;
