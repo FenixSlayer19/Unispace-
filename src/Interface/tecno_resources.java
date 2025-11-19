@@ -1,12 +1,9 @@
 package Interface;
-
-import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-// importa la clase Conexión según su paquete:
-import conexión.Conexión; // AJUSTA según el package real en Conexión.java
+import conexión.Conexión;
 
 public class tecno_resources extends javax.swing.JFrame {
 
@@ -14,168 +11,8 @@ public class tecno_resources extends javax.swing.JFrame {
 
     public tecno_resources() {
         initComponents();
-        cargarEstadosRecursos();
     }
 
-    private void actualizarEtiquetaEstado(int idRecurso, javax.swing.JLabel etiqueta) {
-        try {
-            Conexión cn = new Conexión();
-            Connection con = cn.getConexion();
-
-            String sql = "SELECT estado FROM recursos_tecno WHERE id_recurso = ?";
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, idRecurso);
-
-            ResultSet rs = pst.executeQuery();
-
-            if (rs.next()) {
-                etiqueta.setText(rs.getString("estado"));
-            }
-
-            rs.close();
-            pst.close();
-            con.close();
-
-        } catch (Exception e) {
-            System.out.println("Error al actualizar estado del recurso: " + e.getMessage());
-        }
-    }
-
-    private void cargarEstadosRecursos() {
-
-        // Computadores
-        actualizarEtiquetaEstado(1, boton_disponible1compu);
-        actualizarEtiquetaEstado(2, boton_disponible2compu);
-        actualizarEtiquetaEstado(3, boton_disponible3compu);
-        actualizarEtiquetaEstado(4, boton_disponible4compu);
-        actualizarEtiquetaEstado(5, boton_disponible5compu);
-
-        // Tablets
-        actualizarEtiquetaEstado(6, boton_disponible1tablet);
-        actualizarEtiquetaEstado(7, boton_disponible2tablet);
-        actualizarEtiquetaEstado(8, boton_disponible3tablet);
-        actualizarEtiquetaEstado(9, boton_disponible4tablet);
-        actualizarEtiquetaEstado(10, boton_disponible5tablet);
-
-        // Videobeams
-        actualizarEtiquetaEstado(11, boton_disponible1video);
-        actualizarEtiquetaEstado(12, boton_disponible2video);
-        actualizarEtiquetaEstado(13, boton_disponible3video);
-        actualizarEtiquetaEstado(14, boton_disponible4video);
-        actualizarEtiquetaEstado(15, boton_disponible5video);
-    }
-
-//separadorrrrrrrrrrrrrrrrrrrrr
-    private void reservarRecurso(int idRecurso) {
-        String fechaInicio = JOptionPane.showInputDialog(this, "Ingrese la FECHA de inicio (YYYY-MM-DD):");
-        if (fechaInicio == null) {
-            return;
-        }
-        String horaInicio = JOptionPane.showInputDialog(this, "Ingrese la HORA de inicio (HH:MM):");
-        if (horaInicio == null) {
-            return;
-        }
-        String fechaFin = JOptionPane.showInputDialog(this, "Ingrese la FECHA de fin (YYYY-MM-DD):");
-        if (fechaFin == null) {
-            return;
-        }
-        String horaFin = JOptionPane.showInputDialog(this, "Ingrese la HORA de fin (HH:MM):");
-        if (horaFin == null) {
-            return;
-        }
-
-        // ID del usuario logueado
-        int idUsuario = Login.usuarioID;
-
-        Conexión cn = null;
-        Connection con = null;
-
-        try {
-            cn = new Conexión();
-            con = cn.getConexion();
-
-            // 1) VALIDAR DISPONIBILIDAD
-            String sqlCheck = "SELECT 1 FROM reserva WHERE id_recurso = ? "
-                    + "AND NOT (fecha_fin < ? OR fecha_inicio > ? OR hora_fin < ? OR hora_inicio > ?)";
-
-            PreparedStatement pst = con.prepareStatement(sqlCheck);
-            pst.setInt(1, idRecurso);
-            pst.setString(2, fechaInicio);
-            pst.setString(3, fechaFin);
-            pst.setString(4, horaInicio);
-            pst.setString(5, horaFin);
-
-            ResultSet rs = pst.executeQuery();
-
-            if (rs.next()) {
-                JOptionPane.showMessageDialog(this, "⚠ El recurso ya está reservado en ese intervalo.");
-                rs.close();
-                pst.close();
-                return;
-            }
-
-            rs.close();
-            pst.close();
-
-            // 2) INSERTAR RESERVA
-//            String sqlInsert = "INSERT INTO reserva (id_recurso, id_usuario, fecha_inicio, hora_inicio, fecha_fin, hora_fin, estado_reserva) VALUES (?, ?, ?, ?, ?, ?, ?)";
-//            pst = con.prepareStatement(sqlInsert);
-//
-//            pst.setInt(1, idRecurso);
-//            pst.setInt(2, idUsuario);
-//            pst.setString(3, fechaInicio);
-//            pst.setString(4, horaInicio);
-//            pst.setString(5, fechaFin);
-//            pst.setString(6, horaFin);
-//            pst.setString(7, "Reservado");
-//
-//            pst.executeUpdate();
-//            pst.close();
-
-            //
-            String sqlInsert = "INSERT INTO reserva (id_recurso, id_usuario, nombre, fecha_inicio, hora_inicio, fecha_fin, hora_fin, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-            pst = con.prepareStatement(sqlInsert);
-            pst.setInt(1, idRecurso);
-            pst.setInt(2, idUsuario);
-            // Nombre del recurso (puedes cambiar esto si tienes una tabla de recursos)
-            pst.setString(3, "Recurso " + idRecurso);
-            pst.setString(4, fechaInicio);
-            pst.setString(5, horaInicio);
-            pst.setString(6, fechaFin);
-            pst.setString(7, horaFin);
-            pst.setString(8, "Reservado");
-
-            // 3) ACTUALIZAR ESTADO DEL RECURSO
-            String update = "UPDATE recursos_tecno SET estado = 'Ocupado' WHERE id_recurso = ?";
-            pst = con.prepareStatement(update);
-            pst.setInt(1, idRecurso);
-            pst.executeUpdate();
-            pst.close();
-
-            JOptionPane.showMessageDialog(this, "✔ Reserva realizada correctamente.");
-
-            // 4) Actualizar UI
-            cargarEstadosRecursos();
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "Error SQL: " + ex.getMessage());
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
-        } finally {
-            try {
-                if (con != null) {
-                    con.close();
-                }
-            } catch (Exception e) {
-            }
-        }
-    }
-
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -1043,64 +880,63 @@ public class tecno_resources extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_reservar5tabletActionPerformed
 
     private void boton_reservar1compuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar1compuMouseClicked
-        reservarRecurso(1); // si el id del recurso es 1
+        
     }//GEN-LAST:event_boton_reservar1compuMouseClicked
 
     private void boton_reservar2compuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar2compuMouseClicked
-        reservarRecurso(2); // si el id del recurso es 1
-
+        
     }//GEN-LAST:event_boton_reservar2compuMouseClicked
 
     private void boton_reservar3compuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar3compuMouseClicked
-        reservarRecurso(3);
+        
     }//GEN-LAST:event_boton_reservar3compuMouseClicked
 
     private void boton_reservar4compuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar4compuMouseClicked
-        reservarRecurso(4);
+        
     }//GEN-LAST:event_boton_reservar4compuMouseClicked
 
     private void boton_reservar5_compuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar5_compuMouseClicked
-        reservarRecurso(5);
+        
     }//GEN-LAST:event_boton_reservar5_compuMouseClicked
 
     private void boton_reservar1videoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar1videoMouseClicked
-        reservarRecurso(6);
+        
     }//GEN-LAST:event_boton_reservar1videoMouseClicked
 
     private void boton_reservar2videoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar2videoMouseClicked
-        reservarRecurso(7);
+        
     }//GEN-LAST:event_boton_reservar2videoMouseClicked
 
     private void boton_reservar3videoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar3videoMouseClicked
-        reservarRecurso(8);
+        
     }//GEN-LAST:event_boton_reservar3videoMouseClicked
 
     private void boton_reservar4videoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar4videoMouseClicked
-        reservarRecurso(9);
+        
     }//GEN-LAST:event_boton_reservar4videoMouseClicked
 
     private void boton_reservar5videoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar5videoMouseClicked
-        reservarRecurso(10);
+        
     }//GEN-LAST:event_boton_reservar5videoMouseClicked
 
     private void boton_reservar1tabletMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar1tabletMouseClicked
-        reservarRecurso(11);
+        
     }//GEN-LAST:event_boton_reservar1tabletMouseClicked
 
     private void boton_reservar2tabletMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar2tabletMouseClicked
-        reservarRecurso(12);
+        
     }//GEN-LAST:event_boton_reservar2tabletMouseClicked
 
     private void boton_reservar3tabletMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar3tabletMouseClicked
-        reservarRecurso(13);
+        
     }//GEN-LAST:event_boton_reservar3tabletMouseClicked
 
     private void boton_reservar4tabletMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar4tabletMouseClicked
-        reservarRecurso(14);
+        
     }//GEN-LAST:event_boton_reservar4tabletMouseClicked
 
     private void boton_reservar5tabletMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar5tabletMouseClicked
-        reservarRecurso(15);
+        
     }//GEN-LAST:event_boton_reservar5tabletMouseClicked
 
     /**

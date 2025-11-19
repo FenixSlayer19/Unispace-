@@ -194,52 +194,10 @@ public class ReservaFrame extends javax.swing.JFrame {
 
     private void botonConfirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonConfirmarMouseClicked
         int idUsuario = Login.usuarioID;   // ID del usuario logueado
-
-//        String fecha = cajaTextoFecha.getText().trim();
-//        String horaInicio = cajaTextoHoraIni.getText().toString();
-//        String horaFin = cajaTextoHoraFin.getText().toString();
-//        String motivo = cajaTextoMotivos.getText().trim();
-//
-//        LocalTime now = LocalTime.now();
-//        LocalTime inicio = LocalTime.parse(horaInicio);
-//        try {
-//            inicio = LocalTime.parse(horaInicio);  // si no es HH:mm → error
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(this,
-//                    "Formato de hora inválido. Use HH:mm (ej: 14:30)");
-//            return;
-//        }
-//
-//        if (inicio.isBefore(now)) {
-//            JOptionPane.showMessageDialog(this,
-//                    "La hora de inicio no puede ser una hora pasada.");
-//            return;
-//        }
-//        LocalTime fin = LocalTime.parse(horaFin);
-//
-//        long horas = java.time.Duration.between(inicio, fin).toHours();
-//
-//        if (horas <= 0) {
-//            JOptionPane.showMessageDialog(this,
-//                    "La hora de fin debe ser mayor que la hora de inicio.");
-//            return;
-//        }
-//
-//        if (horas > 24) {
-//            JOptionPane.showMessageDialog(this,
-//                    "La duración máxima de una reserva es de 24 horas.");
-//            return;
-//        }
-//
-//        if (fecha.isEmpty() || motivo.isEmpty()) {
-//            JOptionPane.showMessageDialog(this, "Completa todos los campos.");
-//            return;
-//        }
         String fecha = cajaTextoFecha.getText().trim();
         String horaInicio = cajaTextoHoraIni.getText().trim();
         String horaFin = cajaTextoHoraFin.getText().trim();
         String motivo = cajaTextoMotivos.getText().trim();
-
 // VALIDAR FORMATO DE HORA INICIO
         LocalTime inicio;
         try {
@@ -249,7 +207,6 @@ public class ReservaFrame extends javax.swing.JFrame {
                     "Formato de hora inválido. Use HH:mm (ej: 14:30)");
             return;
         }
-
 // VALIDAR FORMATO DE HORA FIN
         LocalTime fin;
         try {
@@ -259,7 +216,6 @@ public class ReservaFrame extends javax.swing.JFrame {
                     "Formato de hora de fin inválido. Use HH:mm (ej: 16:00)");
             return;
         }
-
 // VALIDAR HORA PASADA
         LocalTime now = LocalTime.now();
         if (inicio.isBefore(now)) {
@@ -267,7 +223,6 @@ public class ReservaFrame extends javax.swing.JFrame {
                     "La hora de inicio no puede ser una hora pasada.");
             return;
         }
-
 // VALIDAR DURACIÓN
         long horas = java.time.Duration.between(inicio, fin).toHours();
         if (horas <= 0) {
@@ -280,7 +235,6 @@ public class ReservaFrame extends javax.swing.JFrame {
                     "La duración máxima de una reserva es de 24 horas.");
             return;
         }
-
         try {
             Connection conn = Conexión.getConexion();
 
