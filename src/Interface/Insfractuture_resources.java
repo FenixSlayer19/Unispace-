@@ -84,8 +84,10 @@ public class Insfractuture_resources extends javax.swing.JFrame {
             System.out.println("Error al cerrar: " + ex.getMessage());
         }
     }
+    
+    
 }
-    private void abrirReserva(String nombreRecurso, String tipoRecurso) {
+   private void abrirReserva(String nombreRecurso, String tipoRecurso) {
     Connection conn = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
@@ -107,8 +109,8 @@ public class Insfractuture_resources extends javax.swing.JFrame {
             }
         }
 
-        // ✔ PASAR "this" para actualizar luego
-        new ReservaFrame(nombreRecurso, tipoRecurso, this).setVisible(true);
+        // Si está disponible → abrir el Frame
+        new ReservaFrame(nombreRecurso, tipoRecurso,this).setVisible(true);
 
     } catch (SQLException e) {
         JOptionPane.showMessageDialog(this, "Error en la BD: " + e.getMessage());
@@ -116,51 +118,12 @@ public class Insfractuture_resources extends javax.swing.JFrame {
         try {
             if (rs != null) rs.close();
             if (pst != null) pst.close();
-            if (conn != null) conn.close();
+            if (conn != null) conn.close(); // ❗muy importante
         } catch (SQLException ex) {
-            System.out.println("Error al cerrar: " + ex.getMessage());
+            System.out.println("Error cerrando: " + ex.getMessage());
         }
     }
 }
-
-//   private void abrirReserva(String nombreRecurso, String tipoRecurso) {
-//    Connection conn = null;
-//    PreparedStatement pst = null;
-//    ResultSet rs = null;
-//
-//    try {
-//        conn = Conexión.getConexion();
-//
-//        String sql = "SELECT estado FROM Recursos_Infraestructura WHERE nombre_recurso = ?";
-//        pst = conn.prepareStatement(sql);
-//        pst.setString(1, nombreRecurso);
-//
-//        rs = pst.executeQuery();
-//        if (rs.next()) {
-//            String estado = rs.getString("estado");
-//
-//            if (estado.equalsIgnoreCase("ocupado")) {
-//                JOptionPane.showMessageDialog(this, "Este recurso ya está ocupado.");
-//                return;
-//            }
-//        }
-//
-//        // Si está disponible → abrir el Frame
-//        new ReservaFrame(nombreRecurso, tipoRecurso,this).setVisible(true);
-//
-//    } catch (SQLException e) {
-//        JOptionPane.showMessageDialog(this, "Error en la BD: " + e.getMessage());
-//    } finally {
-//        try {
-//            if (rs != null) rs.close();
-//            if (pst != null) pst.close();
-//            if (conn != null) conn.close(); // ❗muy importante
-//        } catch (SQLException ex) {
-//            System.out.println("Error cerrando: " + ex.getMessage());
-//        }
-//    }
-//}
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -758,74 +721,58 @@ public class Insfractuture_resources extends javax.swing.JFrame {
     }//GEN-LAST:event_logOut_ButtonMouseClicked
 
     private void reservas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservas1MouseClicked
-        
         String nombreRecurso = "Salón 7- 403";
         String tipoRecurso = "Aula";
-        new ReservaFrame(nombreRecurso, tipoRecurso,this).setVisible(true);
-//        abrirReserva(nombreRecurso, tipoRecurso);
-//        String nombreRecurso = "Salón 7- 403";
-//        String tipoRecurso = "Aula";
-//
-//        java.awt.EventQueue.invokeLater(()
-//                -> new ReservaFrame(nombreRecurso, tipoRecurso).setVisible(true));
+        abrirReserva(nombreRecurso, tipoRecurso);
     }//GEN-LAST:event_reservas1MouseClicked
 
     private void reservas2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservas2MouseClicked
         String nombreRecurso = "Salón 7- 303";
         String tipoRecurso = "Aula";
-
-//        abrirReserva(nombreRecurso, tipoRecurso);
-        new ReservaFrame(nombreRecurso, tipoRecurso,this).setVisible(true);
-
+        abrirReserva(nombreRecurso, tipoRecurso);       
+        
     }//GEN-LAST:event_reservas2MouseClicked
 
     private void reservas3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservas3MouseClicked
         String nombreRecurso = "Salón 7- 402";
         String tipoRecurso = "Aula";
-        new ReservaFrame(nombreRecurso, tipoRecurso,this).setVisible(true);
-//        abrirReserva(nombreRecurso, tipoRecurso);
+        abrirReserva(nombreRecurso, tipoRecurso);
     }//GEN-LAST:event_reservas3MouseClicked
 
     private void reservas4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservas4MouseClicked
         String nombreRecurso = "Salón 7- 503";
         String tipoRecurso = "Aula";
-        new ReservaFrame(nombreRecurso, tipoRecurso,this).setVisible(true);
-//        abrirReserva(nombreRecurso, tipoRecurso);
+        abrirReserva(nombreRecurso, tipoRecurso);
     }//GEN-LAST:event_reservas4MouseClicked
 
     private void reservas5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservas5MouseClicked
         String nombreRecurso = "Salón 7- 404";
         String tipoRecurso = "Aula";
-        new ReservaFrame(nombreRecurso, tipoRecurso,this).setVisible(true);
-//        abrirReserva(nombreRecurso, tipoRecurso);
+        abrirReserva(nombreRecurso, tipoRecurso);
     }//GEN-LAST:event_reservas5MouseClicked
 
     private void reservas6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservas6MouseClicked
         String nombreRecurso = "Salón 7- 401";
         String tipoRecurso = "Aula";
-        new ReservaFrame(nombreRecurso, tipoRecurso,this).setVisible(true);
-//        abrirReserva(nombreRecurso, tipoRecurso);
+        abrirReserva(nombreRecurso, tipoRecurso);
     }//GEN-LAST:event_reservas6MouseClicked
 
     private void reservas7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservas7MouseClicked
         String nombreRecurso = "Salón 7- 405";
         String tipoRecurso = "Aula";
-        new ReservaFrame(nombreRecurso, tipoRecurso,this).setVisible(true);
-//        abrirReserva(nombreRecurso, tipoRecurso);
+        abrirReserva(nombreRecurso, tipoRecurso);
     }//GEN-LAST:event_reservas7MouseClicked
 
     private void reservas8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservas8MouseClicked
         String nombreRecurso = "Salón 7-406";
         String tipoRecurso = "Aula";
-        new ReservaFrame(nombreRecurso, tipoRecurso,this).setVisible(true);
-//        abrirReserva(nombreRecurso, tipoRecurso);
+        abrirReserva(nombreRecurso, tipoRecurso);
     }//GEN-LAST:event_reservas8MouseClicked
 
     private void reservas9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservas9MouseClicked
         String nombreRecurso = "Salón 7- 301";
         String tipoRecurso = "Aula";
-        new ReservaFrame(nombreRecurso, tipoRecurso,this).setVisible(true);
-//        abrirReserva(nombreRecurso, tipoRecurso);
+        abrirReserva(nombreRecurso, tipoRecurso);
     }//GEN-LAST:event_reservas9MouseClicked
 
     public static void main(String args[]) {

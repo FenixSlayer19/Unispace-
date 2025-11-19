@@ -199,12 +199,30 @@ public class ReservaFrame extends javax.swing.JFrame {
         String horaFin = cajaTextoHoraFin.getText().trim();
         String motivo = cajaTextoMotivos.getText().trim();
 // VALIDAR FORMATO DE HORA INICIO
+try {
+            Connection conn = Conexión.getConexion();
+
+            // 1️⃣ VALIDAR que esté disponible
+            String check = "SELECT estado FROM Recursos_Infraestructura WHERE nombre_recurso = ?";
+            PreparedStatement pstCheck = conn.prepareStatement(check);
+            pstCheck.setString(1, nombreRecurso);
+
+            ResultSet rs = pstCheck.executeQuery();
+            if (rs.next()) {
+                String estadoActual = rs.getString("estado");
+                if (estadoActual.equalsIgnoreCase("ocupado")) {
+                    JOptionPane.showMessageDialog(this, "Este recurso ya está ocupado.");
+                    return;
+                }
+            }
+            
         LocalTime inicio;
         try {
             inicio = LocalTime.parse(horaInicio);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this,
                     "Formato de hora inválido. Use HH:mm (ej: 14:30)");
+            
             return;
         }
 // VALIDAR FORMATO DE HORA FIN
@@ -234,23 +252,9 @@ public class ReservaFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,
                     "La duración máxima de una reserva es de 24 horas.");
             return;
+            
         }
-        try {
-            Connection conn = Conexión.getConexion();
-
-            // 1️⃣ VALIDAR que esté disponible
-            String check = "SELECT estado FROM Recursos_Infraestructura WHERE nombre_recurso = ?";
-            PreparedStatement pstCheck = conn.prepareStatement(check);
-            pstCheck.setString(1, nombreRecurso);
-
-            ResultSet rs = pstCheck.executeQuery();
-            if (rs.next()) {
-                String estadoActual = rs.getString("estado");
-                if (estadoActual.equalsIgnoreCase("ocupado")) {
-                    JOptionPane.showMessageDialog(this, "Este recurso ya está ocupado.");
-                    return;
-                }
-            }
+        
 
             // 2️⃣ INSERTAR RESERVA
             String sql = "INSERT INTO reservas (id_usuarios, estado, nombre_recurso, tipo_recurso, fecha, hora_inicio, hora_fin, motivos)"
@@ -294,7 +298,7 @@ public class ReservaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void botonCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCancelarMouseClicked
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_botonCancelarMouseClicked
 
     public static void main(String args[]) {
