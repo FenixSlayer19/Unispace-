@@ -10,22 +10,21 @@ import java.time.format.DateTimeFormatter;
 import java.time.LocalTime;
 import javax.swing.JOptionPane;
 
-import conexión.Conexión;
-
-public class ReservaFrame extends javax.swing.JFrame {
-
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ReservaFrame.class.getName());
-    private String nombreRecurso;
+public class ReservasFrameTecno extends javax.swing.JFrame {
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ReservasFrameTecno.class.getName());
+    private String nombreRecursoT;
+    private String marca;
     private String tipoRecurso;
-    private Insfractuture_resources padre;
+    private tecno_resources padre;
+    
 
-    public ReservaFrame(String nombreRecurso, String tipoRecurso, Insfractuture_resources padre) {
+    public ReservasFrameTecno(String nombreRecursoT,String marca, String tipoRecurso, tecno_resources padre) {
         initComponents();
-        this.nombreRecurso = nombreRecurso;
+        this.nombreRecursoT = nombreRecursoT;
+        this.marca = marca;
         this.tipoRecurso = tipoRecurso;
         this.padre = padre;
-
-        tituloReservas.setText("Reservar " + nombreRecurso);
+        tituloReservas.setText("Reservar " + nombreRecursoT + " - " + marca + " - " + tipoRecurso);
 
         LocalDate hoy = LocalDate.now();
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -62,8 +61,8 @@ public class ReservaFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(cajaTextoMotivos);
 
         tituloReservas.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
-        tituloReservas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tituloReservas.setText("Reservar recurso: ");
+        tituloReservas.setToolTipText("");
 
         tituloFecha.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
         tituloFecha.setText("Fecha: ");
@@ -116,36 +115,32 @@ public class ReservaFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(95, 95, 95)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tituloReservas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(tituloReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cerrarVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(botonConfirmar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(tituloMotivos)
+                        .addGap(28, 28, 28)
+                        .addComponent(jScrollPane1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botonConfirmar))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(tituloMotivos)
-                                .addGap(28, 28, 28)
-                                .addComponent(jScrollPane1))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(tituloHoraFin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(234, 234, 234))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(tituloHoraFin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(234, 234, 234))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tituloFecha)
-                                            .addComponent(tituloHoraIni))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cajaTextoFecha)
-                                    .addComponent(cajaTextoHoraIni)
-                                    .addComponent(cajaTextoHoraFin, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))))
-                        .addGap(99, 99, 99))))
+                                    .addComponent(tituloFecha)
+                                    .addComponent(tituloHoraIni))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cajaTextoFecha)
+                            .addComponent(cajaTextoHoraIni)
+                            .addComponent(cajaTextoHoraFin, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))))
+                .addGap(73, 73, 73)
+                .addComponent(cerrarVentana, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,13 +178,9 @@ public class ReservaFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonConfirmarActionPerformed
-
-    private void botonConfirmarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonConfirmarMouseEntered
-
-    }//GEN-LAST:event_botonConfirmarMouseEntered
+    private void botonCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCancelarMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_botonCancelarMouseClicked
 
     private void botonConfirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonConfirmarMouseClicked
         int idUsuario = Login.usuarioID;   // ID del usuario logueado
@@ -197,14 +188,14 @@ public class ReservaFrame extends javax.swing.JFrame {
         String horaInicio = cajaTextoHoraIni.getText().trim();
         String horaFin = cajaTextoHoraFin.getText().trim();
         String motivo = cajaTextoMotivos.getText().trim();
-// VALIDAR FORMATO DE HORA INICIO
-try {
+        // VALIDAR FORMATO DE HORA INICIO
+        try {
             Connection conn = Conexión.getConexion();
 
             // 1️⃣ VALIDAR que esté disponible
-            String check = "SELECT estado FROM Recursos_Infraestructura WHERE nombre_recurso = ?";
+            String check = "SELECT estado FROM Recursos_tecno WHERE nombre_recurso = ?";
             PreparedStatement pstCheck = conn.prepareStatement(check);
-            pstCheck.setString(1, nombreRecurso);
+            pstCheck.setString(1, nombreRecursoT);
 
             ResultSet rs = pstCheck.executeQuery();
             if (rs.next()) {
@@ -214,41 +205,40 @@ try {
                     return;
                 }
             }
-            
-        LocalTime inicio;
-        try {
-            inicio = LocalTime.parse(horaInicio);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,
-                    "Formato de hora inválido. Use HH:mm (ej: 14:30)");
-            
-            return;
-        }
-// VALIDAR FORMATO DE HORA FIN
-        LocalTime fin;
-        try {
-            fin = LocalTime.parse(horaFin);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,
-                    "Formato de hora de fin inválido. Use HH:mm (ej: 16:00)");
-            return;
-        }
-// VALIDAR HORA PASADA
-        LocalTime now = LocalTime.now();
-        if (inicio.isBefore(now)) {
-            JOptionPane.showMessageDialog(this,
-                    "La hora de inicio no puede ser una hora pasada.");
-            return;
-        }
-// VALIDAR DURACIÓN
-        long horas = java.time.Duration.between(inicio, fin).toHours();
-        if (horas > 24) {
-            JOptionPane.showMessageDialog(this,
-                    "La duración máxima de una reserva es de 24 horas.");
-            return;
-            
-        }
-        
+
+            LocalTime inicio;
+            try {
+                inicio = LocalTime.parse(horaInicio);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this,
+                        "Formato de hora inválido. Use HH:mm (ej: 14:30)");
+
+                return;
+            }
+            // VALIDAR FORMATO DE HORA FIN
+            LocalTime fin;
+            try {
+                fin = LocalTime.parse(horaFin);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this,
+                        "Formato de hora de fin inválido. Use HH:mm (ej: 16:00)");
+                return;
+            }
+            // VALIDAR HORA PASADA
+            LocalTime now = LocalTime.now();
+            if (inicio.isBefore(now)) {
+                JOptionPane.showMessageDialog(this,
+                        "La hora de inicio no puede ser una hora pasada.");
+                return;
+            }
+            // VALIDAR DURACIÓN
+            long horas = java.time.Duration.between(inicio, fin).toHours();
+            if (horas > 24) {
+                JOptionPane.showMessageDialog(this,
+                        "La duración máxima de una reserva es de 24 horas.");
+                return;
+
+            }
 
             // 2️⃣ INSERTAR RESERVA
             String sql = "INSERT INTO reservas (id_usuarios, estado, nombre_recurso, tipo_recurso, fecha, hora_inicio, hora_fin, motivos)"
@@ -258,7 +248,7 @@ try {
 
             pst.setInt(1, idUsuario);
             pst.setString(2, "Ocupado");
-            pst.setString(3, nombreRecurso);
+            pst.setString(3, nombreRecursoT);
             pst.setString(4, tipoRecurso);
             pst.setString(5, fecha);
             pst.setString(6, horaInicio);
@@ -268,10 +258,10 @@ try {
             pst.executeUpdate();
 
             // 3️⃣ ACTUALIZAR RECURSO → ocupado
-            String update = "UPDATE Recursos_Infraestructura SET estado = 'ocupado' "
+            String update = "UPDATE Recursos_tecno SET estado = 'ocupado' "
                     + "WHERE nombre_recurso = ?";
             PreparedStatement pst2 = conn.prepareStatement(update);
-            pst2.setString(1, nombreRecurso);
+            pst2.setString(1, nombreRecursoT);
             pst2.executeUpdate();
             // ✔ REFRESCAR AUTOMÁTICAMENTE LA VENTANA DE INFRAESTRUCTURA
             if (padre != null) {
@@ -284,19 +274,29 @@ try {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
         }
-
     }//GEN-LAST:event_botonConfirmarMouseClicked
+
+    private void botonConfirmarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonConfirmarMouseEntered
+
+    }//GEN-LAST:event_botonConfirmarMouseEntered
+
+    private void botonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonConfirmarActionPerformed
 
     private void cerrarVentanaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrarVentanaMouseClicked
         this.dispose();
     }//GEN-LAST:event_cerrarVentanaMouseClicked
 
-    private void botonCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCancelarMouseClicked
-        this.dispose();
-    }//GEN-LAST:event_botonCancelarMouseClicked
-
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
-
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -304,10 +304,23 @@ try {
                     break;
                 }
             }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ReservasFrameTecno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ReservasFrameTecno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ReservasFrameTecno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ReservasFrameTecno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
 
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+//                new ReservasFrameTecno().setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

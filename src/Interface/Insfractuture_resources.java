@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import javax.swing.JOptionPane;
 import conexión.Conexión;
 
@@ -44,7 +43,7 @@ public class Insfractuture_resources extends javax.swing.JFrame {
             // AQUÍ ACTUALIZAS LOS LABELS SEGÚN TU JFRAME
             if (nombre.equals("Salón 7- 403")) {
                 disponible1.setText(estado);
-            }
+            }   
             if (nombre.equals("Salón 7- 303")) {
                 disponible2.setText(estado);
             }
@@ -84,8 +83,6 @@ public class Insfractuture_resources extends javax.swing.JFrame {
             System.out.println("Error al cerrar: " + ex.getMessage());
         }
     }
-    
-    
 }
    private void abrirReserva(String nombreRecurso, String tipoRecurso) {
     Connection conn = null;
@@ -108,7 +105,6 @@ public class Insfractuture_resources extends javax.swing.JFrame {
                 return;
             }
         }
-
         // Si está disponible → abrir el Frame
         new ReservaFrame(nombreRecurso, tipoRecurso,this).setVisible(true);
 

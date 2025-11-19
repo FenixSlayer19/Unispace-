@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import conexión.Conexión;
+import javax.swing.JOptionPane;
 
 public class tecno_resources extends javax.swing.JFrame {
 
@@ -11,7 +12,107 @@ public class tecno_resources extends javax.swing.JFrame {
 
     public tecno_resources() {
         initComponents();
+        cargarEstados();
     }
+    
+    public void cargarEstados() {
+        System.out.println("Cargando estados...");
+    Connection conn = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+
+    try {
+        conn = Conexión.getConexion();
+
+        String sql = "SELECT nombre_recurso, marca, estado FROM Recursos_tecno";
+        pst = conn.prepareStatement(sql);
+        rs = pst.executeQuery();
+
+        while (rs.next()) {
+            
+            String nombre = rs.getString("nombre_recurso");
+            String marca  = rs.getString("marca");
+            String estado = rs.getString("estado");
+            System.out.println("leyendo: " + nombre + "/ "+ estado );
+            // -------------------------
+            // COMPUTADORES
+            // -------------------------
+            if (nombre.equals("Laptop-123SCZ")) {boton_disponible1compu.setText(estado);}
+            if (nombre.equals("Laptop-331VGD")) {boton_disponible2compu.setText(estado);}
+            if (nombre.equals("Laptop-421FDX")) {boton_disponible3compu.setText(estado);}
+            if (nombre.equals("Laptop-236VCH")) {boton_disponible4compu.setText(estado);}
+            if (nombre.equals("Laptop-321DSG")) {boton_disponible5compu.setText(estado);}
+            // -------------------------
+            // VIDEO BEAMS
+            // -------------------------
+            if (nombre.equals("Proyector-745SXZ")) {boton_disponible1video.setText(estado);}
+            if (nombre.equals("Proyector-325SDA")) {boton_disponible2video.setText(estado);}
+            if (nombre.equals("Proyector-777JLO")) {boton_disponible3video.setText(estado);}
+            if (nombre.equals("Proyector-154JHG")) {boton_disponible4video.setText(estado);}
+            if (nombre.equals("Proyector-615NGS")) {boton_disponible5video.setText(estado);}
+            // -------------------------
+            // TABLETS
+            // -------------------------
+            if (nombre.equals("Tablet-441MHU")) {boton_disponible1tablet.setText(estado);}
+            if (nombre.equals("Tablet-432ASD")) {boton_disponible2tablet.setText(estado);}
+            if (nombre.equals("Tablet-023NVB")) {boton_disponible3tablet.setText(estado);}
+            if (nombre.equals("Tablet-836IKL")) {boton_disponible4tablet.setText(estado);}
+            if (nombre.equals("Tablet-265HVA")) {boton_disponible5tablet.setText(estado);}
+
+        }
+
+    } catch (Exception e) {
+        System.out.println("ERROR: " + e.getMessage());
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (pst != null) pst.close();
+            if (conn != null) conn.close();
+        } catch (SQLException ex) {
+            System.out.println("Error al cerrar: " + ex.getMessage());
+        }
+    }
+}
+    //separador
+    
+    private void abrirReserva(String nombreRecurso,String marca, String tipoRecurso) {
+    Connection conn = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+
+    try {
+        conn = Conexión.getConexion();
+
+        String sql = "SELECT estado FROM Recursos_tecno WHERE nombre_recurso = ?";
+        pst = conn.prepareStatement(sql);
+        pst.setString(1, nombreRecurso);
+
+        rs = pst.executeQuery();
+        if (rs.next()) {
+            String estado = rs.getString("estado");
+
+            if (estado.equalsIgnoreCase("ocupado")) {
+                JOptionPane.showMessageDialog(this, "Este recurso ya está ocupado.");
+                return;
+            }
+        }
+
+        // ✔ Si está disponible → abrir ReservaFrame
+        new ReservasFrameTecno(nombreRecurso,marca,tipoRecurso, this).setVisible(true);
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "Error en la BD: " + e.getMessage());
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (pst != null) pst.close();
+            if (conn != null) conn.close();
+        } catch (SQLException ex) {
+            System.out.println("Error cerrando: " + ex.getMessage());
+        }
+    }
+}
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -782,7 +883,7 @@ public class tecno_resources extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_reservar1compuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_reservar1compuActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_boton_reservar1compuActionPerformed
 
     private void boton_reservar2compuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_reservar2compuActionPerformed
@@ -880,63 +981,63 @@ public class tecno_resources extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_reservar5tabletActionPerformed
 
     private void boton_reservar1compuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar1compuMouseClicked
-        
+        abrirReserva("Laptop-123SCZ","Hp", "Tecnológico");
     }//GEN-LAST:event_boton_reservar1compuMouseClicked
 
     private void boton_reservar2compuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar2compuMouseClicked
-        
+        abrirReserva("Laptop-331VGD","Asus", "Tecnológico");
     }//GEN-LAST:event_boton_reservar2compuMouseClicked
 
     private void boton_reservar3compuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar3compuMouseClicked
-        
+        abrirReserva("Laptop-421FDX","Lenovo", "Tecnológico");
     }//GEN-LAST:event_boton_reservar3compuMouseClicked
 
     private void boton_reservar4compuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar4compuMouseClicked
-        
+        abrirReserva("Laptop-236VCH","Asus", "Tecnológico");
     }//GEN-LAST:event_boton_reservar4compuMouseClicked
 
     private void boton_reservar5_compuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar5_compuMouseClicked
-        
+        abrirReserva("Laptop-321DSG","Hp", "Tecnológico");
     }//GEN-LAST:event_boton_reservar5_compuMouseClicked
 
     private void boton_reservar1videoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar1videoMouseClicked
-        
+        abrirReserva("Proyector-745SXZ","Epson", "Tecnológico");
     }//GEN-LAST:event_boton_reservar1videoMouseClicked
 
     private void boton_reservar2videoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar2videoMouseClicked
-        
+        abrirReserva("Proyector-325SDA","Epson", "Tecnológico");
     }//GEN-LAST:event_boton_reservar2videoMouseClicked
 
     private void boton_reservar3videoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar3videoMouseClicked
-        
+        abrirReserva("Proyector-777JLO","Epson", "Tecnológico");
     }//GEN-LAST:event_boton_reservar3videoMouseClicked
 
     private void boton_reservar4videoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar4videoMouseClicked
-        
+        abrirReserva("Proyector-154JHG","Epson", "Tecnológico");
     }//GEN-LAST:event_boton_reservar4videoMouseClicked
 
     private void boton_reservar5videoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar5videoMouseClicked
-        
+        abrirReserva("Proyector-615NGS","Epson", "Tecnológico");
     }//GEN-LAST:event_boton_reservar5videoMouseClicked
 
     private void boton_reservar1tabletMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar1tabletMouseClicked
-        
+        abrirReserva("Tablet-441MHU","Samsung", "Tecnológico");
     }//GEN-LAST:event_boton_reservar1tabletMouseClicked
 
     private void boton_reservar2tabletMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar2tabletMouseClicked
-        
+        abrirReserva("Tablet-432ASD","Samsung", "Tecnológico");
     }//GEN-LAST:event_boton_reservar2tabletMouseClicked
 
     private void boton_reservar3tabletMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar3tabletMouseClicked
-        
+        abrirReserva("Tablet-023NVB","Samsung", "Tecnológico");
     }//GEN-LAST:event_boton_reservar3tabletMouseClicked
 
     private void boton_reservar4tabletMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar4tabletMouseClicked
-        
+        abrirReserva("Tablet-836IKL","Huawei", "Tecnológico");
     }//GEN-LAST:event_boton_reservar4tabletMouseClicked
 
     private void boton_reservar5tabletMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar5tabletMouseClicked
-        
+        abrirReserva("Tablet-265HVA","Huawei", "Tecnológico");
     }//GEN-LAST:event_boton_reservar5tabletMouseClicked
 
     /**
