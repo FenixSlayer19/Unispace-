@@ -1039,7 +1039,7 @@ public class tecno_resources extends javax.swing.JFrame {
     private void boton_reservar5tabletMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_reservar5tabletMouseClicked
         abrirReserva("Tablet-265HVA","Huawei", "Tecnológico");
     }//GEN-LAST:event_boton_reservar5tabletMouseClicked
-
+    
     /**
      * @param args the command line arguments
      */
@@ -1063,6 +1063,7 @@ public class tecno_resources extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new tecno_resources().setVisible(true));
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

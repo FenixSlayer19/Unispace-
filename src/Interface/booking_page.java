@@ -1,6 +1,11 @@
-
 package Interface;
 
+import javax.swing.*;
+import java.awt.*;
+import java.sql.*;
+import javax.swing.border.LineBorder;
+import java.sql.Connection;
+import conexión.Conexión;
 
 public class booking_page extends javax.swing.JFrame {
 
@@ -8,13 +13,131 @@ public class booking_page extends javax.swing.JFrame {
 
     public booking_page() {
         initComponents();
-        
+            cargarReservasUsuario(); // SE LLAMA AQUÍ
+
     }
+    private void cargarReservasUsuario() {
+    jPanelContenedorReserva.removeAll(); 
+
+    int idUsuario = Login.usuarioID;
+
+    String sql = "SELECT * FROM reservas WHERE id_usuarios = ? AND estado = 'Ocupado'";
+
+    try (Connection conn = Conexión.getConexion();
+         PreparedStatement pst = conn.prepareStatement(sql)) {
+
+        pst.setInt(1, idUsuario);
+        ResultSet rs = pst.executeQuery();
+
+        while (rs.next()) {
+
+            String nombre = rs.getString("nombre_recurso");
+            String tipo = rs.getString("tipo_recurso");
+            String fecha = rs.getString("fecha");
+            String inicio = rs.getString("hora_inicio");
+            String fin = rs.getString("hora_fin");
+
+            JPanel panel = crearTarjetaReserva(nombre, tipo, fecha, inicio, fin);
+            jPanelContenedorReserva.add(panel);
+        }
+
+        jPanelContenedorReserva.revalidate();
+        jPanelContenedorReserva.repaint();
+
+    } catch (SQLException e) {
+        System.out.println("Error cargando reservas: " + e.getMessage());
+    }
+}
+private JPanel crearTarjetaReserva(String nombre, String tipo, String fecha, String hInicio, String hFin) {
+
+    JPanel p = new JPanel();
+    p.setLayout(null);
+    p.setPreferredSize(new Dimension(820, 160));
+    p.setBackground(Color.WHITE);
+    p.setBorder(new LineBorder(Color.BLACK, 2, true));
+
+    JLabel lblImg = new JLabel();
+    lblImg.setBounds(20, 20, 120, 120);
+
+    if (tipo.equalsIgnoreCase("tecnológico")) {
+        lblImg.setIcon(new ImageIcon("src/img/laptop.png"));
+    } else {
+        lblImg.setIcon(new ImageIcon("src/img/salon.png"));
+    }
+
+    p.add(lblImg);
+
+    JLabel lblNombre = new JLabel(nombre);
+    lblNombre.setFont(new Font("Arial", Font.BOLD, 22));
+    lblNombre.setBounds(160, 20, 400, 40);
+    p.add(lblNombre);
+
+    JLabel lblFecha = new JLabel(fecha);
+    lblFecha.setFont(new Font("Arial", Font.PLAIN, 18));
+    lblFecha.setBounds(160, 60, 400, 30);
+    p.add(lblFecha);
+
+    JLabel lblHoras = new JLabel(hInicio + " - " + hFin);
+    lblHoras.setFont(new Font("Arial", Font.PLAIN, 18));
+    lblHoras.setBounds(160, 95, 400, 30);
+    p.add(lblHoras);
+
+    JButton btnCancelar = new JButton("Cancelar");
+    btnCancelar.setBounds(650, 55, 120, 45);
+
+    btnCancelar.addActionListener(e ->
+            cancelarReserva(nombre, tipo)
+    );
+
+    p.add(btnCancelar);
+
+    return p;
+}
+private void cancelarReserva(String nombre, String tipo) {
+
+    int opcion = JOptionPane.showConfirmDialog(this,
+            "¿Cancelar esta reserva?",
+            "Confirmar",
+            JOptionPane.YES_NO_OPTION);
+
+    if (opcion != JOptionPane.YES_OPTION) return;
+
+    int idUsuario = Login.usuarioID;
+
+    try (Connection conn = Conexión.getConexion()) {
+
+        PreparedStatement pst1 = conn.prepareStatement(
+                "UPDATE reservas SET estado='Cancelado' WHERE nombre_recurso=? AND id_usuarios=?"
+        );
+        pst1.setString(1, nombre);
+        pst1.setInt(2, idUsuario);
+        pst1.executeUpdate();
+
+        String tabla = tipo.equalsIgnoreCase("tecnológico")
+                ? "Recursos_tecno"
+                : "Recursos_infraestructura";
+
+        PreparedStatement pst2 = conn.prepareStatement(
+                "UPDATE " + tabla + " SET estado='Disponible' WHERE nombre_recurso=?"
+        );
+        pst2.setString(1, nombre);
+        pst2.executeUpdate();
+
+        JOptionPane.showMessageDialog(this, "Reserva cancelada.");
+
+        cargarReservasUsuario();
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+    }
+}
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelContenedorReserva = new javax.swing.JPanel();
         tecResources_iconButton = new javax.swing.JLabel();
         infrastructure_iconButton = new javax.swing.JLabel();
         start_iconButton = new javax.swing.JLabel();
@@ -24,7 +147,6 @@ public class booking_page extends javax.swing.JFrame {
         tec_resourcesButton = new javax.swing.JButton();
         infrastructureButton = new javax.swing.JButton();
         logOutButton = new javax.swing.JButton();
-        jPanelContenedorReservas = new javax.swing.JPanel();
         tecResourses_text = new javax.swing.JLabel();
         reportarError_Icon = new javax.swing.JLabel();
         whiteLogo = new javax.swing.JLabel();
@@ -34,6 +156,7 @@ public class booking_page extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanelContenedorReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 970, 550));
 
         tecResources_iconButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/resources_icon.png"))); // NOI18N
         getContentPane().add(tecResources_iconButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 340, 40, 30));
@@ -121,7 +244,6 @@ public class booking_page extends javax.swing.JFrame {
             }
         });
         getContentPane().add(logOutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 250, 70));
-        getContentPane().add(jPanelContenedorReservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 970, 540));
 
         tecResourses_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 38)); // NOI18N
         tecResourses_text.setText("Mis reservas");
@@ -146,19 +268,19 @@ public class booking_page extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void start_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start_buttonActionPerformed
-        
+
     }//GEN-LAST:event_start_buttonActionPerformed
 
     private void tec_resourcesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tec_resourcesButtonActionPerformed
-        
+
     }//GEN-LAST:event_tec_resourcesButtonActionPerformed
 
     private void infrastructureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infrastructureButtonActionPerformed
-        
+
     }//GEN-LAST:event_infrastructureButtonActionPerformed
 
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
-        
+
     }//GEN-LAST:event_logOutButtonActionPerformed
 
     private void start_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_start_buttonMouseClicked
@@ -208,7 +330,7 @@ public class booking_page extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new booking_page().setVisible(true));
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -216,7 +338,7 @@ public class booking_page extends javax.swing.JFrame {
     private javax.swing.JButton infrastructureButton;
     private javax.swing.JLabel infrastructure_iconButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanelContenedorReservas;
+    private javax.swing.JPanel jPanelContenedorReserva;
     private javax.swing.JButton logOutButton;
     private javax.swing.JLabel logOut_icon;
     private javax.swing.JLabel reportarError_Icon;
