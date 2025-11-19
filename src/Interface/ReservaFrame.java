@@ -5,6 +5,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalTime;
 
 import javax.swing.JOptionPane;
 
@@ -24,36 +27,14 @@ public class ReservaFrame extends javax.swing.JFrame {
         this.padre = padre;
 
         tituloReservas.setText("Reservar " + nombreRecurso);
-    }
-    
 
-//    private void abrirReserva(String nombreRecurso, String tipoRecurso) {
-//    try {
-//        Connection conn = Conexión.getConexion();
-//
-//        String sql = "SELECT estado FROM Recursos_Infraestructura WHERE nombre_recurso = ?";
-//        PreparedStatement pst = conn.prepareStatement(sql);
-//        pst.setString(1, nombreRecurso);
-//
-//        ResultSet rs = pst.executeQuery();
-//        if (rs.next()) {
-//            String estado = rs.getString("estado");
-//
-//            if (estado.equalsIgnoreCase("ocupado")) {
-//                JOptionPane.showMessageDialog(this,
-//                        "Este recurso ya está ocupado.");
-//                return; // ❌ NO LO DEJA ENTRAR AL FRAME
-//            }
-//        }
-//
-//        // ✔ Si está disponible → se abre el frame
-//        ReservaFrame rf = new ReservaFrame(nombreRecurso, tipoRecurso);
-//        rf.setVisible(true);
-//
-//    } catch (Exception e) {
-//        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
-//    }
-//}
+        LocalDate hoy = LocalDate.now();
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        cajaTextoFecha.setText(hoy.format(formato));
+        cajaTextoFecha.setEditable(false); // ❌ no puede modificarlo
+
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -214,13 +195,89 @@ public class ReservaFrame extends javax.swing.JFrame {
     private void botonConfirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonConfirmarMouseClicked
         int idUsuario = Login.usuarioID;   // ID del usuario logueado
 
+//        String fecha = cajaTextoFecha.getText().trim();
+//        String horaInicio = cajaTextoHoraIni.getText().toString();
+//        String horaFin = cajaTextoHoraFin.getText().toString();
+//        String motivo = cajaTextoMotivos.getText().trim();
+//
+//        LocalTime now = LocalTime.now();
+//        LocalTime inicio = LocalTime.parse(horaInicio);
+//        try {
+//            inicio = LocalTime.parse(horaInicio);  // si no es HH:mm → error
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(this,
+//                    "Formato de hora inválido. Use HH:mm (ej: 14:30)");
+//            return;
+//        }
+//
+//        if (inicio.isBefore(now)) {
+//            JOptionPane.showMessageDialog(this,
+//                    "La hora de inicio no puede ser una hora pasada.");
+//            return;
+//        }
+//        LocalTime fin = LocalTime.parse(horaFin);
+//
+//        long horas = java.time.Duration.between(inicio, fin).toHours();
+//
+//        if (horas <= 0) {
+//            JOptionPane.showMessageDialog(this,
+//                    "La hora de fin debe ser mayor que la hora de inicio.");
+//            return;
+//        }
+//
+//        if (horas > 24) {
+//            JOptionPane.showMessageDialog(this,
+//                    "La duración máxima de una reserva es de 24 horas.");
+//            return;
+//        }
+//
+//        if (fecha.isEmpty() || motivo.isEmpty()) {
+//            JOptionPane.showMessageDialog(this, "Completa todos los campos.");
+//            return;
+//        }
         String fecha = cajaTextoFecha.getText().trim();
-        String horaInicio = cajaTextoHoraIni.getText().toString();
-        String horaFin = cajaTextoHoraFin.getText().toString();
+        String horaInicio = cajaTextoHoraIni.getText().trim();
+        String horaFin = cajaTextoHoraFin.getText().trim();
         String motivo = cajaTextoMotivos.getText().trim();
 
-        if (fecha.isEmpty() || motivo.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Completa todos los campos.");
+// VALIDAR FORMATO DE HORA INICIO
+        LocalTime inicio;
+        try {
+            inicio = LocalTime.parse(horaInicio);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,
+                    "Formato de hora inválido. Use HH:mm (ej: 14:30)");
+            return;
+        }
+
+// VALIDAR FORMATO DE HORA FIN
+        LocalTime fin;
+        try {
+            fin = LocalTime.parse(horaFin);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,
+                    "Formato de hora de fin inválido. Use HH:mm (ej: 16:00)");
+            return;
+        }
+
+// VALIDAR HORA PASADA
+        LocalTime now = LocalTime.now();
+        if (inicio.isBefore(now)) {
+            JOptionPane.showMessageDialog(this,
+                    "La hora de inicio no puede ser una hora pasada.");
+            return;
+        }
+
+// VALIDAR DURACIÓN
+        long horas = java.time.Duration.between(inicio, fin).toHours();
+        if (horas <= 0) {
+            JOptionPane.showMessageDialog(this,
+                    "La hora de fin debe ser mayor que la hora de inicio.");
+            return;
+        }
+        if (horas > 24) {
+            JOptionPane.showMessageDialog(this,
+                    "La duración máxima de una reserva es de 24 horas.");
             return;
         }
 
@@ -275,32 +332,7 @@ public class ReservaFrame extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
         }
-//        String fecha = cajaTextoFecha.getText();
-//        String horaInicio = cajaTextoHoraIni.getText();
-//        String horaFin = cajaTextoHoraFin.getText();
-//        String motivos = cajaTextoMotivos.getText();
-//
-//        // Validaciones simples
-//        if (fecha.isEmpty() || horaInicio.isEmpty() || horaFin.isEmpty() || motivos.isEmpty()) {
-//            javax.swing.JOptionPane.showMessageDialog(this, "Por favor complete todos los campos.");
-//            return;
-//        }
-//
-//        try {
-//            java.sql.Connection conexion = Conexión.getConexion();
-//            String sql = "INSERT INTO reservas (fecha, hora_inicio, hora_fin, motivos) VALUES (?,?,?,?)";
-//            java.sql.PreparedStatement ps = conexion.prepareStatement(sql);
-//            ps.setString(1, fecha);
-//            ps.setString(2, horaInicio);
-//            ps.setString(3, horaFin);
-//            ps.setString(4, motivos);
-//            ps.executeUpdate();
-//
-//            javax.swing.JOptionPane.showMessageDialog(this, "Reserva guardada exitosamente.");
-//
-//        } catch (Exception e) {
-//            javax.swing.JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
-//        }
+
     }//GEN-LAST:event_botonConfirmarMouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -308,7 +340,7 @@ public class ReservaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void botonCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCancelarMouseClicked
-        this.dispose();
+        // TODO add your handling code here:
     }//GEN-LAST:event_botonCancelarMouseClicked
 
     public static void main(String args[]) {
@@ -323,10 +355,7 @@ public class ReservaFrame extends javax.swing.JFrame {
         } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
-        /* Create and display the form */
-        //java.awt.EventQueue.invokeLater(() -> new ReservaFrame().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
