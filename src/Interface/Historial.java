@@ -125,7 +125,7 @@ private void eliminarSeleccionados() {
 
     int resp = JOptionPane.showConfirmDialog(
         this,
-        "¿Eliminar estas reservas SOLO de tu historial personal?",
+        "¿Estas seguro de eliminar este elemento?",
         "Confirmar",
         JOptionPane.YES_NO_OPTION
     );
