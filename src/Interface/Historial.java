@@ -126,71 +126,33 @@ public class Historial extends javax.swing.JFrame {
         }
     }
 
-    private void eliminarSeleccionados() {
-        int[] filas = tableHistorial.getSelectedRows();
-        if (filas == null || filas.length == 0) {
-            JOptionPane.showMessageDialog(this, "No hay filas seleccionadas para eliminar.");
-            return;
-        }
-
-        int resp = JOptionPane.showConfirmDialog(this,
-                "¿Eliminar " + filas.length + " reserva(s) seleccionada(s)?",
-                "Confirmar eliminación",
-                JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-
-        if (resp != JOptionPane.YES_OPTION) {
-            return;
-        }
-
-        Connection conn = null;
-        PreparedStatement pst = null;
-        try {
-            conn = Conexión.getConexion();
-            conn.setAutoCommit(false);
-            String sql = "DELETE FROM reservas WHERE id_reservas = ?";
-            pst = conn.prepareStatement(sql);
-
-            for (int viewRow : filas) {
-                int modelRow = tableHistorial.convertRowIndexToModel(viewRow);
-                Object idObj = modelHistorial.getValueAt(modelRow, 0);
-                if (idObj == null) {
-                    continue;
-                }
-                int id = Integer.parseInt(idObj.toString());
-                pst.setInt(1, id);
-                pst.addBatch();
-            }
-
-            pst.executeBatch();
-            conn.commit();
-
-            JOptionPane.showMessageDialog(this, "Eliminación realizada.");
-            cargarHistorial(); // refrescar vista
-
-        } catch (Exception e) {
-            try {
-                if (conn != null) {
-                    conn.rollback();
-                }
-            } catch (Exception ex) {
-            }
-            JOptionPane.showMessageDialog(this, "Error eliminando: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            try {
-                if (pst != null) {
-                    pst.close();
-                }
-            } catch (SQLException ex) {
-            }
-            try {
-                if (conn != null) {
-                    conn.setAutoCommit(true);
-                    conn.close();
-                }
-            } catch (SQLException ex) {
-            }
-        }
+private void eliminarSeleccionados() {
+    int[] filas = tableHistorial.getSelectedRows();
+    if (filas == null || filas.length == 0) {
+        JOptionPane.showMessageDialog(this, "No hay filas seleccionadas.");
+        return;
     }
+
+    int resp = JOptionPane.showConfirmDialog(
+        this,
+        "¿Deseas remover estas " + filas.length + " filas SOLO de tu historial visual?\n(No se borrarán de la base de datos)",
+        "Confirmar",
+        JOptionPane.YES_NO_OPTION
+    );
+
+    if (resp != JOptionPane.YES_OPTION) return;
+
+    // eliminar desde la vista (DefaultTableModel)
+    // IMPORTANTE: como las filas cambian de índice,
+    // las eliminamos de atrás hacia adelante
+    for (int i = filas.length - 1; i >= 0; i--) {
+        int modelRow = tableHistorial.convertRowIndexToModel(filas[i]);
+        modelHistorial.removeRow(modelRow);
+    }
+
+    JOptionPane.showMessageDialog(this, "Las filas fueron removidas del historial visual.");
+}
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
