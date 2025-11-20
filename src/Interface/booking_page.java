@@ -156,6 +156,8 @@ private void cancelarReserva(String nombre, String tipo) {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanelContenedorReserva.setLayout(new javax.swing.BoxLayout(jPanelContenedorReserva, javax.swing.BoxLayout.LINE_AXIS));
         getContentPane().add(jPanelContenedorReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 970, 550));
 
         tecResources_iconButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/resources_icon.png"))); // NOI18N
