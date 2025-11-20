@@ -91,7 +91,6 @@ public class tecno_resources extends javax.swing.JFrame {
             }
         }
 
-        // ✔ Si está disponible → abrir ReservaFrame
         new ReservasFrameTecno(nombreRecurso,marca,tipoRecurso, this).setVisible(true);
 
     } catch (SQLException e) {
