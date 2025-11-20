@@ -137,7 +137,6 @@ private void cancelarReserva(String nombre, String tipo) {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelContenedorReserva = new javax.swing.JPanel();
         tecResources_iconButton = new javax.swing.JLabel();
         infrastructure_iconButton = new javax.swing.JLabel();
         start_iconButton = new javax.swing.JLabel();
@@ -150,15 +149,13 @@ private void cancelarReserva(String nombre, String tipo) {
         tecResourses_text = new javax.swing.JLabel();
         reportarError_Icon = new javax.swing.JLabel();
         whiteLogo = new javax.swing.JLabel();
+        jPanelContenedorReserva = new javax.swing.JPanel();
         white_background = new javax.swing.JLabel();
         booking_background = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanelContenedorReserva.setLayout(new javax.swing.BoxLayout(jPanelContenedorReserva, javax.swing.BoxLayout.LINE_AXIS));
-        getContentPane().add(jPanelContenedorReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 970, 550));
 
         tecResources_iconButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/resources_icon.png"))); // NOI18N
         getContentPane().add(tecResources_iconButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 340, 40, 30));
@@ -256,6 +253,7 @@ private void cancelarReserva(String nombre, String tipo) {
 
         whiteLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/start_logo.png"))); // NOI18N
         getContentPane().add(whiteLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 107, 118));
+        getContentPane().add(jPanelContenedorReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 970, 570));
 
         white_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/white_background.png"))); // NOI18N
         getContentPane().add(white_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 1010, 640));

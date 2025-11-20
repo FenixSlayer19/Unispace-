@@ -9,6 +9,11 @@ import conexión.Conexión;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JScrollPane;
+import java.awt.BorderLayout;
+
 
 
 public class report_page extends javax.swing.JFrame {
