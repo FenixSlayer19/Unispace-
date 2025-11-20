@@ -270,51 +270,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_password_barMouseMoved
 
     private void user_textBarNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_textBarNameMousePressed
-        user_textBarName.setText("Escribe tu ID aquí...");
-        user_textBarName.setForeground(Color.GRAY);
-
-        // Cuando el usuario hace clic o escribe
-        user_textBarName.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent e) {
-                if (user_textBarName.getText().equals("Escribe tu ID aquí...")) {
-                    user_textBarName.setText("");
-                    user_textBarName.setForeground(Color.BLACK);
-                }
-            }
-
-            @Override
-            public void focusLost(java.awt.event.FocusEvent e) {
-                if (user_textBarName.getText().isEmpty()) {
-                    user_textBarName.setText("Escribe tu ID aquí...");
-                    user_textBarName.setForeground(Color.GRAY);
-                }
-            }
-        });
+        
     }//GEN-LAST:event_user_textBarNameMousePressed
 
     private void password_barMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_password_barMousePressed
-        password_bar.setText("Escribe");
-        password_bar.setForeground(Color.GRAY);
-
-        // Cuando el usuario hace clic o escribe
-        password_bar.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent e) {
-                if (password_bar.getText().equals("Escribe")) {
-                    password_bar.setText("");
-                    password_bar.setForeground(Color.BLACK);
-                }
-            }
-
-            @Override
-            public void focusLost(java.awt.event.FocusEvent e) {
-                if (password_bar.getText().isEmpty()) {
-                    password_bar.setText("Escribe tu password aquí...");
-                    password_bar.setForeground(Color.GRAY);
-                }
-            }
-        });
+        
     }//GEN-LAST:event_password_barMousePressed
 
     private void user_textBarNameMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_textBarNameMouseEntered

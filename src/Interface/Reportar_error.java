@@ -148,6 +148,8 @@ public class Reportar_error extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 580, 40, 50));
+
+        labelNombreArchivo.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 12)); // NOI18N
         getContentPane().add(labelNombreArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 590, 390, 40));
 
         reportarError_Icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/error_icon_1.png"))); // NOI18N
@@ -215,7 +217,7 @@ public class Reportar_error extends javax.swing.JFrame {
         getContentPane().add(infrastructure_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 250, 70));
 
         CajaTextoDescripcion.setColumns(20);
-        CajaTextoDescripcion.setFont(new java.awt.Font("Source Code Pro ExtraLight", 0, 14)); // NOI18N
+        CajaTextoDescripcion.setFont(new java.awt.Font("League Spartan Thin", 0, 14)); // NOI18N
         CajaTextoDescripcion.setRows(5);
         jScrollPane1.setViewportView(CajaTextoDescripcion);
 
@@ -246,7 +248,7 @@ public class Reportar_error extends javax.swing.JFrame {
         });
         getContentPane().add(botonEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 590, 110, 40));
 
-        cajaTextoAsunto.setFont(new java.awt.Font("Source Code Pro ExtraBold", 0, 14)); // NOI18N
+        cajaTextoAsunto.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 18)); // NOI18N
         cajaTextoAsunto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cajaTextoAsuntoActionPerformed(evt);

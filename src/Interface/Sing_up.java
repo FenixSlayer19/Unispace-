@@ -279,8 +279,7 @@ public class Sing_up extends javax.swing.JFrame {
     }//GEN-LAST:event_text_barPhoneNumActionPerformed
 
     private void confirmPassword_barActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPassword_barActionPerformed
-
-        confirmPassword_bar.addFocusListener(new java.awt.event.FocusAdapter() {
+    confirmPassword_bar.addFocusListener(new java.awt.event.FocusAdapter() {
         });    }//GEN-LAST:event_confirmPassword_barActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
