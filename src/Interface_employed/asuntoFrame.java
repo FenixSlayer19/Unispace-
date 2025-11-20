@@ -24,9 +24,9 @@ public class asuntoFrame extends javax.swing.JFrame {
         logOut_icon1 = new javax.swing.JLabel();
         logOut_Button1 = new javax.swing.JButton();
         whiteLogo = new javax.swing.JLabel();
-        tecResourses_text = new javax.swing.JLabel();
+        AsuntoTexto = new javax.swing.JLabel();
         white_background = new javax.swing.JLabel();
-        Error_fondo = new javax.swing.JLabel();
+        Asunto_fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -78,15 +78,15 @@ public class asuntoFrame extends javax.swing.JFrame {
         whiteLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/start_logo.png"))); // NOI18N
         getContentPane().add(whiteLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 107, 118));
 
-        tecResourses_text.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 38)); // NOI18N
-        tecResourses_text.setText("Asunto");
-        getContentPane().add(tecResourses_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
+        AsuntoTexto.setFont(new java.awt.Font("League Spartan ExtraBold", 0, 38)); // NOI18N
+        AsuntoTexto.setText("Asunto");
+        getContentPane().add(AsuntoTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
 
         white_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/white_background.png"))); // NOI18N
         getContentPane().add(white_background, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 1000, 620));
 
-        Error_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/black_background.png"))); // NOI18N
-        getContentPane().add(Error_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        Asunto_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/black_background.png"))); // NOI18N
+        getContentPane().add(Asunto_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -118,13 +118,13 @@ public class asuntoFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Error_fondo;
+    private javax.swing.JLabel AsuntoTexto;
+    private javax.swing.JLabel Asunto_fondo;
     private javax.swing.JButton logOut_Button1;
     private javax.swing.JLabel logOut_icon1;
     private javax.swing.JLabel reportarError_Icon;
     private javax.swing.JButton start_Button;
     private javax.swing.JLabel start_iconButton;
-    private javax.swing.JLabel tecResourses_text;
     private javax.swing.JLabel unispace_text;
     private javax.swing.JLabel whiteLogo;
     private javax.swing.JLabel white_background;
