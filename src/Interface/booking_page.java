@@ -13,7 +13,7 @@ public class booking_page extends javax.swing.JFrame {
 
     public booking_page() {
         initComponents();
-            cargarReservasUsuario(); // SE LLAMA AQUÍ
+            cargarReservasUsuario();
 
     }
     private void cargarReservasUsuario() {

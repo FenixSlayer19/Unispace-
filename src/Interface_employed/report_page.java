@@ -17,14 +17,14 @@ public class report_page extends javax.swing.JFrame {
 
     public report_page() {
         initComponents();
-        cargarReportes(); // <<--- AÑADIR ESTO
+        cargarReportes(); 
         botonActualizar.addActionListener(e -> cargarReportes());
 
     }
 
     private void cargarReportes() {
         DefaultTableModel modelo = (DefaultTableModel) tabla_reportes.getModel();
-        modelo.setRowCount(0); // Limpiar tabla
+        modelo.setRowCount(0); 
 
         Connection conn = null;
         PreparedStatement pst = null;
@@ -33,7 +33,6 @@ public class report_page extends javax.swing.JFrame {
         try {
             conn = conexión.Conexión.getConexion();
 
-            // Query que trae el NOMBRE del usuario que hizo el reporte
             String sql = "SELECT u.nombre, r.descripcion, r.fecha_hora_error, r.estado "
                     + "FROM reportar_error r "
                     + "JOIN usuario u ON u.id_usuario = r.id_usuario "

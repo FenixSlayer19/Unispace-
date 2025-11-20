@@ -29,7 +29,7 @@ public class ReservasFrameTecno extends javax.swing.JFrame {
         LocalDate hoy = LocalDate.now();
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         cajaTextoFecha.setText(hoy.format(formato));
-        cajaTextoFecha.setEditable(false); // ❌ no puede modificarlo
+        cajaTextoFecha.setEditable(false); 
 
     }
 
@@ -183,16 +183,15 @@ public class ReservasFrameTecno extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCancelarMouseClicked
 
     private void botonConfirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonConfirmarMouseClicked
-        int idUsuario = Login.usuarioID;   // ID del usuario logueado
+        int idUsuario = Login.usuarioID;   
         String fecha = cajaTextoFecha.getText().trim();
         String horaInicio = cajaTextoHoraIni.getText().trim();
         String horaFin = cajaTextoHoraFin.getText().trim();
         String motivo = cajaTextoMotivos.getText().trim();
-        // VALIDAR FORMATO DE HORA INICIO
+        
         try {
             Connection conn = Conexión.getConexion();
 
-            // 1️⃣ VALIDAR que esté disponible
             String check = "SELECT estado FROM Recursos_tecno WHERE nombre_recurso = ?";
             PreparedStatement pstCheck = conn.prepareStatement(check);
             pstCheck.setString(1, nombreRecursoT);
@@ -215,7 +214,6 @@ public class ReservasFrameTecno extends javax.swing.JFrame {
 
                 return;
             }
-            // VALIDAR FORMATO DE HORA FIN
             LocalTime fin;
             try {
                 fin = LocalTime.parse(horaFin);
@@ -224,14 +222,12 @@ public class ReservasFrameTecno extends javax.swing.JFrame {
                         "Formato de hora de fin inválido. Use HH:mm (ej: 16:00)");
                 return;
             }
-            // VALIDAR HORA PASADA
             LocalTime now = LocalTime.now();
             if (inicio.isBefore(now)) {
                 JOptionPane.showMessageDialog(this,
                         "La hora de inicio no puede ser una hora pasada.");
                 return;
             }
-            // VALIDAR DURACIÓN
             long horas = java.time.Duration.between(inicio, fin).toHours();
             if (horas > 24) {
                 JOptionPane.showMessageDialog(this,
@@ -239,8 +235,6 @@ public class ReservasFrameTecno extends javax.swing.JFrame {
                 return;
 
             }
-
-            // 2️⃣ INSERTAR RESERVA
             String sql = "INSERT INTO reservas (id_usuarios, estado, nombre_recurso, tipo_recurso, fecha, hora_inicio, hora_fin, motivos)"
                     + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -257,13 +251,12 @@ public class ReservasFrameTecno extends javax.swing.JFrame {
 
             pst.executeUpdate();
 
-            // 3️⃣ ACTUALIZAR RECURSO → ocupado
             String update = "UPDATE Recursos_tecno SET estado = 'ocupado' "
                     + "WHERE nombre_recurso = ?";
             PreparedStatement pst2 = conn.prepareStatement(update);
             pst2.setString(1, nombreRecursoT);
             pst2.executeUpdate();
-            // ✔ REFRESCAR AUTOMÁTICAMENTE LA VENTANA DE INFRAESTRUCTURA
+       
             if (padre != null) {
                 padre.cargarEstados();
                 this.dispose();

@@ -34,25 +34,19 @@ public class tecno_resources extends javax.swing.JFrame {
             String marca  = rs.getString("marca");
             String estado = rs.getString("estado");
             System.out.println("leyendo: " + nombre + "/ "+ estado );
-            // -------------------------
-            // COMPUTADORES
-            // -------------------------
+            
             if (nombre.equals("Laptop-123SCZ")) {boton_disponible1compu.setText(estado);}
             if (nombre.equals("Laptop-331VGD")) {boton_disponible2compu.setText(estado);}
             if (nombre.equals("Laptop-421FDX")) {boton_disponible3compu.setText(estado);}
             if (nombre.equals("Laptop-236VCH")) {boton_disponible4compu.setText(estado);}
             if (nombre.equals("Laptop-321DSG")) {boton_disponible5compu.setText(estado);}
-            // -------------------------
-            // VIDEO BEAMS
-            // -------------------------
+            
             if (nombre.equals("Proyector-745SXZ")) {boton_disponible1video.setText(estado);}
             if (nombre.equals("Proyector-325SDA")) {boton_disponible2video.setText(estado);}
             if (nombre.equals("Proyector-777JLO")) {boton_disponible3video.setText(estado);}
             if (nombre.equals("Proyector-154JHG")) {boton_disponible4video.setText(estado);}
             if (nombre.equals("Proyector-615NGS")) {boton_disponible5video.setText(estado);}
-            // -------------------------
-            // TABLETS
-            // -------------------------
+            
             if (nombre.equals("Tablet-441MHU")) {boton_disponible1tablet.setText(estado);}
             if (nombre.equals("Tablet-432ASD")) {boton_disponible2tablet.setText(estado);}
             if (nombre.equals("Tablet-023NVB")) {boton_disponible3tablet.setText(estado);}
@@ -73,7 +67,7 @@ public class tecno_resources extends javax.swing.JFrame {
         }
     }
 }
-    //separador
+   
     
     private void abrirReserva(String nombreRecurso,String marca, String tipoRecurso) {
     Connection conn = null;

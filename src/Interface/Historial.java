@@ -4,7 +4,6 @@ import conexión.Conexión;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.SwingUtilities;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,10 +23,7 @@ private int idUsuarioLogeado;
             this.idUsuarioLogeado = idUsuario;
 
         initComponents();
-        // cargar la tabla la primera vez
             cargarHistorial();
-
-        // conectar botones con su lógica
         botonSeleccionar.addActionListener(e -> {
             if (tableHistorial != null) {
                 tableHistorial.selectAll();
@@ -41,7 +37,6 @@ private int idUsuarioLogeado;
         botonEliminar.addActionListener(e -> {
             eliminarSeleccionados();
         });
-        // --- INICIO: agregar tabla historial ---
         modelHistorial = new DefaultTableModel(
                 new Object[]{"id_reservas", "Nombre recurso", "Tipo recurso", "Fecha", "Hora inicio", "Motivos"}, 0
         ) {
@@ -56,7 +51,6 @@ private int idUsuarioLogeado;
         tableHistorial.setRowHeight(28);
         tableHistorial.setAutoCreateRowSorter(true);
 
-// ocultar la columna id (columna 0)
         tableHistorial.getColumnModel().getColumn(0).setMinWidth(0);
         tableHistorial.getColumnModel().getColumn(0).setMaxWidth(0);
         tableHistorial.getColumnModel().getColumn(0).setWidth(0);
@@ -64,10 +58,7 @@ private int idUsuarioLogeado;
         scrollHistorial = new JScrollPane(tableHistorial);
         scrollHistorial.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-// Añade el scroll al layout absolute. Ajusta las coordenadas si lo necesitas.
-// Propuesta: dentro del área blanca (la tuya white_background está en x=250,y=70,width=1010,height=640)
         getContentPane().add(scrollHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 960, 470));
-// --- FIN: agregar tabla historial ---
     }
 
 public void cargarHistorial() {
@@ -90,7 +81,7 @@ public void cargarHistorial() {
                      "ORDER BY fecha DESC, hora_inicio DESC";
 
         pst = conn.prepareStatement(sql);
-        pst.setInt(1, idUsuarioLogeado);  // <<--- AÑADE ESTA VARIABLE EN TU CLASE!!!
+        pst.setInt(1, idUsuarioLogeado);
 
         rs = pst.executeQuery();
 
@@ -145,7 +136,7 @@ private void eliminarSeleccionados() {
             int modelIndex = tableHistorial.convertRowIndexToModel(fila);
             int idReserva = (int) modelHistorial.getValueAt(modelIndex, 0);
 
-            pst.setInt(1, idUsuarioLogeado);   // <<--- MUY IMPORTANTE
+            pst.setInt(1, idUsuarioLogeado);
             pst.setInt(2, idReserva);
             pst.addBatch();
         }

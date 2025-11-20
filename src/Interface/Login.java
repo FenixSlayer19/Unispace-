@@ -217,7 +217,6 @@ public class Login extends javax.swing.JFrame {
         ResultSet rs = pst.executeQuery();
 
         if (rs.next()) {
-            // Login correcto
             
             Login.usuarioID = rs.getInt("id_usuario");
             String nombre = rs.getString("nombre");
@@ -228,15 +227,13 @@ public class Login extends javax.swing.JFrame {
 
             this.dispose();
 
-            // Aquí decides qué ventana abrir según su rol
+            
             if (rol.equalsIgnoreCase("estudiante")) {
                 Inicio inicio = new Inicio();
                 inicio.setVisible(true);
             } else if (rol.equalsIgnoreCase("empleado")) {
-                // si tienes una ventana especial para empleados
-                // EmpleadoInicio emp = new EmpleadoInicio();
-                // emp.setVisible(true);
-                inicio_empleado inicioEmp = new inicio_empleado(); // temporal
+                
+                inicio_empleado inicioEmp = new inicio_empleado(); 
                 inicioEmp.setVisible(true);
             }
         } else {

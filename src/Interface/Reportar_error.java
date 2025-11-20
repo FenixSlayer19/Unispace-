@@ -14,12 +14,10 @@ import javax.swing.JFileChooser;
 import java.sql.Connection;
 
 public class Reportar_error extends javax.swing.JFrame {
-    // ruta temporal del multimeda seleccionado (relativa a la carpeta del proyecto)
 
     private String rutaMultimediaSeleccionada = "";
 
-// Si quieres guardar el recurso relacionado (si abres el frame desde recurso)
-    private String recursoSeleccionado = ""; // asigna esto al abrir el frame si aplica
+    private String recursoSeleccionado = "";
 
     public Reportar_error() {
         initComponents();
@@ -35,12 +33,12 @@ public class Reportar_error extends javax.swing.JFrame {
             carpetaDestino.mkdirs();
         }
 
-        // crear nombre único para evitar colisiones (timestamp + nombre original)
+        
         String nombreUnico = System.currentTimeMillis() + "_" + origen.getName();
         File destino = new File(carpetaDestino, nombreUnico);
 
         Files.copy(origen.toPath(), destino.toPath(), StandardCopyOption.REPLACE_EXISTING);
-        // devolvemos ruta relativa (útil si mueves la app)
+        
         return "multimedia_reportes/" + nombreUnico;
     }
 
@@ -52,7 +50,6 @@ public class Reportar_error extends javax.swing.JFrame {
         String nombreRecurso = recursoSeleccionado == null ? "" : recursoSeleccionado;
         String estado = "Sin revisar";
 
-        // Validaciones
         if (asunto.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por favor escribe un asunto.");
             return;
@@ -62,7 +59,6 @@ public class Reportar_error extends javax.swing.JFrame {
             return;
         }
 
-        // Fecha
         LocalDateTime ahora = LocalDateTime.now();
         String fechaHora = ahora.format(DateTimeFormatter.ofPattern("dd/MM/yyyy - hh:mma"));
 
@@ -87,7 +83,6 @@ public class Reportar_error extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(this, "Reporte enviado correctamente.");
 
-            // Limpiar campos sin cerrar la ventana
             cajaTextoAsunto.setText("");
             CajaTextoDescripcion.setText("");
             rutaMultimediaSeleccionada = "";
@@ -325,7 +320,6 @@ public class Reportar_error extends javax.swing.JFrame {
         String asunto = cajaTextoAsunto.getText().trim();
         String descripcion = CajaTextoDescripcion.getText().trim();
 
-        // Validaciones básicas
         if (asunto.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El asunto no puede estar vacío.");
             return;
@@ -335,10 +329,8 @@ public class Reportar_error extends javax.swing.JFrame {
             return;
         }
 
-        guardarReporte(); // usa la rutaMultimediaSeleccionada si existe 
-        
-        // No cerrar el JFrame
-        // Limpiar campos
+        guardarReporte(); 
+       
         cajaTextoAsunto.setText("");
         CajaTextoDescripcion.setText("");
         labelNombreArchivo.setText("Sin archivo");
@@ -357,7 +349,6 @@ public class Reportar_error extends javax.swing.JFrame {
                 String rutaRel = copiarArchivoMultimedia(seleccionado);
                 rutaMultimediaSeleccionada = rutaRel;
 
-                // mostrar solo el nombre
                 labelNombreArchivo.setText(seleccionado.getName());
 
             } catch (IOException ex) {

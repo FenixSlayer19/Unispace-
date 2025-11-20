@@ -21,7 +21,7 @@ public class Insfractuture_resources extends javax.swing.JFrame {
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel15, "src/images/skyBlue_square.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel16, "src/images/skyBlue_square.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel17, "src/images/skyBlue_square.png");
-        cargarEstados();  // ✔ MUY IMPORTANTE
+        cargarEstados();  
     }
     
     public void cargarEstados() {
@@ -40,7 +40,6 @@ public class Insfractuture_resources extends javax.swing.JFrame {
             String nombre = rs.getString("nombre_recurso");
             String estado = rs.getString("estado");
 
-            // AQUÍ ACTUALIZAS LOS LABELS SEGÚN TU JFRAME
             if (nombre.equals("Salón 7- 403")) {
                 disponible1.setText(estado);
             }   
@@ -81,8 +80,6 @@ public class Insfractuture_resources extends javax.swing.JFrame {
                 disponible9.setText(estado);
             }
             
-            
-            // → agregas todos tus recursos aquí
         }
 
     } catch (Exception e) {
@@ -118,7 +115,7 @@ public class Insfractuture_resources extends javax.swing.JFrame {
                 return;
             }
         }
-        // Si está disponible → abrir el Frame
+        
         new ReservaFrame(nombreRecurso, tipoRecurso,this).setVisible(true);
 
     } catch (SQLException e) {
@@ -127,7 +124,7 @@ public class Insfractuture_resources extends javax.swing.JFrame {
         try {
             if (rs != null) rs.close();
             if (pst != null) pst.close();
-            if (conn != null) conn.close(); // ❗muy importante
+            if (conn != null) conn.close();
         } catch (SQLException ex) {
             System.out.println("Error cerrando: " + ex.getMessage());
         }

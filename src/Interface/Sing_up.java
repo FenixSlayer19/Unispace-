@@ -310,18 +310,16 @@ public class Sing_up extends javax.swing.JFrame {
     }//GEN-LAST:event_text_barNameMousePressed
 
     private void employedToggleButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employedToggleButtonMouseClicked
-        // Usuario intenta seleccionar "Empleado"
+        
         String codigo = JOptionPane.showInputDialog(this, "Ingrese su código de empleado:");
 
         if (codigo == null || codigo.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "No ingresaste ningún código.");
             employedToggleButton.setBackground(new Color(179, 179, 179));
             studentToggleButton.setBackground(new Color(100, 180, 255));
-            rolSeleccionado = "estudiante"; // Vuelve a estudiante
+            rolSeleccionado = "estudiante"; 
             return;
         }
-
-        // Validar código en la base de datos
         try {
             Connection conexion = Conexión.getConexion();
             String sql = "SELECT codigo FROM codigos_empleados WHERE codigo = ?";
@@ -331,18 +329,17 @@ public class Sing_up extends javax.swing.JFrame {
             java.sql.ResultSet rs = pst.executeQuery();
 
             if (rs.next()) {
-                // Código válido
+                
                 codigoEmpleadoIngresado = codigo;
                 rolSeleccionado = "empleado";
                 employedToggleButton.setBackground(new Color(100, 180, 255));
                 studentToggleButton.setBackground(new Color(179, 179, 179));
                 JOptionPane.showMessageDialog(this, "Código verificado correctamente.");
             } else {
-                // Código inválido
                 JOptionPane.showMessageDialog(this, "Código inválido. No puedes registrarte como empleado.");
                 employedToggleButton.setBackground(new Color(179, 179, 179));
                 studentToggleButton.setBackground(new Color(100, 180, 255));
-                rolSeleccionado = "estudiante"; // No se permite rol empleado
+                rolSeleccionado = "estudiante";
             }
 
             rs.close();
@@ -362,7 +359,6 @@ public class Sing_up extends javax.swing.JFrame {
 
     private void createAccount_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAccount_buttonMouseClicked
    
-    // Obtener datos del formulario
     String id = text_barId.getText().trim();
     String correo = text_barEmail.getText().trim();
     String telefono = text_barPhoneNum.getText().trim();
@@ -370,7 +366,7 @@ public class Sing_up extends javax.swing.JFrame {
     String contraseña = new String(password_bar.getPassword());
     String confirmarContraseña = new String(confirmPassword_bar.getPassword());
 
-    // Validaciones
+
     if (id.isEmpty() || correo.isEmpty() || telefono.isEmpty() || nombre.isEmpty()
             || contraseña.isEmpty() || confirmarContraseña.isEmpty()) {
         JOptionPane.showMessageDialog(this, "Por favor, completa todos los campos.");
@@ -387,10 +383,8 @@ public class Sing_up extends javax.swing.JFrame {
         return;
     }
 
-    // ✔ SOLUCIÓN: valor obligatorio cuando el usuario NO es empleado
     String codigoFinal = "SIN_CODIGO";
 
-    // Si es empleado → debe tener codigoEmpleadoIngresado
     if (rolSeleccionado.equals("empleado")) {
 
         if (codigoEmpleadoIngresado == null || codigoEmpleadoIngresado.trim().isEmpty()) {
@@ -398,7 +392,7 @@ public class Sing_up extends javax.swing.JFrame {
             return;
         }
 
-        codigoFinal = codigoEmpleadoIngresado; // se guarda el código real
+        codigoFinal = codigoEmpleadoIngresado;
     }
 
     try {
@@ -415,7 +409,7 @@ public class Sing_up extends javax.swing.JFrame {
         pst.setString(4, telefono);
         pst.setString(5, contraseña);
         pst.setString(6, rolSeleccionado);
-        pst.setString(7, codigoFinal);  // ← SIEMPRE se envía algo
+        pst.setString(7, codigoFinal);
         pst.setNull(7, java.sql.Types.VARCHAR);
         pst.setString(7, codigoEmpleadoIngresado);
 
@@ -428,7 +422,6 @@ public class Sing_up extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(this, "Cuenta creada exitosamente.");
 
-        // Redirigir al login
         Login login = new Login();
         login.setVisible(true);
         this.dispose();
