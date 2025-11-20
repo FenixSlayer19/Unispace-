@@ -14,15 +14,18 @@ import java.sql.SQLException;
 public class Historial extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Historial.class.getName());
+private int idUsuarioLogeado;
 
     private JTable tableHistorial;
     private DefaultTableModel modelHistorial;
     private JScrollPane scrollHistorial;
 
-    public Historial() {
+    public Historial(int idUsuario) {
+            this.idUsuarioLogeado = idUsuario;
+
         initComponents();
         // cargar la tabla la primera vez
-        cargarHistorial();
+            cargarHistorial();
 
         // conectar botones con su lógica
         botonSeleccionar.addActionListener(e -> {
@@ -67,91 +70,100 @@ public class Historial extends javax.swing.JFrame {
 // --- FIN: agregar tabla historial ---
     }
 
-    public void cargarHistorial() {
-        // limpiar modelo
-        if (modelHistorial == null) {
-            return;
+public void cargarHistorial() {
+    if (modelHistorial == null) return;
+
+    modelHistorial.setRowCount(0);
+
+    Connection conn = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+
+    try {
+        conn = Conexión.getConexion();
+
+        String sql = "SELECT id_reservas, nombre_recurso, tipo_recurso, fecha, hora_inicio, motivos " +
+                     "FROM reservas " +
+                     "WHERE id_reservas NOT IN ( " +
+                     "   SELECT id_reservas FROM historial_eliminados WHERE id_usuario = ? " +
+                     ") " +
+                     "ORDER BY fecha DESC, hora_inicio DESC";
+
+        pst = conn.prepareStatement(sql);
+        pst.setInt(1, idUsuarioLogeado);  // <<--- AÑADE ESTA VARIABLE EN TU CLASE!!!
+
+        rs = pst.executeQuery();
+
+        while (rs.next()) {
+            modelHistorial.addRow(new Object[]{
+                rs.getInt("id_reservas"),
+                rs.getString("nombre_recurso"),
+                rs.getString("tipo_recurso"),
+                rs.getString("fecha"),
+                rs.getString("hora_inicio"),
+                rs.getString("motivos")
+            });
         }
-        modelHistorial.setRowCount(0);
 
-        Connection conn = null;
-        PreparedStatement pst = null;
-        ResultSet rs = null;
-        try {
-            conn = Conexión.getConexion();
-            // Ajusta este SQL si tus nombres son distintos en la BD
-            String sql = "SELECT id_reservas, nombre_recurso, tipo_recurso, fecha, hora_inicio, motivos FROM reservas ORDER BY fecha DESC, hora_inicio DESC";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-
-            while (rs.next()) {
-                int id = rs.getInt("id_reservas");
-                String nombre = rs.getString("nombre_recurso");
-                String tipo = rs.getString("tipo_recurso");
-                String fecha = rs.getString("fecha");
-                String horaInicio = "";
-                try {
-                    horaInicio = rs.getString("hora_inicio");
-                } catch (Exception ex) {
-                }
-                String motivos = "";
-                try {
-                    motivos = rs.getString("motivos");
-                } catch (Exception ex) {
-                }
-
-                modelHistorial.addRow(new Object[]{id, nombre, tipo, fecha, horaInicio, motivos});
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error cargando historial: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-            } catch (SQLException ex) {
-            }
-            try {
-                if (pst != null) {
-                    pst.close();
-                }
-            } catch (SQLException ex) {
-            }
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException ex) {
-            }
-        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error cargando historial: " + e.getMessage());
+    } finally {
+        try { if (rs != null) rs.close(); } catch (SQLException ex) {}
+        try { if (pst != null) pst.close(); } catch (SQLException ex) {}
+        try { if (conn != null) conn.close(); } catch (SQLException ex) {}
     }
+}
+
 
 private void eliminarSeleccionados() {
     int[] filas = tableHistorial.getSelectedRows();
-    if (filas == null || filas.length == 0) {
+
+    if (filas.length == 0) {
         JOptionPane.showMessageDialog(this, "No hay filas seleccionadas.");
         return;
     }
 
     int resp = JOptionPane.showConfirmDialog(
         this,
-        "¿Deseas remover estas " + filas.length + " filas SOLO de tu historial visual?\n(No se borrarán de la base de datos)",
+        "¿Eliminar estas reservas SOLO de tu historial personal?",
         "Confirmar",
         JOptionPane.YES_NO_OPTION
     );
 
     if (resp != JOptionPane.YES_OPTION) return;
 
-    // eliminar desde la vista (DefaultTableModel)
-    // IMPORTANTE: como las filas cambian de índice,
-    // las eliminamos de atrás hacia adelante
-    for (int i = filas.length - 1; i >= 0; i--) {
-        int modelRow = tableHistorial.convertRowIndexToModel(filas[i]);
-        modelHistorial.removeRow(modelRow);
-    }
+    Connection conn = null;
+    PreparedStatement pst = null;
 
-    JOptionPane.showMessageDialog(this, "Las filas fueron removidas del historial visual.");
+    try {
+        conn = Conexión.getConexion();
+        String sql = "INSERT INTO historial_eliminados (id_usuario, id_reservas) VALUES (?, ?)";
+        pst = conn.prepareStatement(sql);
+
+        for (int fila : filas) {
+
+            int modelIndex = tableHistorial.convertRowIndexToModel(fila);
+            int idReserva = (int) modelHistorial.getValueAt(modelIndex, 0);
+
+            pst.setInt(1, idUsuarioLogeado);   // <<--- MUY IMPORTANTE
+            pst.setInt(2, idReserva);
+            pst.addBatch();
+        }
+
+        pst.executeBatch();
+
+        JOptionPane.showMessageDialog(this, "Eliminado del historial personal");
+
+        cargarHistorial();
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "Error eliminando: " + e.getMessage());
+    } finally {
+        try { if (pst != null) pst.close(); } catch (SQLException ex) {}
+        try { if (conn != null) conn.close(); } catch (SQLException ex) {}
+    }
 }
+
 
 
     @SuppressWarnings("unchecked")
@@ -345,8 +357,8 @@ private void eliminarSeleccionados() {
     }//GEN-LAST:event_tec_resourcesButtonMouseClicked
 
     public static void main(String args[]) {
+        new Historial(Login.usuarioID).setVisible(true);
 
-        java.awt.EventQueue.invokeLater(() -> new Historial().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

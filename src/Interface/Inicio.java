@@ -288,7 +288,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void historial_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historial_buttonMouseClicked
         this.dispose();                     // Cierra la ventana actual (Inicio)
-        Historial histo= new Historial(); // Crea la nueva ventana(Historial)
+        Historial histo= new Historial(Login.usuarioID); // Crea la nueva ventana(Historial)
         histo.setVisible(true);
     }//GEN-LAST:event_historial_buttonMouseClicked
 
